@@ -1,0 +1,12 @@
+[
+	{
+		"name": "BB 26000 V2N",
+		"direction": "any",
+		"speed": 160,
+		"composition": [
+			"./images/v2npass.png"
+		],
+		"background": "./assets/bg-default.png",
+		"foreground": "./assets/cat-midi.png"
+	}
+]

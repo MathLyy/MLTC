@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histoire - MLTC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar minimalist-navbar">
+      <div class="logo">MLTC</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">Histoire</a></li>
+        <li><a href="parc.html">Parc</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="livrees.html">Livrées</a></li>
+        <li><a href="externe.html">Liens externes</a></li>
+        <li>
+          <a href="sango.html" class="sango-btn">SanGo!</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Notre Histoire</h1>
+      <div class="intro-text minimalist-intro">
+        <p>
+          Découvrez l'histoire de la MathLy Travel Company, de sa fondation à aujourd'hui.
+        </p>
+      </div>
+      <!-- Optionally add an image or buttons here -->
+    </div>
+  </header>
+
+  <main class="history-main">
+    <section class="history-section card">
+      <h2 class="section-title">Sommaire</h2>
+      <ul>
+        <li><a href="#contexte">Contexte général</a></li>
+        <li><a href="#avant-mltc">Avant la MLTC</a></li>
+        <li><a href="#la-mltc">La MLTC</a></li>
+      </ul>
+    </section>
+
+    <section id="contexte" class="history-section card">
+      <h2 class="section-title">Contexte</h2>
+      <p class="contexte-texte"><i>La <strong>MLTC</strong> évolue dans un univers fictif (appelé <strong>Mathlyens-899</strong>). Cet univers met un accent particulier sur les infrastructures de transport et repose sur le Mathlyens, une version alternative de l’Union Européenne regroupant douze États européens.</i></p>
+    </section>
+
+    <section id="contexte-general" class="history-section card">
+      <h2 class="section-title">Contexte général : Le monde du Mathlyens</h2>
+      <p>Le Mathlyens est une union politico-économique qui rappelle l’Union Européenne, tout en offrant un cadre distinct et imaginaire. Fondée en 1955 par le traité de Londres, cette communauté naît de la volonté de reconstruire et d'unifier après la Seconde Guerre mondiale. L’union s’est d’abord formée autour de la France, du Royaume-Uni, de l’Allemagne de l’Ouest, de l’Italie et du Benelux, avant de s’étendre pour inclure l’Espagne, le Danemark, la Suisse, l’Autriche et la République Tchèque. La traduction anglaise du Mathlyens est Mathly (d’où MathLy Travel Company).</p>
+      <p>Le transport occupe une place centrale, conçu comme un moyen essentiel de relier les nations et de favoriser leur intégration. Au cœur de cette vision, la société mère MLTC Group possède plusieurs filiales : MLTC Railways (souvent simplifiée en MLTC) pour le transport ferroviaire, Mathlines pour les bus longue distance, Mathly Alliance Airlines (MAAL) pour le transport aérien, MathLy Cruise Line (MLCL) pour les croisières, et MathLy Cargo Company (MLCC), responsable du transport de fret dans tous les secteurs.</p>
+      <p>Le MLTC Group a été fondé en 1999 dans le cadre d’un plan de relance visant à unifier les compagnies de transport du Mathlyens. C’est ainsi en 2001 que la MLTC Railways est créée, à la suite de la fusion des trois principales compagnies ferroviaires du Mathlyens (les détails de cette fusion seront expliqués plus tard).</p>
+    </section>
+    <!-- Ajoutez ici les autres sections de contenu, en gardant la classe "history-section card" -->
+  </main>
+
+  <div id="train-animation-container" style="position:relative;width:100%;overflow:hidden;margin:0 auto;">
+    <img id="rail-img" src="images/voie.png" alt="Rail Image" style="position:absolute;left:0;bottom:0;width:100%;z-index:10;">
+    <img id="train-img" src="" alt="Train Image" style="position:absolute;bottom:10px;z-index:11;display:none;">
+    <img id="train-img-rtl" src="" alt="Train Image RTL" style="position:absolute;bottom:10px;z-index:11;display:none;">
+  </div>
+
+<script src="train.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    launchTrainLtr(); // appel automatique à la fin du chargement
+  });
+</script>
+
+  <footer class="site-footer minimalist-footer">
+    <p>&copy; 2025 MathLoo - MathLy Travel Company</p>
+  </footer>
+</body>
+</html>
