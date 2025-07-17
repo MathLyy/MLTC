@@ -1,6 +1,6 @@
 const trainImages = [
 
-  "images/v2npass.png",
+  "IMAGES/v2npass.png",
 
 ];
 const trainImg = document.getElementById('train-img');
