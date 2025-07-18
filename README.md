@@ -24,10 +24,6 @@ Les autres pages sont en cours de développement. Au programme : livrées, servi
 
 Le tout en constante évolution
 
-## 📸 Aperçu
-
-![Screenshot](.png)
-
 ## 📄 Licence
 
 Projet non commercial, personnel et fictif.
@@ -42,4 +38,3 @@ Merci de ne pas réutiliser sans autorisation.
 ---
 
 Site développé avec l'aide d'une IA. 
-L'ensemble des images a été réalisée par mes soins.
