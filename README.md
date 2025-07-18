@@ -4,17 +4,17 @@ Bienvenue sur le dépôt du site officiel de la MLTC, une compagnie ferroviaire 
 
 ## 🌐 À propos du projet
 
-Ce site présente l’univers, l’histoire, les livrées et les créations graphiques (au format **MLG**) que j’ai développées depuis 2020 autour de la MLTC.  
+Ce site présente l’univers, l’histoire, et les créations graphiques (au format Traffic Screensaver - 1px = 10cm) que j’ai développées depuis 2020 autour de la MLTC.  
 C’est un projet personnel mêlant passion du ferroviaire, créativité graphique et univers alternatif fictif.
 
 ## 📁 Structure du site
 
-Le site est composé de plusieurs pages HTML statiques stylisées via CSS. Voici les principales :
+Le site est composé de plusieurs pages, dont voici les principales :
 
 - `index.html` – Accueil et introduction à la MLTC
 - `histoire.html` – Contexte et histoire détaillée de l’univers
 
-Les autres pages sont en cours de développement. Au programme : livrées, 
+Les autres pages sont en cours de développement. Au programme : livrées, services/liaisons, parc, sites externes, SanGo!, et éventuellement d'autres
 
 ## 🚧 Ce dépôt contient
 
@@ -35,9 +35,11 @@ Sauf mention contraire, l'ensemble des images présentées sur ce site sont bas�
 Les images modifiées ne sont pas libres d'utilisation SAUF mention contraire.  
 Merci de ne pas réutiliser sans autorisation.
 
-![MLGTraffic](http://www.mlgtraffic.net/index_fr.html) par Marc Le Gad
-![Train Empire](https://train-empire.com/fr/) par Geoffrey Garitey
+[MLGTraffic](http://www.mlgtraffic.net/index_fr.html) par Marc Le Gad
+
+[Train Empire](https://train-empire.com/fr/) par Geoffrey Garitey
 
 ---
 
-Site développé avec l'aide d'une IA 
+Site développé avec l'aide d'une IA. 
+L'ensemble des images a été réalisée par mes soins.
