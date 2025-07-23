@@ -38,3 +38,4 @@ Merci de ne pas réutiliser sans autorisation.
 ---
 
 Site développé avec l'aide d'une IA. 
+Les textes et les livrées sont réalisées par mes soins.
