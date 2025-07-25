@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accueil - MLTC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar minimalist-navbar">
+      <div class="logo">MLTC</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">Histoire</a></li>
+        <li><a href="parc.html">Parc</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="livrees.html">Livrées</a></li>
+        <li><a href="externe.html">Liens externes</a></li>
+        <li>
+          <a href="sango.html" class="sango-btn">SanGo!</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <div class="intro-text minimalist-intro">
+        <h1>Bienvenue sur le site de la <span>MathLy Travel Company</span> !</h1>
+        <p>
+          La MathLy Travel Company (MLTC) est une compagnie ferroviaire fictive que j'ai créée en 2020 sur le jeu de gestion ferroviaire en ligne <a href="externe.html" style="color:var(--color-accent);-decoration:underline;">Train Empire</a>. Une des fonctionnalités de ce jeu qui m’a tout de suite plu était la possibilité d'utiliser ses propres livrées : j'ai donc commencé à réaliser quelques livrées, et au fur et à mesure, j'ai développé un univers fictif autour de cette compagnie.
+        </p>
+        <p>
+            À ce jour, j’ai réalisé plus de 1000 dessins pour la MLTC et d’autres projets divers. J'ai donc créé ce site pour présenter ces réalisations et en donner un aperçu organisé, dans l’espoir de vous inspirer peut-être à créer votre propre univers !
+        </p>
+          <span class="intro-note" style="font-style: italic; font-size: 0.8em;">
+            Sauf mention contraire, l'ensemble des images présentées sur ce site sont basées sur des images de MLGTraffic modifiées par mes soins. 
+          </span>
+        </p>
+      </div>
+      <div class="hero-livery-image minimalist-image">
+        <img src="images_trains/trains.png" alt="Exemple de livrées MLTC" style="max-width:100%;height:auto;margin-top:40px;border-radius:10px;box-shadow:0 2px 16px 0 rgba(0,0,0,0.10);">
+      </div>
+    </div>
+  </header>
+  
+  <div id="train-animation-container" style="position:relative;width:100%;overflow:hidden;margin:0 auto;">
+    <img id="rail-img" src="images_trains/voie.png" alt="Rail Image" style="position:absolute;left:0;bottom:0;width:100%;z-index:10;">
+    <img id="train-img" src="" alt="Train Image" style="position:absolute;bottom:10px;z-index:11;display:none;">
+    <img id="train-img-rtl" src="" alt="Train Image RTL" style="position:absolute;bottom:10px;z-index:11;display:none;">
+  </div>
+
+<script src="train.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    launchTrainLtr(); // appel automatique à la fin du chargement
+  });
+</script>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 MathLoo - MathLy Travel Company</p>
+  </footer>
+</body>
+</html>
