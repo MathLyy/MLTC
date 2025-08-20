@@ -1,0 +1,112 @@
+/* Livrées subpages shared layout (based on Xpress)
+   Scope: used on livrees_pages/* pages. Keep near-black, violet bars, and 58px engine rows. */
+
+/* Generic near-black backdrop for livrées pages is defined in styles.css via .livrees-dark */
+
+/* Page width and wrapper */
+.lv-page, .xpr-page { max-width: 1600px; width: 100%; margin-left: auto; margin-right: auto; padding-left: 10px; padding-right: 10px; box-sizing: border-box; overflow-x: hidden; }
+
+/* Top area */
+.lv-wrap, .xpr-wrap { margin: 8px 0 16px 0; }
+.lv-topbar, .xpr-topbar { background: var(--brand-violet); color: #fff; font-weight: 800; padding: 10px 12px; font-size: 1.4em; text-transform: uppercase; }
+.lv-desc, .xpr-desc { margin: 10px 0 6px 0; color: #d1d5db; }
+
+/* Buttons row (narrow, consistent spacing) */
+.lv-btns, .xpr-btns { display: flex; flex-wrap: wrap; gap: 8px 0; margin: 8px 0 14px 0; }
+.lv-btn, .xpr-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 14px; min-height: 44px; border: 1px solid #4a4a4a; background: #3a3a3a; color: #e5e7eb; font-weight: 700; text-decoration: none; border-radius: 0; margin-right: 10px; }
+.lv-btn:hover, .xpr-btn:hover { filter: brightness(1.05); outline: 2px solid rgba(79,8,137,0.25); }
+
+/* Category blocks */
+.lv-cat, .xpr-cat { margin: 18px 0 20px 0; }
+/* Small category bar: even darker violet to contrast with big H2 bars */
+.lv-catbar, .xpr-catbar { background: #2e0a55; border: 1px solid #1e0638; color: #fff; font-weight: 800; padding: 8px 10px; }
+.lv-list, .xpr-list { padding: 10px 0; }
+
+/* Default: style h2 like a bar on livrées subpages to avoid rewriting every page */
+.livrees-dark main h2 { background: var(--brand-violet); color: #fff; font-weight: 800; padding: 8px 10px; margin: 18px 0 0 0; text-transform: uppercase; }
+/* Small gap between a section H2 and the category bar below */
+.lv-page h2 + .lv-catbar { margin-top: 6px; }
+
+/* Livrées pages: no paragraph indents */
+.livrees-dark .main-wrapper p { text-indent: 0 !important; }
+
+/* Engine row (58px) */
+.lv-engine, .xpr-engine { display: grid; grid-template-columns: auto 1fr; border: 1px solid #4a4a4a; background: #2f2f2f; margin: 0; position: relative; }
+/* No vertical spacing between engine blocks globally */
+.lv-engine + .lv-engine, .xpr-engine + .xpr-engine { margin-top: 0; }
+.lv-left, .xpr-left { padding: 0; display: block; }
+.lv-leftrow, .xpr-leftrow { display: grid; grid-template-columns: 220px 360px; height: 58px; margin: 0; }
+.lv-leftcol, .xpr-leftcol { display: block; height: 58px; margin: 0; }
+.lv-title, .xpr-title { margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: space-between; height: 58px; background: #2f2f2f; color: #e5e7eb; font-weight: 400; }
+.lv-title .lv-name, .xpr-title .xpr-name { line-height: 1; display: flex; align-items: center; height: 28px; }
+.lv-title .lv-meta, .xpr-title .xpr-meta { line-height: 1; display: flex; align-items: center; height: 28px; font-size: 0.9em; color: #a78bfa; }
+.lv-imgframe, .xpr-imgframe { width: 360px; height: 58px; border-left: 1px solid #4a4a4a; background: #121212; display: flex; align-items: flex-end; justify-content: flex-start; margin: 0; position: relative; }
+.lv-imgframe img, .xpr-imgframe img { max-width: 360px; max-height: 58px; object-fit: contain; image-rendering: auto; }
+.lv-right, .xpr-right { border-left: 1px solid #4a4a4a; background: #3a3a3a; padding: 0; display: flex; align-items: center; height: 58px; overflow: hidden; }
+.lv-right .lv-box, .xpr-right .xpr-box { border: none; background: transparent; padding: 0 10px; color: #d1d5db; white-space: normal; overflow-wrap: anywhere; word-break: break-word; font-size: 0.9em; }
+
+/* Flip button (R) in the top-right corner of an encadré */
+.lv-flip-btn {
+   position: absolute;
+   top: 4px;
+   right: 4px;
+   width: 22px;
+   height: 22px;
+   padding: 0;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 800;
+   font-size: 0.8em;
+   line-height: 1;
+   background: var(--brand-violet);
+   color: #fff;
+   border: 1px solid #3f076d;
+   cursor: pointer;
+}
+.lv-flip-btn:hover { filter: brightness(1.08); }
+
+/* CSS fallback mirroring when alternate image isn't provided */
+.lv-imgframe img.flip-x { transform: scaleX(-1); }
+
+/* End of shared rules */
+
+/* Table layout (removed): encadrés are now stacked vertically on all pages */
+
+/* Stacked layout for long images: places text above and image below spanning full width */
+.lv-engine.stack {
+   display: grid;
+   grid-template-columns: 220px 1fr;
+   grid-template-rows: 58px 58px;
+   grid-template-areas:
+      "title text"
+      "image image";
+}
+.lv-engine.stack .lv-left { padding: 0; }
+.lv-engine.stack .lv-left { display: contents; }
+.lv-engine.stack .lv-leftrow { display: contents; height: auto; }
+.lv-engine.stack .lv-leftcol { grid-area: title; height: 58px; }
+.lv-engine.stack .lv-right { grid-area: text; height: 58px; }
+.lv-engine.stack .lv-right { position: relative; z-index: 0; }
+.lv-engine.stack .lv-imgframe {
+   grid-area: image;
+   grid-column: 1 / -1; /* span both columns explicitly */
+   width: 100%;
+   height: 58px;
+   border-left: 0;
+   border-top: 1px solid #4a4a4a;
+   background: #0b0b0b;
+   background-repeat: no-repeat;
+   background-position: left bottom;
+   background-size: auto 100%; /* fill height, clip horizontally */
+   justify-content: flex-start;
+   align-items: flex-end;
+   overflow: hidden;
+   position: relative;
+   z-index: 1;
+}
+/* In stacked mode, use background-image for perfect fill; hide the <img> */
+.lv-engine.stack .lv-imgframe img { display: none; }
+/* Fit overrides */
+.lv-engine.stack[data-fit="contain"] .lv-imgframe { background-size: contain; }
+.lv-engine.stack[data-fit="stretch"] .lv-imgframe { background-size: 100% 100%; }
