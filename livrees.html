@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLTC | Livrées</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet" />
+    <style>
+      /* Scoped styles for the liveries page */
+      .livrees-page { padding-top: 0; }
+      .livrees-page h1 { text-align: center; margin: 24px 0 12px 0; }
+  .livrees-intro { text-align: center; color: #9ca3af; margin-bottom: 18px; }
+
+      /* Top category bar */
+      .category-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 12px 0 28px 0; }
+  .category-tile { background: #2f2f2f; border: 1px solid #4a4a4a; padding: 12px 16px; text-align: center; font-weight: 700; color: #e5e7eb; text-decoration: none; }
+  .category-tile:hover { filter: brightness(1.06); outline: 2px solid rgba(79,8,137,0.25); }
+
+      /* Section headings with accent bar */
+      .category-title { font-size: 1.6em; margin: 24px 0 8px 0; display: flex; align-items: center; gap: 10px; }
+      .category-title::before { content: ""; display: inline-block; width: 18px; height: 18px; background: var(--brand-violet); }
+      .category-subgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 8px 0 18px 0; }
+  .subcategory-tile { background: #3a3a3a; color: #e5e7eb; padding: 10px 14px; border: 1px solid #4a4a4a; text-align: center; text-decoration: none; }
+      .subcategory-tile:hover { filter: brightness(1.06); outline: 2px solid rgba(79,8,137,0.25); }
+
+      /* Livery list (image 1 style) */
+      .livery-section { margin: 22px 0 34px 0; }
+  .livery-header { background: var(--brand-violet); color: #fff; font-weight: 800; padding: 10px 10px; font-size: 1.2em; }
+      .livery-table { border: 1px solid #3a3a3a; border-top: none; }
+      .livery-row { display: grid; grid-template-columns: 1.2fr 1fr; background: #3a3a3a; border-bottom: 1px solid #555; }
+      .livery-row + .livery-row { border-top: 1px solid #4a4a4a; }
+  .livery-meta { padding: 12px 10px; color: #d1d5db; }
+  .livery-meta a { color: var(--brand-violet); text-decoration: underline; }
+      .livery-meta .maj { color: #9ca3af; font-size: 0.9em; display: block; margin-top: 4px; }
+  .livery-image { padding: 10px 10px; display: flex; align-items: center; justify-content: center; }
+      .livery-image img { max-width: 100%; height: auto; display: block; }
+  .livery-note { color: #d1d5db; padding: 10px 10px; background: #2f2f2f; border-top: 1px solid #4a4a4a; font-size: 0.98em; }
+
+  /* Families grid (clickable image cards) */
+  .livery-families { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 12px 0 28px 0; }
+  .family-card { position: relative; display: block; background: #2f2f2f; border: 1px solid #4a4a4a; text-decoration: none; overflow: hidden; }
+  .family-card img { width: 100%; height: 120px; object-fit: contain; background: #0b0b0b; display: block; }
+  .family-card .label { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(79,8,137,0.9); color: #fff; font-weight: 700; padding: 6px 8px; text-align: center; }
+  .family-card:hover { filter: brightness(1.04); outline: 2px solid rgba(79,8,137,0.25); }
+
+  /* Material type buttons under each family */
+  .material-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin: 10px 0 24px 0; }
+  .material-btn { display: block; text-align: center; padding: 12px; border: 1px solid #4a4a4a; color: #e5e7eb; text-decoration: none; background: #3a3a3a; font-weight: 700; }
+  .material-btn:hover { filter: brightness(1.05); outline: 2px solid rgba(79,8,137,0.25); }
+
+  /* Top bars grouping (MLTC, Avant la MLTC, etc.) */
+  .bars { display: grid; gap: 14px; margin: 14px 0 24px 0; }
+  .bar { border: 1px solid #4a4a4a; background: #2f2f2f; }
+  .bar-header { background: var(--brand-violet); color: #fff; font-weight: 800; padding: 8px 12px; font-size: 1.1em; }
+  .bar-content { padding: 10px 12px; color: #d1d5db; }
+  .bar-content .group-category { font-weight: 800; margin: 8px 0 4px 0; }
+  .bar-content .group-line { margin: 2px 0; }
+  .bar-content .group-link { color: inherit; text-decoration: none; font-weight: 700; border: 1px solid #4a4a4a; background: #3a3a3a; padding: 4px 8px; display: inline-block; margin-right: 6px; }
+  .bar-content .group-link { padding: 0; border: none; background: transparent; }
+  .bar-content .group-link img { display: inline-block; width: 140px; height: 70px; object-fit: contain; border: 1px solid #4a4a4a; background: #2a2a2a; }
+  .bar-content .group-link:hover img { filter: brightness(1.05); outline: 2px solid rgba(79,8,137,0.25); }
+
+  /* Subcategory headings (anchors) */
+  .subcategory-title { font-size: 1.2em; margin: 14px 0 6px 0; display: flex; align-items: center; gap: 8px; }
+  .subcategory-title::before { content: ""; width: 12px; height: 12px; background: var(--brand-violet); display: inline-block; }
+
+  /* Overrides (2025-08-15): frame size, full-width bars, larger text, no borders, no icon scaling */
+  .main-wrapper.livrees-page { max-width: 1360px; width: 96vw; margin-left: auto; margin-right: auto; padding-top: 0; padding-left: 10px; padding-right: 10px; }
+  .bars { gap: 16px; margin: 16px 0 28px 0; }
+  .bar { border: 1px solid #4a4a4a; background: #2f2f2f; width: 100%; }
+  .bar-header { padding: 10px 10px; font-size: 1.35em; }
+  .bar-content { padding: 12px 10px; color: #d1d5db; }
+  .bar-content .group-category { font-size: 1.15em; margin: 10px 0 6px 0; color: #e5e7eb; }
+  .bar-content .group-line { margin: 2px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 8px; }
+  .bar-content .group-line.no-gap { gap: 0; }
+  .bar-content .group-link { padding: 0; background: transparent; border: none; margin-right: 0; }
+  .bar-content .group-link img { display: inline-block; width: auto; height: auto; max-width: none; border: none; background: transparent; }
+  .bar-content .group-link:hover img { filter: brightness(1.08); }
+  .livery-table { border: none; }
+  .livery-row { border-bottom: none; }
+  .livery-row + .livery-row { border-top: none; }
+  .livery-image img { border: none; }
+
+      @media (max-width: 720px) {
+        .livery-row { grid-template-columns: 1fr; }
+        .livery-image { order: -1; }
+      }
+    </style>
+  </head>
+  <body class="livrees-dark">
+    <header class="hero">
+      <nav class="navbar minimalist-navbar">
+        <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">MLTC</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="lore.html">Histoire</a></li>
+          <li><a href="livrees.html">Livrées</a></li>
+          <li><a href="parc.html">EN TRAVAUX</a></li>
+          <li><a href="https://train-empire.fr/lore-geoffgarit/SanGo!" class="sango-btn">SanGo!</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-wrapper livrees-page">
+      <h1>Réalisations personnelles</h1>
+  <p class="livrees-intro">Cette page présente toutes mes réalisations personnelles, que ce soit pour la MLTC ou des projets divers ! N'est actuellement disponible que le matériel réel.</p>
+  <p class="livrees-intro">Sélectionnez une icône ci‑dessous pour ouvrir la page correspondante.</p>
+  <p class="livrees-intro">Note : certaines images disposent d’une version orientée vers la droite. Dans ce cas, un bouton "R" en haut à droite de l’image permet d’afficher l’image dans l’autre sens.</p>
+
+      <!-- Grouping bars as requested -->
+      <div class="bars">
+        <section class="bar" id="bar-real">
+          <div class="bar-header">Réel</div>
+          <div class="bar-content">
+            <div class="group-category">Voie normale</div>
+            <div class="group-line">
+              <a class="group-link" href="livrees_pages/reel.html#z-7100" aria-label="Z 7100"><img src="icones_liv/z7100.png" alt="Z 7100" /></a>
+              <a class="group-link" href="livrees_pages/reel.html#divers-vn" aria-label="Divers (voie normale)"><img src="icones_liv/r-divers.png" alt="Divers voie normale" /></a>
+            </div>
+            <div class="group-category">Voie métrique</div>
+            <div class="group-line">
+              <a class="group-link" href="livrees_pages/reel.html#corse" aria-label="Corse"><img src="icones_liv/corse.png" alt="Corse" /></a>
+              <a class="group-link" href="livrees_pages/reel.html#blanc-argent" aria-label="Blanc Argent"><img src="icones_liv/ba.png" alt="Blanc Argent" /></a>
+              <a class="group-link" href="livrees_pages/reel.html#savoie" aria-label="Savoie"><img src="icones_lore/ico.png" alt="Savoie" /></a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <footer class="site-footer minimalist-footer">
+      <p>&copy; 2025 MathLoo - MathLy Travel Company</p>
+    </footer>
+  </body>
+</html>
+
