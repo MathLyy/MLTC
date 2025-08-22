@@ -31,6 +31,7 @@
 html {
   background-color: var(--bg-body);     
   min-height: 100%;
+  overflow-x: hidden; /* éviter tout scroll horizontal global */
 }
 
 body {
@@ -39,6 +40,7 @@ body {
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden; /* ceinture + bretelles */
 }
 
 a {
@@ -74,6 +76,20 @@ a {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+/* Mobile burger base (hidden desktop) */
+.burger-toggle { display:none; background:transparent; border:none; color:#fff; font-size:28px; cursor:pointer; align-items:center; justify-content:center; padding:0 4px; }
+.burger-toggle:focus { outline:2px solid var(--brand-violet); outline-offset:2px; }
+
+@media (max-width: 820px) {
+  .burger-toggle { display:flex; }
+  .navbar { position:relative; }
+  .nav-links { position:absolute; top:72px; right:0; left:0; flex-direction:column; background:#2e0a55; max-height:0; overflow:hidden; transition:max-height .25s ease; border-top:2px solid var(--brand-violet); }
+  .nav-links.open { max-height:400px; }
+  .nav-links li { width:100%; }
+  .nav-links a { height:54px; padding:0 20px; border-top:1px solid rgba(255,255,255,0.06); }
+  .nav-links a.sango-btn { height:54px; }
 }
 
 .nav-links li {
@@ -383,6 +399,16 @@ main,
     font-size: 1em;
     max-width: 98vw;
   }
+}
+
+/* === Ajustements supplémentaires très petits écrans (<=480px) === */
+@media (max-width: 480px) {
+  .navbar { padding: 0 12px; }
+  .nav-links a { padding: 0 12px; font-size: 0.9em; }
+  .hero h1 { font-size: 2.1em; }
+  .intro-text.minimalist-intro h1 { font-size: 1.4em; }
+  .main-wrapper { padding: 0 3vw 28px 3vw; }
+  .stacked-buttons .stack-btn { font-size: 0.95em; padding: 14px 14px; }
 }
 
 .compagnies-list {

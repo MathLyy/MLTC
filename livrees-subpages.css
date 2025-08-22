@@ -110,3 +110,31 @@
 /* Fit overrides */
 .lv-engine.stack[data-fit="contain"] .lv-imgframe { background-size: contain; }
 .lv-engine.stack[data-fit="stretch"] .lv-imgframe { background-size: 100% 100%; }
+
+/* === Responsive: réduire / empiler sur mobile === */
+@media (max-width: 940px) {
+   /* Réduire largeur image pour mieux tenir sur tablettes */
+   .lv-leftrow, .xpr-leftrow { grid-template-columns: 180px 300px; }
+   .lv-imgframe, .xpr-imgframe { width: 300px; }
+   .lv-imgframe img, .xpr-imgframe img { max-width: 300px; }
+}
+@media (max-width: 760px) {
+   /* Passer chaque encadré en mode empilé forçant la largeur 100% */
+   .lv-engine, .xpr-engine { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+   .lv-leftrow, .xpr-leftrow { grid-template-columns: 1fr; height: auto; }
+   .lv-imgframe, .xpr-imgframe { width: 100%; border-left: 0; border-top: 1px solid #4a4a4a; }
+   .lv-leftcol, .xpr-leftcol, .lv-title, .xpr-title { width: 100%; }
+   .lv-right, .xpr-right { border-left: 0; border-top: 1px solid #4a4a4a; height: auto; padding: 10px 0; }
+   .lv-right .lv-box, .xpr-right .xpr-box { padding: 6px 10px; font-size: 0.85em; }
+   /* Forcer un affichage empilé cohérent même si pas .stack */
+   .lv-engine:not(.stack) .lv-imgframe img, .xpr-engine:not(.stack) .xpr-imgframe img { max-width: 100%; height: 58px; object-fit: contain; }
+}
+@media (max-width: 480px) {
+   .lv-btn, .xpr-btn { min-height: 38px; font-size: 0.78em; padding: 0 10px; margin-right: 6px; }
+   .lv-topbar, .xpr-topbar { font-size: 1.1em; padding: 8px 10px; }
+   .lv-catbar, .xpr-catbar { font-size: 0.85em; padding: 6px 8px; }
+   .lv-title .lv-name, .xpr-title .xpr-name { font-size: 0.86em; }
+   .lv-title .lv-meta, .xpr-title .xpr-meta { font-size: 0.68em; }
+   .lv-imgframe, .xpr-imgframe { height: 58px; }
+   .lv-engine.stack .lv-imgframe, .xpr-engine.stack .xpr-imgframe { background-size: auto 100%; }
+}
