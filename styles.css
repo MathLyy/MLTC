@@ -85,10 +85,10 @@ a {
 @media (max-width: 820px) {
   .burger-toggle { display:flex; }
   .navbar { position:relative; }
-  .nav-links { position:absolute; top:72px; right:0; left:0; flex-direction:column; background:#2e0a55; max-height:0; overflow:hidden; transition:max-height .25s ease; border-top:2px solid var(--brand-violet); }
-  .nav-links.open { max-height:400px; }
-  .nav-links li { width:100%; }
-  .nav-links a { height:54px; padding:0 20px; border-top:1px solid rgba(255,255,255,0.06); }
+  .nav-links { position:absolute; top:72px; right:0; left:0; flex-direction:column; background:#2e0a55; max-height:0; overflow:hidden; transition:max-height .25s ease; border-top:2px solid var(--brand-violet); z-index:1000; }
+  .nav-links.open { max-height:520px; }
+  .nav-links li { width:100%; display:block; height:auto; }
+  .nav-links a { height:54px; padding:0 20px; border-top:1px solid rgba(255,255,255,0.06); width:100%; box-sizing:border-box; }
   .nav-links a.sango-btn { height:54px; }
 }
 
