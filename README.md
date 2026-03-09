@@ -1,14 +1,14 @@
-# MathLoo — Portfolio Créatif
+# Bienvenue sur le site de MathLoo, portfolio créatif
 
 Site portfolio personnel rassemblant mes projets créatifs : worldbuilding, pixel art, modélisation 3D et plus.
 
 ## Contenu du site
 
-- **Accueil** — Présentation générale et projet phare
-- **Projets** — Vue d'ensemble de toutes mes créations
-- **MLTC** — MathLy Travel Company, univers ferroviaire fictif développé depuis 2020 (histoire, livrées, circulations)
-- **3D** — Modélisations voxel de trains français (MagicaVoxel)
-- **Liens** — Ressources et sites externes
+- **Accueil** - Présentation générale et projet phare
+- **Projets** - Vue d'ensemble de toutes mes créations
+- **MLTC** - MathLy Travel Company, univers ferroviaire fictif développé depuis 2020 (histoire, livrées, circulations)
+- **3D** - Modélisations voxel de trains français (MagicaVoxel)
+- **Liens** - Ressources et sites externes
 
 ## Stack technique
 
@@ -38,4 +38,4 @@ mathloo.site@gmail.com
 ## Licence
 
 © 2026 MathLoo. Tous droits réservés.
-Site développé à l'aide d'une IA, pour le code uniquement. Les textes et les images sont créées par mes soins.
+Site développé à l'aide d'une IA, pour le code uniquement. Les textes et les images sont créés par mes soins.
