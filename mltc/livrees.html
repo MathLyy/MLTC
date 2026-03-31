@@ -36,7 +36,7 @@
                     <a href="index.html" class="nav-link active">MLTC</a>
                 </li>
                 <li class="nav-item">
-                    <a href="../3d/index.html" class="nav-link">3D</a>
+                    <a href="../3D/index.html" class="nav-link">3D</a>
                 </li>
                 <li class="nav-item">
                     <a href="../liens.html" class="nav-link">Liens</a>
@@ -223,7 +223,7 @@
                     <a href="../index.html">Accueil</a>
                     <a href="../projets.html">Projets</a>
                     <a href="index.html">MLTC</a>
-                    <a href="../3d/index.html">3D</a>
+                    <a href="../3D/index.html">3D</a>
                     <a href="../liens.html">Liens</a>
                 </div>
             </div>
@@ -237,60 +237,5 @@
     <script src="../js/main.js"></script>
     <script src="../js/livrees-subpages.js"></script>
     <script src="../js/livrees-transition.js"></script>
-
-    <!-- Lightbox preview for livery icons -->
-    <div id="lv-lightbox" class="lv-lightbox" hidden>
-        <div class="lv-lightbox-backdrop"></div>
-        <div class="lv-lightbox-content">
-            <img id="lv-lightbox-img" src="" alt="">
-            <div class="lv-lightbox-info">
-                <span id="lv-lightbox-name"></span>
-                <a id="lv-lightbox-link" href="#">Voir la galerie &rarr;</a>
-            </div>
-            <button class="lv-lightbox-close" aria-label="Fermer">&times;</button>
-        </div>
-    </div>
-
-    <style>
-        .lv-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
-        .lv-lightbox[hidden] { display: none; }
-        .lv-lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); }
-        .lv-lightbox-content { position: relative; background: var(--surface, #fff); border-radius: var(--radius-xl, 16px); padding: 24px; box-shadow: 0 24px 64px rgba(0,0,0,.3); display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 90vw; animation: lvLbIn 200ms ease; }
-        .lv-lightbox-content img { max-height: 50vh; width: auto; image-rendering: pixelated; }
-        .lv-lightbox-info { text-align: center; display: flex; flex-direction: column; gap: 8px; }
-        .lv-lightbox-info span { font-weight: 600; font-size: 1.1rem; color: var(--text-primary); }
-        .lv-lightbox-info a { color: var(--primary-500, #a855f7); font-weight: 500; font-size: 0.95rem; }
-        .lv-lightbox-info a:hover { text-decoration: underline; }
-        .lv-lightbox-close { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; line-height: 1; }
-        .lv-lightbox-close:hover { color: var(--text-primary); }
-        @keyframes lvLbIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
-    </style>
-
-    <script>
-    (function() {
-        const lb = document.getElementById('lv-lightbox');
-        const lbImg = document.getElementById('lv-lightbox-img');
-        const lbName = document.getElementById('lv-lightbox-name');
-        const lbLink = document.getElementById('lv-lightbox-link');
-
-        function closeLb() { lb.hidden = true; }
-        lb.querySelector('.lv-lightbox-backdrop').addEventListener('click', closeLb);
-        lb.querySelector('.lv-lightbox-close').addEventListener('click', closeLb);
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
-
-        document.querySelectorAll('.lv-icons a').forEach(function(a) {
-            a.addEventListener('click', function(e) {
-                e.preventDefault();
-                var img = a.querySelector('img');
-                if (!img) return;
-                lbImg.src = img.src;
-                lbImg.alt = img.alt;
-                lbName.textContent = img.alt;
-                lbLink.href = a.href;
-                lb.hidden = false;
-            });
-        });
-    })();
-    </script>
 </body>
 </html>
