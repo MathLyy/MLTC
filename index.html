@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathLoo - Portfolio Créatif</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">MathLoo</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="mltc/index.html" class="nav-link">MLTC</a>
+                </li>
+                <li class="nav-item">
+                    <a href="3d/index.html" class="nav-link">3D</a>
+                </li>
+                <li class="nav-item">
+                    <a href="liens.html" class="nav-link">Liens</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="greeting">Bienvenue sur le site de</span>
+                    <span class="name">MathLoo</span>
+                </h1>
+                <p class="hero-subtitle">Design, univers fictifs & créations en tout genre</p>
+                <div class="hero-cta">
+                    <a href="projets.html" class="btn btn-primary">Découvrir mes projets</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape"></div>
+            </div>
+
+            <!-- Floating update tab -->
+            <div class="update-callout">
+                <div class="update-callout-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+                    Dernière mise à jour
+                </div>
+                <p class="update-callout-date">9 mars 2026 - v0.4</p>
+                <p class="update-callout-body">Nouvelle page Histoire dans la section MLTC, avec frise chronologique interactive et carte de couverture du réseau. Ajout de la page Les coulisses. Refonte de la section opérateurs privés et corrections diverses.</p>
+            </div>
+        </section>
+
+        <!-- Featured Project -->
+        <section class="featured-section">
+            <div class="container">
+                <h2 class="section-title">Projet phare</h2>
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="bgindexmltc.png" alt="MathLy Travel Company">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Worldbuilding • Design</span>
+                        <h3>MathLy Travel Company</h3>
+                        <p>Une compagnie ferroviaire fictive dans un univers alternatif européen. Un worldbuilding complet avec son histoire, ses livrées, ses circulations et son identité visuelle unique, développé depuis 2020.</p>
+                        <div class="featured-stats">
+                            <div class="stat">
+                                <span class="stat-number">560+</span>
+                                <span class="stat-label">Dessins</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">2020</span>
+                                <span class="stat-label">Depuis</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">20+</span>
+                                <span class="stat-label">Identités visuelles</span>
+                            </div>
+                        </div>
+                        <a href="mltc/index.html" class="btn btn-primary">Explorer MLTC →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Train Animation -->
+        <div id="train-animation-container" data-base=""></div>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">À propos</h2>
+                    <p>Je suis Mathis, passionné de ferroviaire, de design et de création en tout genre. Ce site rassemble mes différents projets, entre worldbuilding, pixel art, modélisation 3D et plus encore.</p>
+                    <p>Mon projet principal, la <strong>MathLy Travel Company (MLTC)</strong>, est un univers ferroviaire fictif que je développe depuis 2020. Sur ce site, vous retrouverez aussi mes <strong>modélisations 3D en voxel</strong> de trains français réalisées avec MagicaVoxel, et d'autres créations à venir.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MathLoo</span>
+                    <p>Portfolio créatif</p>
+                    <a href="mailto:mathloo.site@gmail.com" class="footer-email">mathloo.site@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="mltc/index.html">MLTC</a>
+                    <a href="3d/index.html">3D</a>
+                    <a href="liens.html">Liens</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-version">v<strong>0.4</strong> (09/03/2026)</span>
+                <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/train-anim.js"></script>
+</body>
+</html>

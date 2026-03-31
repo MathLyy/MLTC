@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production - Constructeur Ferroviaire | MathLoo</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mltc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">MathLoo</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">MLTC</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../3d/index.html" class="nav-link">3D</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../liens.html" class="nav-link">Liens</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MLTC Sub-navigation -->
+    <nav class="mltc-subnav">
+        <div class="container">
+            <ul class="subnav-menu">
+                <li><a href="index.html" class="subnav-link">Accueil</a></li>
+                <li><a href="histoire.html" class="subnav-link">Histoire</a></li>
+                <li><a href="livrees.html" class="subnav-link">Livrées</a></li>
+                <li><a href="circulations.html" class="subnav-link">Circulations</a></li>
+                <li><a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
+                <li><a href="production.html" class="subnav-link active">Production</a></li>
+                <li><a href="coulisses.html" class="subnav-link">Les coulisses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="prod-hero">
+            <div class="container">
+                <div class="prod-hero-content">
+                    <span class="prod-badge">Constructeur Ferroviaire</span>
+                    <h1>Production</h1>
+                    <p class="prod-hero-sub">Concepteur et fabricant de matériel roulant moderne, sobre et fonctionnel, ancré dans la culture provençale.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════ HISTOIRE ═══════════ -->
+        <section id="histoire" class="ht-section">
+            <div class="container">
+                <div class="ht-section-header">
+                    <span class="prod-section-tag">Histoire</span>
+                    <h2>Des origines provençales</h2>
+                </div>
+                <div class="ht-prose">
+                    <p><strong>Production</strong> est un constructeur ferroviaire fictif d'origine provençale, anciennement connu sous le nom <strong>ACP</strong> (Ateliers de Construction de Provence). Au fil des décennies, l'entreprise s'est spécialisée dans la conception de matériel roulant moderne, sobre et fonctionnel, guidée par une philosophie de fiabilité et d'efficacité.</p>
+                    <p>Son identité de marque est profondément ancrée dans la <strong>culture provençale</strong> : les gammes de produits portent des noms issus du provençal et de la géographie locale. Ce lien avec le terroir se retrouve dans l'ADN même de l'entreprise, depuis ses ateliers historiques du sud de la France jusqu'à la dénomination de ses modèles.</p>
+                </div>
+
+                <div class="ht-grid-cards">
+                    <div class="prod-mini-card">
+                        <span class="ht-mini-icon">🏭</span>
+                        <strong>Origine</strong>
+                        <p>Provence, France, anciennement ACP</p>
+                    </div>
+                    <div class="prod-mini-card">
+                        <span class="ht-mini-icon">🔧</span>
+                        <strong>Spécialité</strong>
+                        <p>Matériel roulant ferroviaire moderne et fonctionnel</p>
+                    </div>
+                    <div class="prod-mini-card">
+                        <span class="ht-mini-icon">🌿</span>
+                        <strong>Identité</strong>
+                        <p>Noms provençaux, ancrage territorial, sobriété industrielle</p>
+                    </div>
+                </div>
+
+                <!-- Ateliers de Construction de Provence (1890–1975) -->
+                <details class="prod-details">
+                    <summary>Ateliers de Construction de Provence (1890–1975)</summary>
+                    <div class="prod-details-body">
+                    <div class="ht-prose">
+                        <p>L'histoire de Production commence avec les <strong>Ateliers de Construction de Provence</strong>, fondés à la fin du XIX<sup>e</sup> siècle. L'ACP produit d'abord du matériel simple, puis se tourne vers des engins plus ambitieux au fil du XX<sup>e</sup> siècle.</p>
+                    </div>
+                    <div class="prod-table-wrap">
+                    <table class="prod-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                                <th>Traction</th>
+                                <th>V<sub>max</sub></th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Fourgon automoteur Camargue</strong></td>
+                                <td>Fourgon automoteur</td>
+                                <td>1930</td>
+                                <td>Électrique (6600 V AC)</td>
+                                <td>50 km/h</td>
+                                <td>Fourgon automoteur métrique construit en 4 exemplaires pour les Chemins de fer de Camargue.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Autorail Diesel Inox (ADI)</strong></td>
+                                <td>Autorail régional</td>
+                                <td>1954</td>
+                                <td>Thermique</td>
+                                <td>130 km/h</td>
+                                <td>Autorail Diesel Inox, 1 à 4 caisses (apte UM×4). Décliné en plusieurs versions : ADI-1 (base), ADI-2 (fourgon), ADI-3A (cabine unique), ADI-3B (cabine unique + fourgon), ADI-3C (intermédiaire sans cabine), ADI-4 (pur fourgon).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Locomotive Potencia</strong></td>
+                                <td>Locomotive polyvalente (CC)</td>
+                                <td>1966</td>
+                                <td>Thermique</td>
+                                <td>160 km/h</td>
+                                <td>Locomotive diesel de ligne, 3 800 ch. Première véritable locomotive de ligne conçue par l'ACP. Disponible en version à cabine unique pour la traction de trains réversibles.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                </details>
+
+                <!-- Provence Production (1976–1999) -->
+                <details class="prod-details">
+                    <summary>Provence Production (1976–1999)</summary>
+                    <div class="prod-details-body">
+                    <div class="ht-prose">
+                        <p>En 1976, l'ACP se transforme en <strong>Provence Production</strong>, modernisant sa gamme et développant des évolutions directes de ses modèles historiques.</p>
+                    </div>
+                    <div class="prod-table-wrap">
+                    <table class="prod-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                                <th>Traction</th>
+                                <th>V<sub>max</sub></th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ADI 77</strong></td>
+                                <td>Autorail régional</td>
+                                <td>1977</td>
+                                <td>Thermique</td>
+                                <td>140 km/h</td>
+                                <td>Évolution de l'ADI de 1954. Structure redessinée, motorisation plus performante. Versions ADI 77-1 (base) et ADI 77-2 (cabine unique, pour compositions avec remorques RAMI de 2 à 4 éléments).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Automotrice Électrique Inox (AEI)</strong></td>
+                                <td>Automotrice régionale</td>
+                                <td>1977</td>
+                                <td>Électrique (1500 V CC / 25 kV AC)</td>
+                                <td>140 km/h</td>
+                                <td>Version électrique de l'ADI 77. Mêmes déclinaisons, 1 à 4 caisses (apte UM×4).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Locomotive Potencia 2</strong></td>
+                                <td>Locomotive polyvalente (CC)</td>
+                                <td>1980</td>
+                                <td>Thermique</td>
+                                <td>160 km/h</td>
+                                <td>Évolution de la Potencia de 1966. Motorisation plus puissante (4 200 ch) et plus économique. Pas de version à cabine unique.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Locotracteur</strong></td>
+                                <td>Locotracteur</td>
+                                <td>1978</td>
+                                <td>Thermique</td>
+                                <td>50 km/h</td>
+                                <td>Locotracteur monocabine à 2 essieux pour manœuvres.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ═══════════ CATALOGUE ═══════════ -->
+        <section id="catalogue" class="ht-section ht-section-alt">
+            <div class="container">
+                <div class="ht-section-header">
+                    <span class="prod-section-tag">Catalogue</span>
+                    <h2>Production - 2000 à aujourd'hui</h2>
+                </div>
+                <div class="ht-prose">
+                    <p>Le catalogue actuel couvre un large spectre de besoins ferroviaires : automotrices légères, trains grandes lignes, locomotives polyvalentes, tramways et locotracteurs. Chaque modèle porte un nom issu du provençal.</p>
+                </div>
+
+                <div class="prod-catalog-grid">
+
+                    <!-- Valado -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice batteries légère</div>
+                            <h3>Valado</h3>
+                            <p>Automotrice à accumulateurs légère sur essieux, 100 km/h, 2 à 3 caisses (apte UM×3). Conçue pour lignes régionales faiblement fréquentées ou non électrifiées.</p>
+                            <span class="prod-card-year">2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Valado M -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice batteries métrique</div>
+                            <h3>Valado M</h3>
+                            <p>Version métrique de la gamme Valado. Caisse légèrement plus étroite, intercirculations raccourcies. 100 km/h, 2 à 3 caisses.</p>
+                            <span class="prod-card-year">2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Valado L -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice batteries lourde</div>
+                            <h3>Valado L</h3>
+                            <p>Version renforcée sur bogies, 140 km/h, 3 à 5 caisses (apte UM×3). Pantographe pour recharge sous caténaire. Destinée aux services régionaux plus exigeants.</p>
+                            <span class="prod-card-year">2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Mistreo -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice de ligne</div>
+                            <h3>Mistreo</h3>
+                            <p>Automotrice électrique grandes lignes à bogies Jacobs, 200–230 km/h, 11 caisses (apte UM2). Architecture issue de l'AGV575. Technologie à accumulateurs pour autonomie limitée hors caténaire. Exploitation multisystème.</p>
+                            <span class="prod-card-year">2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Vilo -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice régionale</div>
+                            <h3>Vilo</h3>
+                            <p>Automotrice régionale à grande capacité, architecture à caisses flottantes, 160 km/h, 5 à 11 caisses (apte UM2). Alimentation adaptable.</p>
+                            <span class="prod-card-year">2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Vilo U -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Automotrice urbaine</div>
+                            <h3>Vilo U</h3>
+                            <p>Version urbaine de la gamme Vilo. Caisses flottantes, 160 km/h, 5 à 11 caisses (apte UM2). Conçue pour exploitation multisystème.</p>
+                            <span class="prod-card-year">2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Carrio -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Tramway</div>
+                            <h3>Carrio</h3>
+                            <p>Tramway modulaire à caisses flottantes, 60 km/h, 3 à 7 caisses (apte UM2/UM3). Alimentation caténaire 750 V CC, batteries ou APS.</p>
+                            <span class="prod-card-year">2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Carrio TT -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Tram-train</div>
+                            <h3>Carrio TT</h3>
+                            <p>Version tram-train de la gamme Carrio, 100 km/h, 3 à 5 caisses (apte UM2/UM3). Exploitation mixte réseaux urbains et lignes ferroviaires régionales.</p>
+                            <span class="prod-card-year">2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Calado -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Locotracteur</div>
+                            <h3>Calado</h3>
+                            <p>Locotracteur monocabine à 3 essieux, 80–100 km/h. Manœuvres (triages, ports, installations industrielles). Motorisation thermique, batteries ou H₂. Peut assurer des mouvements de ligne.</p>
+                            <span class="prod-card-year">2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Calado M -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Locotracteur métrique</div>
+                            <h3>Calado M</h3>
+                            <p>Version métrique de la gamme Calado, 80 km/h. Destiné aux réseaux secondaires ou industriels à écartement métrique.</p>
+                            <span class="prod-card-year">2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Roca -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Locomotive de fret</div>
+                            <h3>Roca</h3>
+                            <p>Locomotive fret monocabine BB, 120–140 km/h. Traction de trains de marchandises lourds. Motorisation électrique, thermique, batteries ou H₂ selon configuration.</p>
+                            <span class="prod-card-year">2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Roca L -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Locomotive lourde fret</div>
+                            <h3>Roca L</h3>
+                            <p>Version lourde de la gamme Roca, 120–140 km/h. Destinée aux trains très lourds ou aux lignes à profil difficile.</p>
+                            <span class="prod-card-year">2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Valento -->
+                    <div class="prod-card">
+                        <div class="prod-card-visual">
+                            <div class="prod-card-img-placeholder">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                            </div>
+                        </div>
+                        <div class="prod-card-body">
+                            <div class="prod-card-type">Locomotive polyvalente</div>
+                            <h3>Valento</h3>
+                            <p>Locomotive polyvalente BB, 160–200 km/h. Motorisation électrique, thermique, batteries ou H₂. Configurable selon les besoins spécifiques des exploitants.</p>
+                            <span class="prod-card-year">2021</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Date de dernière modification -->
+        <section class="last-modified">
+            <div class="container">
+                <p>Dernière mise à jour : 24 mars 2026</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MathLoo</span>
+                    <p>Portfolio créatif</p>
+                    <a href="mailto:mathloo.site@gmail.com" class="footer-email">mathloo.site@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Accueil</a>
+                    <a href="../projets.html">Projets</a>
+                    <a href="index.html">MLTC</a>
+                    <a href="../3d/index.html">3D</a>
+                    <a href="../liens.html">Liens</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-version">v<strong>0.4</strong> (09/03/2026)</span>
+                <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+/* ========================================
+   Livrées Page - Smooth Transition System
+   Handles: dark mode transition + overlay panel
+   ======================================== */
+
+/* ── Base transition properties on livrees page ── */
+body.lv-host {
+    transition: background-color 0.5s ease;
+}
+
+body.lv-host main,
+body.lv-host footer {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+/* All elements that need color transitions */
+body.lv-host .lv-header h1,
+body.lv-host .lv-category-title {
+    transition: all 0.5s ease;
+}
+
+body.lv-host .lv-desc,
+body.lv-host .lv-subtitle,
+body.lv-host .lv-hints,
+body.lv-host .lv-hints span,
+body.lv-host .lv-chips,
+body.lv-host .lv-chip,
+body.lv-host .lv-sub {
+    transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+}
+
+body.lv-host .lv-category {
+    transition: border-color 0.5s ease;
+}
+
+body.lv-host .lv-icons a {
+    transition: transform 0.2s ease, filter 0.2s ease, opacity 0.5s ease;
+}
+
+body.lv-host .lv-page-section {
+    transition: background-color 0.5s ease;
+}
+
+body.lv-host .last-modified {
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+body.lv-host .last-modified p {
+    transition: color 0.5s ease;
+}
+
+/* Navbar & subnav transitions */
+body.lv-host .navbar {
+    transition: background 0.5s ease, border-bottom-color 0.5s ease, backdrop-filter 0.3s ease;
+}
+body.lv-host .mltc-subnav {
+    transition: background 0.5s ease, border-bottom-color 0.5s ease;
+}
+body.lv-host .nav-link,
+body.lv-host .subnav-link {
+    transition: color 0.5s ease, background 0.3s ease;
+}
+body.lv-host .logo-text {
+    transition: all 0.5s ease;
+}
+
+/* Footer transitions */
+body.lv-host .footer {
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+body.lv-host .footer-brand p,
+body.lv-host .footer-email,
+body.lv-host .footer-links a,
+body.lv-host .footer-bottom p {
+    transition: color 0.5s ease;
+}
+
+/* Hide theme toggle during overlay */
+body.lv-host.lv-dark .theme-toggle {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ── Dark state on livrees host page ── */
+body.lv-host.lv-dark {
+    background-color: #0a0a0f;
+}
+
+body.lv-host.lv-dark .lv-page-section {
+    background-color: #0a0a0f;
+}
+
+/* Navbar dark */
+body.lv-host.lv-dark .navbar {
+    background: rgba(10, 10, 15, 0.92) !important;
+    backdrop-filter: blur(20px);
+    border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+body.lv-host.lv-dark .nav-link {
+    color: #a8a3b3 !important;
+}
+body.lv-host.lv-dark .nav-link:hover,
+body.lv-host.lv-dark .nav-link.active {
+    color: var(--primary-400) !important;
+}
+
+/* Subnav dark */
+body.lv-host.lv-dark .mltc-subnav {
+    background: rgba(10, 10, 15, 0.92) !important;
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(255,255,255,0.06) !important;
+}
+body.lv-host.lv-dark .subnav-link {
+    color: #a8a3b3 !important;
+}
+body.lv-host.lv-dark .subnav-link:hover {
+    color: var(--primary-400) !important;
+    background: rgba(255,255,255,0.05);
+}
+body.lv-host.lv-dark .subnav-link.active {
+    color: var(--primary-300) !important;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+/* Logo dark */
+body.lv-host.lv-dark .logo-text {
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-300)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Content dark - text, headers, categories */
+body.lv-host.lv-dark .lv-header h1 {
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.lv-host.lv-dark .lv-category-title {
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.lv-host.lv-dark .lv-desc {
+    color: #a8a3b3 !important;
+}
+
+body.lv-host.lv-dark .lv-subtitle {
+    color: #a8a3b3;
+}
+
+body.lv-host.lv-dark .lv-hints,
+body.lv-host.lv-dark .lv-hints span {
+    color: #7a7485;
+}
+
+body.lv-host.lv-dark .lv-chip {
+    color: #a8a3b3;
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+body.lv-host.lv-dark .lv-chip svg {
+    color: var(--primary-400);
+}
+
+body.lv-host.lv-dark .lv-chip strong {
+    background: var(--primary-700);
+}
+
+body.lv-host.lv-dark .lv-sub {
+    color: #7a7485;
+}
+
+body.lv-host.lv-dark .lv-category {
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+
+body.lv-host.lv-dark .lv-icons a {
+    opacity: 0.7;
+}
+
+/* Last modified dark */
+body.lv-host.lv-dark .last-modified {
+    border-top-color: rgba(255,255,255,0.08);
+}
+body.lv-host.lv-dark .last-modified p {
+    color: #7a7485;
+}
+
+/* Footer dark */
+body.lv-host.lv-dark .footer {
+    background-color: #050508;
+}
+
+/* ── Overlay panel ── */
+#lv-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+#lv-overlay.active {
+    pointer-events: auto;
+}
+
+#lv-overlay-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    background: #0a0a0f;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 0; /* navbar sits on top, fixed */
+}
+
+#lv-overlay.active #lv-overlay-panel {
+    transform: translateY(0);
+}
+
+/* When closing, use a slightly different easing */
+#lv-overlay.closing #lv-overlay-panel {
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.55, 0, 1, 0.45);
+}
+
+/* Content inside overlay inherits subpage styles */
+#lv-overlay-panel .lv-page {
+    padding-top: 120px;
+}
+
+/* Footer inside overlay */
+#lv-overlay-panel .footer {
+    background-color: #050508;
+    border-top: 1px solid #2d2240;
+}
+
+/* ── Loading spinner ── */
+#lv-overlay-loader {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a8a3b3;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+}
+
+#lv-overlay.active #lv-overlay-loader {
+    opacity: 1;
+}
+
+#lv-overlay.loaded #lv-overlay-loader {
+    opacity: 0;
+}
+
+#lv-overlay-loader .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(168, 85, 247, 0.3);
+    border-top-color: var(--primary-400);
+    border-radius: 0;
+    animation: lv-spin 0.7s linear infinite;
+}
+
+@keyframes lv-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    #lv-overlay-panel .lv-page {
+        padding-top: 110px;
+    }
+}

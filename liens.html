@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liens Externes | MathLoo</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">MathLoo</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="mltc/index.html" class="nav-link">MLTC</a>
+                </li>
+                <li class="nav-item">
+                    <a href="3d/index.html" class="nav-link">3D</a>
+                </li>
+                <li class="nav-item">
+                    <a href="liens.html" class="nav-link active">Liens</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Liens Externes</h1>
+                <p>Ressources et sites qui ont contribué à mes créations.</p>
+            </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="links-section">
+            <div class="container">
+
+                <!-- Catégorie MLTC -->
+                <div class="links-category">
+                    <h2 class="category-title">Ressources MLTC</h2>
+                    <p class="category-description">Ressources ayant permis la création de l'univers ferroviaire MLTC et grandement contribué à son développement.</p>
+                    
+                    <div class="links-grid">
+                        
+                        <a href="https://train-empire.com" target="_blank" rel="noopener noreferrer" class="link-card">
+                            <div class="link-card-header">
+                                <h3>Train Empire</h3>
+                                <span class="link-external-icon">↗</span>
+                            </div>
+                            <p class="link-author">par Geoffrey Garitey</p>
+                            <p class="link-description">Train Empire est un jeu de gestion ferroviaire en ligne. Sans Train Empire, il n'y a pas de MLTC ! La possibilité de personnalisation permise par le jeu a été le point de départ du développement de l'univers de la MLTC.</p>
+                            <span class="link-url">train-empire.com</span>
+                        </a>
+
+                        <div class="link-card" onclick="window.open('http://www.mlgtraffic.net/index_fr.html', '_blank')" style="cursor: pointer;">
+                            <div class="link-card-header">
+                                <h3>MLGTraffic</h3>
+                                <span class="link-external-icon">↗</span>
+                            </div>
+                            <p class="link-author">par Marc Le Gad</p>
+                            <p class="link-description">Collection de dessins de trains d'Europe qui sont la base de la plupart de mes réalisations.</p>
+                            <div class="link-license">
+                                <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank" rel="noopener noreferrer" class="license-badge license-link" onclick="event.stopPropagation();">Creative Commons BY-NC-SA</a>
+                            </div>
+                            <span class="link-url">mlgtraffic.net</span>
+                        </div>
+
+                        <a href="https://sortrains.pxtr.de/" target="_blank" rel="noopener noreferrer" class="link-card">
+                            <div class="link-card-header">
+                                <h3>SorTrainS</h3>
+                                <span class="link-external-icon">↗</span>
+                            </div>
+                            <p class="link-author">par Sorin Oprisan</p>
+                            <p class="link-description">Autre ressource de dessins ferroviaires utilisée pour certaines créations.</p>
+                            <div class="link-license">
+                                <span class="license-badge license-proprietary">Licence propriétaire</span>
+                            </div>
+                            <span class="link-url">sortrains.pxtr.de</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Catégorie Modélisation 3D -->
+                <div class="links-category">
+                    <h2 class="category-title">Ressources 3D</h2>
+                    <p class="category-description">Ressources qui m'ont aidé dans la modélisation 3D et la création d'éléments visuels pour mes projets.</p>
+                    
+                    <div class="links-grid">
+                        
+                        <a href="https://ephtracy.github.io/" target="_blank" rel="noopener noreferrer" class="link-card">
+                            <div class="link-card-header">
+                                <h3>MagicaVoxel</h3>
+                                <span class="link-external-icon">↗</span>
+                            </div>
+                            <p class="link-author">par ephtracy</p>
+                            <p class="link-description">Éditeur de voxel art gratuit. C'est grâce à ce logiciel simple d'utilisation que j'ai pu modéliser mes trains français en 3D.</p>
+                            <span class="link-url">ephtracy.github.io</span>
+                        </a>
+
+                        <a href="https://www.curseforge.com/minecraft/texture-packs/voxel-trains-ir" target="_blank" rel="noopener noreferrer" class="link-card">
+                            <div class="link-card-header">
+                                <h3>Voxel Trains</h3>
+                                <span class="link-external-icon">↗</span>
+                            </div>
+                            <p class="link-author">par CaptainSkipper</p>
+                            <p class="link-description">Pack de ressources de trains modélisés en voxel pour le mod Immersive Railroading sur Minecraft. Je fais partie du collectif derrière ce pack aux côtés d'autres modélisateurs d'horizons différents.</p>
+                            <span class="link-url">curseforge.com</span>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MathLoo</span>
+                    <p>Portfolio créatif</p>
+                    <a href="mailto:mathloo.site@gmail.com" class="footer-email">mathloo.site@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="mltc/index.html">MLTC</a>
+                    <a href="3d/index.html">3D</a>
+                    <a href="liens.html">Liens</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-version">v<strong>0.4</strong> (09/03/2026)</span>
+                <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

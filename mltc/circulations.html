@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulations - MLTC | MathLoo</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mltc.css">
+    <link rel="stylesheet" href="../css/circulations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><span class="logo-text">MathLoo</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a href="../projets.html" class="nav-link">Projets</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">MLTC</a></li>
+                <li class="nav-item"><a href="../3d/index.html" class="nav-link">3D</a></li>
+                <li class="nav-item"><a href="../liens.html" class="nav-link">Liens</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/><path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/><path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="mltc-subnav">
+        <div class="container">
+            <ul class="subnav-menu">
+                <li><a href="index.html" class="subnav-link">Accueil</a></li>
+                <li><a href="histoire.html" class="subnav-link">Histoire</a></li>
+                <li><a href="livrees.html" class="subnav-link">Livrées</a></li>
+                <li><a href="circulations.html" class="subnav-link active">Circulations</a></li>
+                <li><a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
+                <li><a href="production.html" class="subnav-link">Production</a></li>
+                <li><a href="coulisses.html" class="subnav-link">Les coulisses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="circ-hero">
+            <div class="container">
+                <h1>Circulations</h1>
+                <p class="circ-subtitle">Explorez le réseau MLTC Railways à travers les 12 états membres du Mathlyens.</p>
+            </div>
+        </section>
+
+        <!-- Carte géographique -->
+        <section class="circ-map-section">
+            <div class="container">
+                <div class="circ-map-wrap">
+                    <div class="circ-map-skeleton" id="circ-skeleton">
+                        <div class="circ-skeleton-shape"></div>
+                        <span class="circ-skeleton-text">Chargement de la carte...</span>
+                    </div>
+                    <svg viewBox="0 0 800 650" class="circ-map" role="img" aria-label="Carte des pays du Mathlyens">
+                        <!-- Généré dynamiquement par circulations.js -->
+                    </svg>
+                    <p class="circ-map-hint">Cliquez sur un pays pour voir une liste non exhaustive des circulations MLTC.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Country bar: name + controls -->
+        <section class="circ-bar">
+            <div class="container circ-bar-inner">
+                <div class="circ-bar-country">
+                    <h2 id="circ-country-name">Sélectionnez un pays</h2>
+                    <p id="circ-country-desc">Cliquez sur un pays de la carte pour afficher les services et compositions.</p>
+                </div>
+                <div class="circ-bar-controls">
+                    <input id="circ-search" type="search" placeholder="Rechercher…" aria-label="Recherche">
+                    <select id="circ-filter" aria-label="Filtrer par service">
+                        <option value="">Tous les services</option>
+                        <option value="Xpress">Xpress</option>
+                        <option value="HSX">HSX</option>
+                        <option value="TransRegio">TransRegio</option>
+                        <option value="Vivarail">Vivarail</option>
+                        <option value="Nocrail">Nocrail</option>
+                        <option value="Frail">Frail</option>
+                        <option value="Urbahn">Urbahn</option>
+                        <option value="Intracity">Intracity</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compositions (full width) -->
+        <section class="circ-compositions">
+            <div class="container">
+                <ul id="circ-list" class="circ-list" aria-live="polite"></ul>
+                <p class="circ-empty" id="circ-empty">Cliquez sur un pays pour voir ses compositions.</p>
+                <p class="circ-footer"><small>Univers fictif MLTC, compositions à titre indicatif.</small></p>
+            </div>
+        </section>
+
+        <section class="last-modified">
+            <div class="container"><p>Dernière mise à jour : 20 février 2026</p></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MathLoo</span>
+                    <p>Portfolio créatif</p>
+                    <a href="mailto:mathloo.site@gmail.com" class="footer-email">mathloo.site@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Accueil</a>
+                    <a href="../projets.html">Projets</a>
+                    <a href="index.html">MLTC</a>
+                    <a href="../3d/index.html">3D</a>
+                    <a href="../liens.html">Liens</a>
+                </div>
+            </div>
+            <div class="footer-bottom"><span class="footer-version">v<strong>0.4</strong> (09/03/2026)</span><p>&copy; 2026 MathLoo. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+    <script src="../js/circulations.js"></script>
+</body>
+</html>

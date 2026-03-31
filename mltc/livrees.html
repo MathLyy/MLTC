@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livrées - MLTC | MathLoo</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mltc.css">
+    <link rel="stylesheet" href="../css/livrees-transition.css">
+    <link rel="stylesheet" href="../css/livrees-subpages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-text">MathLoo</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">MLTC</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../3d/index.html" class="nav-link">3D</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../liens.html" class="nav-link">Liens</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Changer le thème">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="m4.93 4.93 1.41 1.41"/>
+                        <path d="m17.66 17.66 1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="m6.34 17.66-1.41 1.41"/>
+                        <path d="m19.07 4.93-1.41 1.41"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                    </svg>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MLTC Sub-navigation -->
+    <nav class="mltc-subnav">
+        <div class="container">
+            <ul class="subnav-menu">
+                <li><a href="index.html" class="subnav-link">Accueil</a></li>
+                <li><a href="histoire.html" class="subnav-link">Histoire</a></li>
+                <li><a href="livrees.html" class="subnav-link active">Livrées</a></li>
+                <li><a href="circulations.html" class="subnav-link">Circulations</a></li>
+                <li><a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
+                <li><a href="production.html" class="subnav-link">Production</a></li>
+                <li><a href="coulisses.html" class="subnav-link">Les coulisses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Livrées -->
+        <section class="lv-page-section">
+            <div class="lv-container">
+
+                <header class="lv-header" style="text-align:left;">
+                    <h1>Livrées</h1>
+                    <p class="lv-subtitle" style="text-align:left; margin-left:0; margin-right:0;">Bienvenue dans ma galerie de créations graphiques au format "Traffic", un format pixel art où 1px = 10cm, conçu à l'origine pour l'économiseur d'écran Traffic Screensaver de Zoltán Szabó. Vous y trouverez mes créations pour la MLTC et ses services, les compagnies qui l'ont précédée, des opérateurs externes, ainsi que des créations fictives et des reproductions de matériel réel.</p>
+                </header>
+
+                <div class="lv-features">
+                  <div class="lv-feature">
+                    <div class="lv-feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3l7 17 2-7 7-2-17-7z"/></svg></div>
+                    <div class="lv-feature-text">Cliquez sur une icône pour ouvrir la galerie correspondante</div>
+                  </div>
+                  <div class="lv-feature">
+                    <div class="lv-feature-icon"><span class="lv-feature-r">R</span></div>
+                    <div class="lv-feature-text">Certaines images sont retournables avec un bouton R</div>
+                  </div>
+                  <div class="lv-feature">
+                    <div class="lv-feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></div>
+                    <div class="lv-feature-text">Le mode sombre s'active automatiquement pour la lisibilité des livrées</div>
+                  </div>
+                  <div class="lv-feature">
+                    <div class="lv-feature-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7L3 11L7 15"/>
+                        <path d="M3 11h18"/>
+                        <path d="M17 7L21 11L17 15"/>
+                      </svg>
+                    </div>
+                    <div class="lv-feature-text">Faites défiler horizontalement les images trop larges</div>
+                  </div>
+                </div>
+
+                <!-- MLTC -->
+                <div class="lv-category">
+                    <h2 class="lv-category-title">MLTC</h2>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/boreale.html"><img src="icones_liv/boreale.png" alt="Boréale" /></a>
+                    </div>
+
+                    <span class="lv-sub">Services urbains</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/services-urbains.html"><img src="icones_liv/frail.png" alt="Frail" /></a>
+                        <a href="livrees_pages/services-urbains.html#urbahn"><img src="icones_liv/urbahn.png" alt="Urbahn" /></a>
+                        <a href="livrees_pages/services-urbains.html#intracity"><img src="icones_liv/intracity.png" alt="Intracity" /></a>
+                    </div>
+
+                    <span class="lv-sub">Services nationaux et transfrontaliers</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/xpress.html"><img src="icones_liv/xpress.png" alt="Xpress" /></a>
+                        <a href="livrees_pages/hsx.html"><img src="icones_liv/hsx.png" alt="HSX" /></a>
+                        <a href="livrees_pages/transregio.html"><img src="icones_liv/tr.png" alt="TransRegio" /></a>
+                        <a href="livrees_pages/vivarail.html"><img src="icones_liv/vivarail.png" alt="Vivarail" /></a>
+                        <a href="livrees_pages/nocrail.html"><img src="icones_liv/nocrail.png" alt="Nocrail" /></a>
+                    </div>
+
+                    <span class="lv-sub">Infra, fret et poste</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/mltci.html"><img src="icones_liv/mltci.png" alt="MLTC Infrastructures" /></a>
+                        <a href="livrees_pages/mlcc.html"><img src="icones_liv/mlcc.png" alt="MLCC" /></a>
+                        <a href="livrees_pages/mlup.html"><img src="icones_liv/mlup.png" alt="MLUP" /></a>
+                    </div>
+                </div>
+
+                <!-- Avant la MLTC -->
+                <div class="lv-category">
+                    <h2 class="lv-category-title">Avant la MLTC</h2>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/avant-mltc.html"><img src="icones_liv/ccfm.png" alt="CCFM" /></a>
+                        <a href="livrees_pages/avant-mltc.html#wme"><img src="icones_liv/wme.png" alt="WME" /></a>
+                        <a href="livrees_pages/mser.html"><img src="icones_liv/wip.png" alt="MSER" /></a>
+                    </div>
+                </div>
+
+                <!-- En dehors de la MLTC -->
+                <div class="lv-category">
+                    <h2 class="lv-category-title">En dehors de la MLTC…</h2>
+
+                    <span class="lv-sub">Compagnies privées</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/sango.html"><img src="icones_liv/sango.png" alt="SanGo!" /></a>
+                        <a href="livrees_pages/cfp.html"><img src="icones_liv/wip.png" alt="CFP" /></a>
+                    </div>
+
+                    <span class="lv-sub">Constructeurs</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/production.html"><img src="icones_liv/wip.png" alt="Production" /></a>
+                    </div>
+
+                    <span class="lv-sub">Créations fictives</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/creations.html"><img src="icones_liv/lram.png" alt="Livrées réelles sur d'autres matériels" /></a>
+                        <a href="livrees_pages/creations.html#renovations"><img src="icones_liv/ren-f.png" alt="Rénovations fictives" /></a>
+                        <a href="livrees_pages/creations.html#materiels-fictifs"><img src="icones_liv/mat-f.png" alt="Matériels fictifs" /></a>
+                    </div>
+                </div>
+
+                <!-- Réel -->
+                <div class="lv-category">
+                    <h2 class="lv-category-title">Réel</h2>
+
+                    <span class="lv-sub">Voie normale</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/reel.html"><img src="icones_liv/z7100.png" alt="Z 7100" /></a>
+                        <a href="livrees_pages/reel.html#divers-vn"><img src="icones_liv/r-divers.png" alt="Divers voie normale" /></a>
+                    </div>
+
+                    <span class="lv-sub">Voie métrique</span>
+                    <div class="lv-icons">
+                        <a href="livrees_pages/reel.html#corse"><img src="icones_liv/corse.png" alt="Corse" /></a>
+                        <a href="livrees_pages/reel.html#blanc-argent"><img src="icones_liv/ba.png" alt="Blanc Argent" /></a>
+                        <a href="livrees_pages/reel.html#savoie"><img src="icones_liv/savoie.png" alt="Savoie" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Date de dernière modification -->
+        <section class="last-modified">
+            <div class="container">
+                <p>Dernière mise à jour : 17 février 2026</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MathLoo</span>
+                    <p>Portfolio créatif</p>
+                    <a href="mailto:mathloo.site@gmail.com" class="footer-email">mathloo.site@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Accueil</a>
+                    <a href="../projets.html">Projets</a>
+                    <a href="index.html">MLTC</a>
+                    <a href="../3d/index.html">3D</a>
+                    <a href="../liens.html">Liens</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-version">v<strong>0.4</strong> (09/03/2026)</span>
+                <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/livrees-subpages.js"></script>
+    <script src="../js/livrees-transition.js"></script>
+
+    <!-- Lightbox preview for livery icons -->
+    <div id="lv-lightbox" class="lv-lightbox" hidden>
+        <div class="lv-lightbox-backdrop"></div>
+        <div class="lv-lightbox-content">
+            <img id="lv-lightbox-img" src="" alt="">
+            <div class="lv-lightbox-info">
+                <span id="lv-lightbox-name"></span>
+                <a id="lv-lightbox-link" href="#">Voir la galerie &rarr;</a>
+            </div>
+            <button class="lv-lightbox-close" aria-label="Fermer">&times;</button>
+        </div>
+    </div>
+
+    <style>
+        .lv-lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+        .lv-lightbox[hidden] { display: none; }
+        .lv-lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); }
+        .lv-lightbox-content { position: relative; background: var(--surface, #fff); border-radius: var(--radius-xl, 16px); padding: 24px; box-shadow: 0 24px 64px rgba(0,0,0,.3); display: flex; flex-direction: column; align-items: center; gap: 16px; max-width: 90vw; animation: lvLbIn 200ms ease; }
+        .lv-lightbox-content img { max-height: 50vh; width: auto; image-rendering: pixelated; }
+        .lv-lightbox-info { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+        .lv-lightbox-info span { font-weight: 600; font-size: 1.1rem; color: var(--text-primary); }
+        .lv-lightbox-info a { color: var(--primary-500, #a855f7); font-weight: 500; font-size: 0.95rem; }
+        .lv-lightbox-info a:hover { text-decoration: underline; }
+        .lv-lightbox-close { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 1.8rem; color: var(--text-muted); cursor: pointer; line-height: 1; }
+        .lv-lightbox-close:hover { color: var(--text-primary); }
+        @keyframes lvLbIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+    </style>
+
+    <script>
+    (function() {
+        const lb = document.getElementById('lv-lightbox');
+        const lbImg = document.getElementById('lv-lightbox-img');
+        const lbName = document.getElementById('lv-lightbox-name');
+        const lbLink = document.getElementById('lv-lightbox-link');
+
+        function closeLb() { lb.hidden = true; }
+        lb.querySelector('.lv-lightbox-backdrop').addEventListener('click', closeLb);
+        lb.querySelector('.lv-lightbox-close').addEventListener('click', closeLb);
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+
+        document.querySelectorAll('.lv-icons a').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                var img = a.querySelector('img');
+                if (!img) return;
+                lbImg.src = img.src;
+                lbImg.alt = img.alt;
+                lbName.textContent = img.alt;
+                lbLink.href = a.href;
+                lb.hidden = false;
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
