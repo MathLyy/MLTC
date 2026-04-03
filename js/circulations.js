@@ -35,14 +35,14 @@
         if (emptyEl) emptyEl.classList.toggle('hidden', !vis);
     }
 
-    /** Build cross-country index: trains serving ≥ 2 stations in a foreign country */
+    /** Build cross-country index: trains serving stations in a foreign country */
     function buildCrossCountryIndex() {
         crossCountry = {};
         Object.keys(DATA).forEach(origin => {
             (DATA[origin].compositions || []).forEach(item => {
-                const counts = item.countries || {};
-                Object.entries(counts).forEach(([c, n]) => {
-                    if (c !== origin && n >= 1) {
+                const list = item.countries || [];
+                list.forEach(c => {
+                    if (c !== origin) {
                         if (!crossCountry[c]) crossCountry[c] = [];
                         crossCountry[c].push({ item, originCountry: origin });
                     }
@@ -54,30 +54,56 @@
     /* shared onload: size to native pixels, then update scroll spacer */
     const IMG_ONLOAD = `this.style.width=this.naturalWidth+'px';this.style.height=this.naturalHeight+'px';var el=this;requestAnimationFrame(function(){var w=el.closest('.circ-consist-wrap');if(w){var s=w.querySelector('.circ-scroll-spacer');if(s)s.style.width=el.closest('.circ-consist').scrollWidth+'px'}})`;
 
-    function itemHTML(item, showCountry) {
-        const hasImg     = item.img && item.img.trim();
-        const hasVehicles = Array.isArray(item.vehicles) && item.vehicles.length;
+    function buildVehicleRow(vehicles) {
+        const total = vehicles.length;
+        const imgs = vehicles.map((v, i) => {
+            if (typeof v === 'object' && v.coupler) {
+                const mb = typeof v.bottom === 'number' ? v.bottom : 7;
+                const ol = typeof v.overlap === 'number' ? v.overlap : 3;
+                const z = total + 1;
+                return `<img class="circ-coupler-img" style="z-index:${z};margin-bottom:${mb}px;margin-left:-${ol}px;margin-right:-${ol}px" draggable="false" src="${esc(v.coupler)}" alt="" onload="${IMG_ONLOAD}">`;
+            }
+            const z = total - i;
+            if (typeof v === 'object' && v.src) {
+                const flip = v.flip ? 'transform:scaleX(-1);' : '';
+                return `<img class="circ-train-img" style="z-index:${z};${flip}" draggable="false" src="${esc(v.src)}" alt="" onload="${IMG_ONLOAD}">`;
+            }
+            return `<img class="circ-train-img" style="z-index:${z}" draggable="false" src="${esc(v)}" alt="" onload="${IMG_ONLOAD}">`;
+        }).join('');
+        return `<div class="circ-vehicle-row">${imgs}</div>`;
+    }
 
-        let trainContent = '';
-        if (hasVehicles) {
-            const total = item.vehicles.length;
-            const imgs = item.vehicles.map((v, i) => {
-                if (typeof v === 'object' && v.coupler) {
-                    const mb = typeof v.bottom === 'number' ? v.bottom : 7;
-                    const ol = typeof v.overlap === 'number' ? v.overlap : 3;
-                    const z = total + 1;
-                    return `<img class="circ-coupler-img" style="z-index:${z};margin-bottom:${mb}px;margin-left:-${ol}px;margin-right:-${ol}px" draggable="false" src="${esc(v.coupler)}" alt="" onload="${IMG_ONLOAD}">`;
-                }
-                const z = total - i;
-                if (typeof v === 'object' && v.src) {
-                    const flip = v.flip ? 'transform:scaleX(-1);' : '';
-                    return `<img class="circ-train-img" style="z-index:${z};${flip}" draggable="false" src="${esc(v.src)}" alt="" onload="${IMG_ONLOAD}">`;
-                }
-                return `<img class="circ-train-img" style="z-index:${z}" draggable="false" src="${esc(v)}" alt="" onload="${IMG_ONLOAD}">`;
+    function buildConsistBlock(trainContent, label) {
+        const labelHTML = label ? `<span class="circ-segment-label">${esc(label)}</span>` : '';
+        return `<div class="circ-consist-wrap">
+                    ${labelHTML}
+                    <div class="circ-consist">
+                        <div class="circ-consist-inner">
+                            ${trainContent}
+                            <div class="circ-track"></div>
+                        </div>
+                    </div>
+                    <div class="circ-scroll"><div class="circ-scroll-spacer"></div></div>
+                </div>`;
+    }
+
+    function itemHTML(item, showCountry) {
+        const hasImg      = item.img && item.img.trim();
+        const hasVehicles = Array.isArray(item.vehicles) && item.vehicles.length;
+        const hasSegments = Array.isArray(item.segments) && item.segments.length;
+
+        let consistBlocks = '';
+        if (hasSegments) {
+            consistBlocks = item.segments.map(seg => {
+                const segVehicles = Array.isArray(seg.vehicles) ? seg.vehicles : [];
+                const content = segVehicles.length ? buildVehicleRow(segVehicles) : '';
+                return buildConsistBlock(content, seg.label);
             }).join('');
-            trainContent = `<div class="circ-vehicle-row">${imgs}</div>`;
+        } else if (hasVehicles) {
+            consistBlocks = buildConsistBlock(buildVehicleRow(item.vehicles), null);
         } else if (hasImg) {
-            trainContent = `<img class="circ-train-img" draggable="false" src="${esc(item.img)}" alt="${esc(item.name)}" onload="${IMG_ONLOAD}">`;
+            const imgContent = `<img class="circ-train-img" draggable="false" src="${esc(item.img)}" alt="${esc(item.name)}" onload="${IMG_ONLOAD}">`;
+            consistBlocks = buildConsistBlock(imgContent, null);
         }
 
         return `
@@ -87,15 +113,7 @@
                     <h4>${esc(item.name)}</h4>
                     <span class="circ-item-detail">${esc(item.detail)}</span>
                 </div>
-                <div class="circ-consist-wrap">
-                    <div class="circ-consist">
-                        <div class="circ-consist-inner">
-                            ${trainContent}
-                            <div class="circ-track"></div>
-                        </div>
-                    </div>
-                    <div class="circ-scroll"><div class="circ-scroll-spacer"></div></div>
-                </div>
+                ${consistBlocks}
             </li>`;
     }
 

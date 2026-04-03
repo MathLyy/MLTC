@@ -82,4 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
+    // Disclaimer popup
+    const disclaimerOverlay = document.getElementById('disclaimer-overlay');
+    const disclaimerClose = document.getElementById('disclaimer-close');
+
+    if (disclaimerOverlay) {
+        if (sessionStorage.getItem('disclaimerSeen')) {
+            disclaimerOverlay.remove();
+        } else {
+            disclaimerClose.addEventListener('click', () => {
+                disclaimerOverlay.classList.add('hidden');
+                sessionStorage.setItem('disclaimerSeen', '1');
+                setTimeout(() => disclaimerOverlay.remove(), 300);
+            });
+        }
+    }
 });

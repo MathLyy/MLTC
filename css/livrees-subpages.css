@@ -48,7 +48,7 @@ body:has(.lv-page):not(.lv-host) .logo-text {
 }
 
 /* Scroll offset for fixed navbar + subnav */
-html { scroll-padding-top: 130px; }
+html { scroll-padding-top: 130px; scroll-behavior: smooth; }
 
 /* Page width and wrapper */
 .lv-page { max-width:1900px; width:100%; margin:0 auto; padding:120px var(--spacing-lg) 0; box-sizing:border-box; overflow-x:hidden; font-family: var(--font-body); }

@@ -8,10 +8,15 @@
         "detail": "UM TGV Réseau",
         "vehicles": [
           "livrees_pages/livrees_img/hsx/B-HSXTGVR.png",
-          {"coupler": "assets/TGVcouple.png"},
+          {
+            "coupler": "assets/TGVcouple.png"
+          },
           "livrees_pages/livrees_img/hsx/B-HSXTGVR.png"
         ],
-        "countries": {"France": 3, "Luxembourg": 1}
+        "countries": [
+          "France",
+          "Luxembourg"
+        ]
       },
       {
         "service": "HSX",
@@ -19,21 +24,30 @@
         "detail": "TGV RD + TGV POS",
         "vehicles": [
           "livrees_pages/livrees_img/hsx/B-HSXTGVRD.png",
-          {"coupler": "assets/TGVcouple.png"},
+          {
+            "coupler": "assets/TGVcouple.png"
+          },
           "livrees_pages/livrees_img/hsx/B-HSXTGVPOS.png"
         ],
-        "countries": {"France": 5}
+        "countries": [
+          "France"
+        ]
       },
       {
         "service": "Nocrail",
-        "name": "Brest → Rennes → Le Mans → Paris → Strasbourg → Karlsruhe → Stuttgart → Nuremberg → Leipzig → Berlin",
+        "name": "Brest → Rennes → Le Mans → Paris → Strasbourg → Karlsruhe → Stuttgart → Nürnberg → Leipzig → Berlin",
         "detail": "UM TGV PSE Tritension Nocturne",
         "vehicles": [
           "livrees_pages/livrees_img/nocrail/B-NRTGVPSEN.png",
-          {"coupler": "assets/TGVcouple.png"},
+          {
+            "coupler": "assets/TGVcouple.png"
+          },
           "livrees_pages/livrees_img/nocrail/B-NRTGVPSEN.png"
         ],
-        "countries": {"France": 5, "Allemagne": 5}
+        "countries": [
+          "France",
+          "Allemagne"
+        ]
       },
       {
         "service": "Xpress",
@@ -50,11 +64,13 @@
           "livrees_pages/livrees_img/xpress/C-XVE2NB15.png",
           "livrees_pages/livrees_img/xpress/C-XNG88B7Dx_R.png"
         ],
-        "countries": {"France": 8}
+        "countries": [
+          "France"
+        ]
       },
       {
         "service": "Xpress",
-        "name": "\"Xpress Alsace\" - Bâle → Mulhouse → Strasbourg",
+        "name": "\"Xpress Alsace\" - Basel → Mulhouse → Strasbourg",
         "detail": "Class 91 Alsace + Mk4 Alsace",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL91als.png",
@@ -68,35 +84,10 @@
           "livrees_pages/livrees_img/xpress/C-XMk4TSOals.png",
           "livrees_pages/livrees_img/xpress/C-XMk4DVTals_R.png"
         ],
-        "countries": {"Suisse": 1, "France": 2}
-      },
-      {
-        "service": "Frail",
-        "name": "Paris-Est → Meaux → Château-Thierry → Reims → Charleville-Mézières",
-        "detail": "BB 27300 + VB2N",
-        "vehicles": [
-          "livrees_pages/livrees_img/frail/A-FRBB27300.png",
-          "livrees_pages/livrees_img/frail/C-FRVB2N_B.png",
-          "livrees_pages/livrees_img/frail/C-FRVB2N_B.png",
-          "livrees_pages/livrees_img/frail/C-FRVB2N_B.png",
-          "livrees_pages/livrees_img/frail/C-FRVB2N_B.png",
-          "livrees_pages/livrees_img/frail/C-FRDBZa751.0.png"
-        ],
-        "countries": {"France": 5}
-      },
-      {
-        "service": "Frail",
-        "name": "Strasbourg → Haguenau → Wissembourg",
-        "detail": "Z 7300 R",
-        "img": "livrees_pages/livrees_img/frail/B-FRZ7300R.png",
-        "countries": {"France": 3}
-      },
-      {
-        "service": "Frail",
-        "name": "Lyon-Part-Dieu → Bourg-en-Bresse → Lons-le-Saunier → Besançon",
-        "detail": "B 83500",
-        "img": "livrees_pages/livrees_img/frail/B-FRB83500.png",
-        "countries": {"France": 4}
+        "countries": [
+          "Suisse",
+          "France"
+        ]
       }
     ]
   },
@@ -105,7 +96,7 @@
     "compositions": [
       {
         "service": "Xpress",
-        "name": "London St Pancras → Leicester → Nottingham → Sheffield → Leeds",
+        "name": "London → Leicester → Nottingham → Sheffield → Leeds",
         "detail": "Class 91 + Mk4",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL91.png",
@@ -119,11 +110,13 @@
           "livrees_pages/livrees_img/xpress/C-XMk4TSO.png",
           "livrees_pages/livrees_img/xpress/C-XMk4DVT_R.png"
         ],
-        "countries": {"Royaume-Uni": 5}
+        "countries": [
+          "Royaume-Uni"
+        ]
       },
       {
         "service": "Xpress",
-        "name": "London Paddington → Reading → Swindon → Bristol Temple Meads → Cardiff",
+        "name": "London → Reading → Swindon → Bristol → Cardiff",
         "detail": "Class 68 + Mk4",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL68.png",
@@ -135,23 +128,48 @@
           "livrees_pages/livrees_img/xpress/C-XMk4TSO.png",
           "livrees_pages/livrees_img/xpress/C-XMk4DVT_R.png"
         ],
-        "countries": {"Royaume-Uni": 5}
+        "countries": [
+          "Royaume-Uni"
+        ]
       },
       {
         "service": "Nocrail",
-        "name": "\"Night Riviera\" - London → Dover → Lille → Bruxelles → Liège → Aix-la-Chapelle → Cologne",
-        "detail": "Class 92 + Mk4 Night Services + Mk3 Sleeper",
-        "vehicles": [
-          "livrees_pages/livrees_img/nocrail/A-NRCL92.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-          "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png"
+        "name": "\"Nordstern\" - Edinburgh → York → Doncaster → Peterborough → London → Lille → Bruxelles → Liège → Aachen → Köln",
+        "detail": "Class 92 (→ Lille) / BR 186 (Lille →) + Mk4 Night Services + Mk3 Sleeper",
+        "segments": [
+          {
+            "label": "Edinburgh → Lille",
+            "vehicles": [
+              "livrees_pages/livrees_img/nocrail/A-NRCL92.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png"
+            ]
+          },
+          {
+            "label": "Lille → Köln",
+            "vehicles": [
+              "livrees_pages/livrees_img/nocrail/A-NRBR186.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png"
+            ]
+          }
         ],
-        "countries": {"Royaume-Uni": 2, "France": 1, "Belgique": 2, "Allemagne": 2}
+        "countries": [
+          "Royaume-Uni",
+          "France",
+          "Belgique",
+          "Allemagne"
+        ]
       }
     ]
   },
@@ -159,42 +177,59 @@
     "description": "Couverture dense héritée de la CCFM, particulièrement en Wallonie et autour de Bruxelles.",
     "compositions": [
       {
-        "service": "HSX",
-        "name": "Bruxelles-Midi → Lille-Europe → Paris-Nord",
-        "detail": "TGV Réseau",
-        "img": "livrees_pages/livrees_img/hsx/B-HSXTGVR.png",
-        "countries": {"Belgique": 1, "France": 2}
-      },
-      {
         "service": "Xpress",
-        "name": "Bruxelles-Central → Namur → Liège-Guillemins",
-        "detail": "E401 + NG88",
+        "name": "Bruxelles → Aalst → Gent → Aalter → Brugge → Oostende",
+        "detail": "E401 + Voitures allemandes + USI II",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XE401.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88A10.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88A10.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88B5r.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88B11.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88B11.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88B11.png",
-          "livrees_pages/livrees_img/xpress/C-XNG88B7Dx_R.png"
+          "livrees_pages/livrees_img/xpress/C-XApmz123.png",
+          "livrees_pages/livrees_img/xpress/C-XAvmz109.png",
+          "livrees_pages/livrees_img/xpress/C-XUSI2A5B5.png",
+          "livrees_pages/livrees_img/xpress/C-XUSI2B5r.png",
+          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
+          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
+          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
+          "livrees_pages/livrees_img/xpress/C-XBpmbdzf_R.png"
         ],
-        "countries": {"Belgique": 3}
+        "countries": [
+          "Belgique"
+        ]
       },
       {
         "service": "Xpress",
-        "name": "Ostende → Bruges → Gand → Bruxelles → Namur → Arlon → Luxembourg",
+        "name": "Terneuzen → Gent",
+        "detail": "UM IC3",
+        "vehicles": [
+          "livrees_pages/livrees_img/xpress/B-XIC3.png",
+          "livrees_pages/livrees_img/xpress/B-XIC3.png"
+        ],
+        "countries": [
+          "Belgique",
+          "Pays-Bas"
+        ]
+      },
+      {
+        "service": "Xpress",
+        "name": "Maastricht → Liège → Namur → Charleroi → La Louvière → Mons → Tournai → Lille",
         "detail": "BB 36000 + Corail VU",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XBB36000.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUA10.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUB11.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUB11.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUB11.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUB6Dux.png",
-          "livrees_pages/livrees_img/xpress/C-XCorailVUB5uxh_R.png"
+          "livrees_pages/livrees_img/xpress/C-XNG88A10.png",
+          "livrees_pages/livrees_img/xpress/C-XNG88A10.png",
+          "livrees_pages/livrees_img/xpress/C-XNG88A10.png",
+          "livrees_pages/livrees_img/xpress/C-XViaggioAR.png",
+          "livrees_pages/livrees_img/xpress/C-XViaggioB.png",          
+          "livrees_pages/livrees_img/xpress/C-XVE2NB15.png",
+          "livrees_pages/livrees_img/xpress/C-XVE2NB15.png",
+          "livrees_pages/livrees_img/xpress/C-XVE2NB15.png",
+          "livrees_pages/livrees_img/xpress/C-XVE2NB15.png",
+          "livrees_pages/livrees_img/xpress/C-XVE2NB15.png"
         ],
-        "countries": {"Belgique": 5, "Luxembourg": 1}
+        "countries": [
+          "Belgique",
+          "Pays-Bas",
+          "France"
+        ]
       }
     ]
   },
@@ -214,28 +249,16 @@
           "livrees_pages/livrees_img/xpress/C-XCorailVTUB11.png",
           "livrees_pages/livrees_img/xpress/C-XCorailVTUB5r_R.png"
         ],
-        "countries": {"Luxembourg": 2, "France": 3}
+        "countries": [
+          "Luxembourg",
+          "France"
+        ]
       }
     ]
   },
   "Pays-Bas": {
     "description": "Bonne couverture du réseau, notamment sur les grandes lignes et le régional.",
     "compositions": [
-      {
-        "service": "Xpress",
-        "name": "Amsterdam Centraal → Utrecht → 's-Hertogenbosch → Eindhoven → Maastricht",
-        "detail": "E401 + USI2",
-        "vehicles": [
-          "livrees_pages/livrees_img/xpress/A-XE401.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2A5B5.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
-          "livrees_pages/livrees_img/xpress/C-XUSI2B5r.png"
-        ],
-        "countries": {"Pays-Bas": 5}
-      },
       {
         "service": "Vivarail",
         "name": "Amsterdam → Utrecht → Arnhem → Duisburg → Köln → Koblenz → Frankfurt",
@@ -245,11 +268,12 @@
           "livrees_pages/livrees_img/vivarail/C-VA9½tu.png",
           "livrees_pages/livrees_img/vivarail/C-VA3rtux.png",
           "livrees_pages/livrees_img/vivarail/C-VA2t6u.png",
-          "livrees_pages/livrees_img/vivarail/C-VB5Dux.png",
-          "livrees_pages/livrees_img/vivarail/C-VB5Dux.png",
           "livrees_pages/livrees_img/vivarail/C-VB5Dux_R.png"
         ],
-        "countries": {"Pays-Bas": 3, "Allemagne": 4}
+        "countries": [
+          "Pays-Bas",
+          "Allemagne"
+        ]
       }
     ]
   },
@@ -258,32 +282,46 @@
     "compositions": [
       {
         "service": "HSX",
-        "name": "Francfort → Mannheim → Strasbourg → Mulhouse → Dijon → Lyon → Nîmes → Montpellier",
+        "name": "Frankfurt → Mannheim → Strasbourg → Mulhouse → Dijon → Lyon → Nîmes → Montpellier",
         "detail": "UM TGV Duplex",
         "vehicles": [
           "livrees_pages/livrees_img/hsx/B-HSXTGVDuplex.png",
-          {"coupler": "assets/TGVcouple.png"},
+          {
+            "coupler": "assets/TGVcouple.png"
+          },
           "livrees_pages/livrees_img/hsx/B-HSXTGVDuplex.png"
         ],
-        "countries": {"Allemagne": 2, "France": 6}
+        "countries": [
+          "Allemagne",
+          "France"
+        ]
       },
       {
         "service": "HSX",
-        "name": "Berlin → Leipzig → Erfurt → Nuremberg → Ingolstadt → Munich",
+        "name": "Berlin → Leipzig → Erfurt → Nürnberg → Ingolstadt → München",
         "detail": "UM Eurotrain",
         "vehicles": [
           "livrees_pages/livrees_img/hsx/B-HSXET.png",
-          {"coupler": "assets/ICE2couple.png", "bottom": 5, "overlap": 4},
+          {
+            "coupler": "assets/ICE2couple.png",
+            "bottom": 5,
+            "overlap": 4
+          },
           "livrees_pages/livrees_img/hsx/B-HSXET.png"
         ],
-        "countries": {"Allemagne": 6}
+        "countries": [
+          "Allemagne"
+        ]
       },
       {
         "service": "HSX",
-        "name": "Aix-la-Chapelle → Cologne → Francfort → Mannheim → Karlsruhe → Fribourg → Bâle",
+        "name": "Aachen → Köln → Frankfurt → Mannheim → Karlsruhe → Freiburg → Basel",
         "detail": "ICE 1",
         "img": "livrees_pages/livrees_img/hsx/B-HSXICE1.png",
-        "countries": {"Allemagne": 6, "Suisse": 1}
+        "countries": [
+          "Allemagne",
+          "Suisse"
+        ]
       },
       {
         "service": "Xpress",
@@ -301,7 +339,10 @@
           "livrees_pages/livrees_img/xpress/C-XNG88B11.png",
           "livrees_pages/livrees_img/xpress/C-XNG88B7Dx_R.png"
         ],
-        "countries": {"Allemagne": 5, "France": 1}
+        "countries": [
+          "Allemagne",
+          "France"
+        ]
       }
     ]
   },
@@ -310,13 +351,19 @@
     "compositions": [
       {
         "service": "Nocrail",
-        "name": "\"Hispania Express\" - Copenhague → Hambourg → Hanovre → Francfort → Mannheim → Fribourg → Bâle → Lausanne → Genève → Lyon → Valence → Nîmes → Montpellier → Béziers → Narbonne → Perpignan → Portbou",
+        "name": "\"Hispania Express\" - København → Hamburg → Hannover → Frankfurt → Mannheim → Freiburg → Basel → Lausanne → Genève → Lyon → Valence → Nîmes → Montpellier → Béziers → Narbonne → Perpignan → Portbou",
         "detail": "BR 186 + Talgo VI",
         "vehicles": [
           "livrees_pages/livrees_img/nocrail/A-NRBR186.png",
           "livrees_pages/livrees_img/nocrail/C-NRTalgoVI.png"
         ],
-        "countries": {"Danemark": 1, "Allemagne": 5, "Suisse": 3, "France": 9, "Espagne": 1}
+        "countries": [
+          "Danemark",
+          "Allemagne",
+          "Suisse",
+          "France",
+          "Espagne"
+        ]
       }
     ]
   },
@@ -325,10 +372,12 @@
     "compositions": [
       {
         "service": "HSX",
-        "name": "Madrid → Cordoue → Séville",
+        "name": "Madrid → Córdoba → Sevilla",
         "detail": "S112",
         "img": "livrees_pages/livrees_img/hsx/B-HSXS112.png",
-        "countries": {"Espagne": 3}
+        "countries": [
+          "Espagne"
+        ]
       }
     ]
   },
@@ -337,7 +386,7 @@
     "compositions": [
       {
         "service": "Xpress",
-        "name": "Milano Centrale → Verona Porta Nuova → Padova → Venezia Santa Lucia",
+        "name": "Milano → Verona → Padova → Venezia",
         "detail": "E444 + Viaggio",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XE444R.png",
@@ -348,11 +397,13 @@
           "livrees_pages/livrees_img/xpress/C-XViaggioB.png",
           "livrees_pages/livrees_img/xpress/C-XViaggioB.png"
         ],
-        "countries": {"Italie": 4}
+        "countries": [
+          "Italie"
+        ]
       },
       {
         "service": "Xpress",
-        "name": "Torino Porta Nuova → Milano Centrale → Brescia → Verona → Bolzano",
+        "name": "Torino → Milano → Brescia → Verona → Bolzano",
         "detail": "E464 + Viaggio",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XE464.png",
@@ -363,7 +414,9 @@
           "livrees_pages/livrees_img/xpress/C-XViaggioB.png",
           "livrees_pages/livrees_img/xpress/C-XViaggioAR.png"
         ],
-        "countries": {"Italie": 5}
+        "countries": [
+          "Italie"
+        ]
       }
     ]
   },
@@ -372,14 +425,16 @@
     "compositions": [
       {
         "service": "Xpress",
-        "name": "Wien Hauptbahnhof → St. Pölten → Linz → Salzburg",
+        "name": "Wien → St. Pölten → Linz → Salzburg",
         "detail": "ÖBB 4010",
         "img": "livrees_pages/livrees_img/xpress/B-X4010.png",
-        "countries": {"Autriche": 4}
+        "countries": [
+          "Autriche"
+        ]
       },
       {
         "service": "Vivarail",
-        "name": "Wien → Salzburg → Innsbruck → Zürich → Berne → Lausanne → Genève",
+        "name": "Wien → Salzburg → Innsbruck → Zürich → Bern → Lausanne → Genève",
         "detail": "ES64U4 + voitures Vivarail",
         "vehicles": [
           "livrees_pages/livrees_img/vivarail/A-VES64U4.png",
@@ -390,11 +445,14 @@
           "livrees_pages/livrees_img/vivarail/C-VB5Dux.png",
           "livrees_pages/livrees_img/vivarail/C-VB5Dux_R.png"
         ],
-        "countries": {"Autriche": 3, "Suisse": 4}
+        "countries": [
+          "Autriche",
+          "Suisse"
+        ]
       }
     ]
   },
-  "Rép. Tchèque": {
+  "République Tchèque": {
     "description": "Implantation concentrée dans les régions de l'Ouest, principalement en Bohême.",
     "compositions": [
       {
@@ -409,7 +467,10 @@
           "livrees_pages/livrees_img/xpress/C-XBpmz295.png",
           "livrees_pages/livrees_img/xpress/C-XBpmbdzf_R.png"
         ],
-        "countries": {"Rép. Tchèque": 2, "Allemagne": 2}
+        "countries": [
+          "Rép. Tchèque",
+          "Allemagne"
+        ]
       }
     ]
   },
@@ -418,7 +479,7 @@
     "compositions": [
       {
         "service": "Xpress",
-        "name": "Genève-Cornavin → Lausanne → Berne → Zürich HB",
+        "name": "Genève → Lausanne → Bern → Zürich",
         "detail": "Re 460 + USI2",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XRE460.png",
@@ -429,14 +490,9 @@
           "livrees_pages/livrees_img/xpress/C-XUSI2B10.png",
           "livrees_pages/livrees_img/xpress/C-XUSI2B5r.png"
         ],
-        "countries": {"Suisse": 4}
-      },
-      {
-        "service": "HSX",
-        "name": "Zürich → Bâle → Mulhouse → Strasbourg",
-        "detail": "TGV M",
-        "img": "livrees_pages/livrees_img/hsx/B-HSXTGVM.png",
-        "countries": {"Suisse": 2, "France": 2}
+        "countries": [
+          "Suisse"
+        ]
       }
     ]
   }

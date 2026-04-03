@@ -752,6 +752,77 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-300);
 }
 
+/* ========================================
+   Disclaimer Popup
+   ======================================== */
+
+.disclaimer-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.disclaimer-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.disclaimer-popup {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    max-width: 480px;
+    width: 100%;
+    padding: var(--spacing-2xl);
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: disclaimerIn 0.35s ease;
+}
+
+@keyframes disclaimerIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.disclaimer-icon {
+    color: #f59e0b;
+    margin-bottom: var(--spacing-md);
+}
+
+.disclaimer-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.disclaimer-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+}
+
+.disclaimer-btn {
+    width: 100%;
+    cursor: pointer;
+}
+
 .update-callout-date {
     font-size: 0.72rem;
     color: rgba(255, 255, 255, 0.5);

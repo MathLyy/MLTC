@@ -10,7 +10,7 @@
     const COUNTRIES = new Map([
         [250, { name: 'France',        coverage: 0.85, group: 'fondateur', flag: '\u{1F1EB}\u{1F1F7}',
                 desc: 'Coeur historique du réseau. La quasi-totalité du territoire est desservie par la MLTC, permise par un maillage dense avec des services à toute échelle.',
-                services: ['HSX','Xpress','TransRegio','Vivarail','Nocrail','Frail','Intracity'] }],
+                services: ['HSX','Xpress','TransRegio','Vivarail','Nocrail','Intracity'] }],
         [276, { name: 'Allemagne',     coverage: 0.75, group: 'fondateur', flag: '\u{1F1E9}\u{1F1EA}',
                 desc: "Forte implantation, concentrée dans les régions de l'Ouest (ancien périmètre WME). L'Est, intégré plus tardivement, est moins densément couvert à l'échelle plus locale.",
                 services: ['HSX','Xpress','TransRegio','Vivarail','Nocrail','Urbahn','Intracity'] }],

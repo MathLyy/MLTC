@@ -224,6 +224,8 @@ body.lv-host.lv-dark .footer {
     overflow-y: auto;
     overflow-x: hidden;
     padding-top: 0; /* navbar sits on top, fixed */
+    scroll-behavior: smooth;
+    scroll-padding-top: 130px;
 }
 
 #lv-overlay.active #lv-overlay-panel {

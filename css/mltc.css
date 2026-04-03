@@ -504,7 +504,6 @@ html {
 .ht-mini-card:hover {
     border-color: var(--card-hover-border);
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
 }
 .ht-mini-icon {
     font-size: 1.6rem;
@@ -2249,12 +2248,17 @@ html {
    Production - Constructeur Ferroviaire
    ======================================== */
 
-/* Hero - violet lavande, identité Production */
+/* Page-level background - reset to default */
+
+/* Hero - violet Production */
 .prod-hero {
     padding: 180px var(--spacing-lg) var(--spacing-3xl);
-    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 100%);
+    background: #9683EC;
     position: relative;
     overflow: hidden;
+}
+[data-theme="dark"] .prod-hero {
+    background: #7b68c9;
 }
 .prod-hero::before {
     content: '';
@@ -2263,12 +2267,12 @@ html {
     right: -10%;
     width: 60%;
     height: 120%;
-    background: radial-gradient(ellipse at center, rgba(150, 120, 200, 0.10) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
     opacity: 0.8;
     z-index: 0;
 }
 [data-theme="dark"] .prod-hero::before {
-    background: radial-gradient(ellipse at center, rgba(170, 140, 220, 0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
 }
 .prod-hero-content {
     position: relative;
@@ -2277,7 +2281,7 @@ html {
 }
 .prod-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #7e6b9e, #9b8ab8);
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     padding: 6px 16px;
     border-radius: var(--radius-full);
@@ -2290,19 +2294,19 @@ html {
 .prod-hero h1 {
     font-size: clamp(2.5rem, 5.5vw, 3.5rem);
     margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, #7e6b9e, #9b8ab8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
+    -webkit-text-fill-color: white;
 }
 [data-theme="dark"] .prod-hero h1 {
-    background: linear-gradient(135deg, #c4b3de, #d6c9ea);
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: white;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: white;
 }
 .prod-hero-sub {
     font-size: 1.15rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.7;
 }
 
@@ -2370,7 +2374,6 @@ html {
 .prod-mini-card:hover {
     border-color: rgba(150, 120, 200, 0.35);
     box-shadow: 0 4px 16px rgba(150, 120, 200, 0.10);
-    transform: translateY(-2px);
 }
 .prod-mini-card strong {
     display: block;
@@ -2383,6 +2386,42 @@ html {
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
+}
+
+/* Identity bar - horizontal fiche technique */
+.prod-identity-bar {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface-elevated);
+    margin: var(--spacing-xl) 0;
+    overflow: hidden;
+}
+.prod-identity-item {
+    flex: 1;
+    padding: var(--spacing-lg) var(--spacing-xl);
+}
+.prod-identity-item strong {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7e6b9e;
+    margin-bottom: 4px;
+}
+[data-theme="dark"] .prod-identity-item strong {
+    color: #c4b3de;
+}
+.prod-identity-item span {
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+.prod-identity-divider {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
 }
 
 /* ---- History collapsible ---- */
@@ -2591,6 +2630,13 @@ html {
     .prod-table th,
     .prod-table td {
         padding: 0.5rem 0.65rem;
+    }
+    .prod-identity-bar {
+        flex-direction: column;
+    }
+    .prod-identity-divider {
+        width: 100%;
+        height: 1px;
     }
 }
 

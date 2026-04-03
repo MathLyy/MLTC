@@ -234,8 +234,36 @@
         </div>
     </footer>
 
+    <!-- Disclaimer livrées -->
+    <div id="disclaimer-overlay" class="disclaimer-overlay">
+        <div class="disclaimer-popup">
+            <div class="disclaimer-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </div>
+            <h2 class="disclaimer-title">Mode sombre automatique</h2>
+            <p class="disclaimer-text">Les pages de livrées s'affichent automatiquement en <strong>thème sombre</strong> pour une meilleure visibilité des dessins et livrées sur fond foncé.</p>
+            <button id="disclaimer-close" class="btn btn-primary disclaimer-btn">Compris !</button>
+        </div>
+    </div>
+
     <script src="../js/main.js"></script>
     <script src="../js/livrees-subpages.js"></script>
     <script src="../js/livrees-transition.js"></script>
+    <script>
+        (function() {
+            var overlay = document.getElementById('disclaimer-overlay');
+            var btn = document.getElementById('disclaimer-close');
+            if (!overlay) return;
+            if (sessionStorage.getItem('livreesDisclaimerSeen')) {
+                overlay.remove();
+                return;
+            }
+            btn.addEventListener('click', function() {
+                overlay.classList.add('hidden');
+                sessionStorage.setItem('livreesDisclaimerSeen', '1');
+                setTimeout(function() { overlay.remove(); }, 300);
+            });
+        })();
+    </script>
 </body>
 </html>
