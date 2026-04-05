@@ -5,13 +5,9 @@
       {
         "service": "HSX",
         "name": "Paris → Reims → Metz → Luxembourg",
-        "detail": "UM TGV Réseau",
+        "detail": "TGV M",
         "vehicles": [
-          "livrees_pages/livrees_img/hsx/B-HSXTGVR.png",
-          {
-            "coupler": "assets/TGVcouple.png"
-          },
-          "livrees_pages/livrees_img/hsx/B-HSXTGVR.png"
+          "livrees_pages/livrees_img/hsx/B-HSXTGVM.png"
         ],
         "countries": [
           "France",
@@ -70,7 +66,7 @@
       },
       {
         "service": "Xpress",
-        "name": "\"Xpress Alsace\" - Basel → Mulhouse → Strasbourg",
+        "name": "\"Xpress Alsace\" - Basel → Mulhouse → Colmar → Strasbourg",
         "detail": "Class 91 Alsace + Mk4 Alsace",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL91als.png",
@@ -83,6 +79,18 @@
           "livrees_pages/livrees_img/xpress/C-XMk4TSOals.png",
           "livrees_pages/livrees_img/xpress/C-XMk4TSOals.png",
           "livrees_pages/livrees_img/xpress/C-XMk4DVTals_R.png"
+        ],
+        "countries": [
+          "Suisse",
+          "France"
+        ]
+      },
+      {
+        "service": "Xpress",
+        "name": "Bordeaux → Limoges → Clermont-Ferrand → Saint-Étienne → Lyon",
+        "detail": "TGV Turboméca Duplex",
+        "vehicles": [
+          "livrees_pages/livrees_img/xpress/B-TGVTD.png"
         ],
         "countries": [
           "Suisse",
@@ -135,32 +143,42 @@
       {
         "service": "Nocrail",
         "name": "\"Nordstern\" - Edinburgh → York → Doncaster → Peterborough → London → Lille → Bruxelles → Liège → Aachen → Köln",
-        "detail": "Class 92 (→ Lille) / BR 186 (Lille →) + Mk4 Night Services + Mk3 Sleeper",
+        "detail": "Class 92 (→ Lille) / BR 186 (Lille →) + Mk4 + Mk3",
         "segments": [
           {
             "label": "Edinburgh → Lille",
             "vehicles": [
               "livrees_pages/livrees_img/nocrail/A-NRCL92.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvs.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png"
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png"
             ]
           },
           {
-            "label": "Lille → Köln",
+            "label": "Lille → Köln (changement de locomotive)",
             "vehicles": [
               "livrees_pages/livrees_img/nocrail/A-NRBR186.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvl.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NSvs.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk4NS.png",
+              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
               "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png",
-              "livrees_pages/livrees_img/nocrail/C-NRMk3RFM.png"
+              "livrees_pages/livrees_img/nocrail/C-NRMk3SLEP.png"
             ]
           }
         ],
@@ -174,7 +192,7 @@
     ]
   },
   "Belgique": {
-    "description": "Couverture dense héritée de la CCFM, particulièrement en Wallonie et autour de Bruxelles.",
+    "description": "Couverture dense héritée de la CCFM, sur l'ensemble du territoire belge.",
     "compositions": [
       {
         "service": "Xpress",
@@ -257,7 +275,7 @@
     ]
   },
   "Pays-Bas": {
-    "description": "Bonne couverture du réseau, notamment sur les grandes lignes et le régional.",
+    "description": "Couverture héritée de la CCFM (MSVM en néerlandais), sur les grandes lignes et le régional.",
     "compositions": [
       {
         "service": "Vivarail",

@@ -101,14 +101,15 @@
                     <h2>Phase d'expansion</h2>
                 </div>
                 <div class="ht-prose">
-                    <p>Le réseau de la MLTC est géré par MLTC Railways Infrastructures (simplifié en MLTC Infrastructures). À sa création, il est composé des réseaux français, belge, luxembourgeois, néerlandais, allemand ex-RFA et du sud du réseau anglais. Une phase d'expansion est donc entamée dès 2001 :</p>
+                    <p>Le réseau de la MLTC est géré par MLTC Railways Infrastructures (simplifié en MLTC Infrastructures). À sa création, il est composé des réseaux français, belge, luxembourgeois, néerlandais, allemand ex-RFA et du sud du réseau anglais.</p>
                 </div>
 
+                <h3 class="ht-h3">Chronologie de l'expansion</h3>
                 <div class="ht-expansion-layout">
                     <!-- Timeline -->
                     <div class="ht-expansion-left">
                         <div class="ht-timeline">
-                            <div class="ht-tl-item" data-country="Allemagne">
+                            <div class="ht-tl-item" data-index="0" data-country="Allemagne">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2001</span>
@@ -116,7 +117,7 @@
                                     <p>La fondation de la MLTC permet l'intégration des anciennes régions de la RDA, dont l'intégration par la WME avait été différée dans l'attente du projet MLTC. L'implantation de la compagnie reste cependant nettement plus dense à l'ouest du pays, cœur historique de la WME.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Italie">
+                            <div class="ht-tl-item" data-index="1" data-country="Italie">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2002</span>
@@ -124,7 +125,7 @@
                                     <p>L'un des premiers jalons majeurs de l'expansion survient avec le lancement des services vers le nord de l'Italie, notamment en Lombardie, au Piémont et en Vénétie. La MLTC y concentre ses liaisons rapides et régionales, laissant le centre et le sud du pays à l'opérateur national.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Suisse,Autriche">
+                            <div class="ht-tl-item" data-index="2" data-country="Suisse,Autriche">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2005</span>
@@ -132,7 +133,7 @@
                                     <p>En Autriche, la MLTC obtient une couverture étendue du réseau, s'imposant sur les corridors internationaux comme sur de nombreuses lignes intérieures. En Suisse, l'implantation se concentre sur les lignes à écartement standard ; les réseaux métriques alpins restent confiés aux opérateurs spécialisés locaux.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Royaume-Uni">
+                            <div class="ht-tl-item" data-index="3" data-country="Royaume-Uni">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2007</span>
@@ -140,7 +141,7 @@
                                     <p>Le périmètre hérité de la MSER, concentré dans le sud de l'Angleterre, est élargi vers le centre du pays. La MLTC prend en charge l'essentiel des services grandes lignes et régionaux, mais la plupart des services urbains restent opérés sous franchises locales.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Danemark">
+                            <div class="ht-tl-item" data-index="4" data-country="Danemark">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2008</span>
@@ -148,7 +149,7 @@
                                     <p>La MLTC débute ses opérations dans la partie sud du Danemark, depuis la frontière allemande du Schleswig jusqu'à Copenhague. L'offre se concentre sur les liaisons rapides et à grande vitesse.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Tchéquie">
+                            <div class="ht-tl-item" data-index="5" data-country="Tchéquie">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2010</span>
@@ -156,7 +157,7 @@
                                     <p>L'entrée dans ce marché d'Europe centrale se fait par étapes : d'abord par des dessertes internationales depuis Vienne et Munich, puis par l'obtention de concessions dans les régions occidentales du pays, principalement en Bohême.</p>
                                 </div>
                             </div>
-                            <div class="ht-tl-item" data-country="Espagne">
+                            <div class="ht-tl-item" data-index="6" data-country="Espagne">
                                 <div class="ht-tl-dot"></div>
                                 <div class="ht-tl-card">
                                     <span class="ht-tl-date">2012</span>
@@ -171,29 +172,50 @@
                         </div>
                     </div>
 
-                    <!-- Coverage map -->
+                    <!-- Sticky panel -->
                     <div class="ht-expansion-right">
-                        <div class="cov-map-wrap">
-                            <h3 class="cov-map-title">Couverture du réseau</h3>
-                            <p class="cov-map-subtitle">À l'issue de l'expansion, la MLTC est présente dans les 12 États membres avec des niveaux d'implantation variables.</p>
-                            <svg class="cov-map"></svg>
-                            <p class="cov-map-hint">Survolez un pays pour voir le détail de sa couverture.</p>
-                            <div class="cov-legend">
-                                <span class="cov-legend-label">Faible</span>
-                                <div class="cov-legend-bar"></div>
-                                <span class="cov-legend-label">Forte</span>
-                            </div>
-                            <!-- Tooltip -->
-                            <div id="cov-tooltip" class="cov-tooltip">
-                                <div class="cov-tt-head">
-                                    <span id="cov-tt-flag" class="cov-tt-flag"></span>
-                                    <h4 id="cov-tt-name"></h4>
-                                    <span id="cov-tt-group" class="cov-tt-group"></span>
+                        <div class="ht-expansion-sticky">
+                            <div class="cov-map-wrap">
+                                <svg class="cov-map"></svg>
+                                <div class="cov-legend">
+                                    <span class="cov-legend-label">Faible</span>
+                                    <div class="cov-legend-bar"></div>
+                                    <span class="cov-legend-label">Forte</span>
                                 </div>
-                                <div class="cov-tt-bar-wrap"><div id="cov-tt-bar" class="cov-tt-bar"></div></div>
-                                <p id="cov-tt-desc"></p>
-                                <div id="cov-tt-services" class="ht-country-services"></div>
+                                <!-- Tooltip -->
+                                <div id="cov-tooltip" class="cov-tooltip">
+                                    <div class="cov-tt-head">
+                                        <span id="cov-tt-flag" class="cov-tt-flag"></span>
+                                        <h4 id="cov-tt-name"></h4>
+                                        <span id="cov-tt-group" class="cov-tt-group"></span>
+                                    </div>
+                                    <div class="cov-tt-bar-wrap"><div id="cov-tt-bar" class="cov-tt-bar"></div></div>
+                                    <p id="cov-tt-desc"></p>
+                                    <div id="cov-tt-services" class="ht-country-services"></div>
+                                </div>
                             </div>
+
+                            <!-- Counter -->
+                            <div class="ht-exp-counter">
+                                <span class="ht-exp-counter-num" id="exp-counter-num">7</span>
+                                <span class="ht-exp-counter-label">Etats integres &middot; <span id="exp-counter-year">2000</span></span>
+                            </div>
+
+                            <!-- Country list -->
+                            <ul class="ht-exp-countries" id="exp-country-list">
+                                <li data-name="France" class="active">🇫🇷 France</li>
+                                <li data-name="Belgique" class="active">🇧🇪 Belgique</li>
+                                <li data-name="Pays-Bas" class="active">🇳🇱 Pays-Bas</li>
+                                <li data-name="Luxembourg" class="active">🇱🇺 Luxembourg</li>
+                                <li data-name="Allemagne" class="active">🇩🇪 Allemagne</li>
+                                <li data-name="Royaume-Uni" class="active">🇬🇧 Royaume-Uni</li>
+                                <li data-name="Italie" class="active">🇮🇹 Italie</li>
+                                <li data-name="Suisse">🇨🇭 Suisse</li>
+                                <li data-name="Autriche">🇦🇹 Autriche</li>
+                                <li data-name="Danemark">🇩🇰 Danemark</li>
+                                <li data-name="Tchéquie">🇨🇿 Tchéquie</li>
+                                <li data-name="Espagne">🇪🇸 Espagne</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -209,8 +231,9 @@
                 </div>
                 <div class="ht-prose">
                     <p>L'expansion de la MLTC ne signifie pas la disparition des compagnies ferroviaires nationales. Celles-ci continuent d'exister dans chacun des États membres, et leur rôle a naturellement évolué au fil de l'intégration de la MLTC voulue par l'Alliance.</p>
-                    <p>Dans les pays fondateurs, les opérateurs historiques (SNCF, Deutsche Bundesbahn, British Rail, SNCB, NS et CFL) ont progressivement cédé l'essentiel de leurs concessions grandes lignes et régionales à la MLTC et à ses prédécesseurs. Ils conservent néanmoins certaines dessertes locales, périurbaines ou spécifiques que la MLTC n'a pas souhaité reprendre. En France, par exemple, la SNCF reste présente sur quelques lignes secondaires et assure une partie du fret non couvert par la MLCC.</p>
-                    <p>Dans les pays d'expansion, la situation est plus équilibrée. Les compagnies nationales (Trenitalia, Renfe, DSB, České dráhy, ÖBB et CFF) restent souvent dominantes sur les lignes que la MLTC ne dessert pas, notamment dans les régions périphériques ou sur des services de proximité. En Italie et en Espagne, par exemple, la compagnie nationale conserve la majorité du réseau hors des corridors exploités par la MLTC.</p>
+                </div>
+                    <p>Les opérateurs historiques (SNCF, Deutsche Bundesbahn, British Rail, SNCB, NS et CFL) ont progressivement cédé l'essentiel de leurs concessions grandes lignes et régionales à la MLTC et à ses prédécesseurs. Ils conservent néanmoins certaines dessertes locales, périurbaines ou spécifiques que la MLTC n'a pas souhaité reprendre. En France, par exemple, la SNCF reste présente sur quelques lignes secondaires et assure une partie du fret non couvert par la MLCC.</p>
+                    <p>La situation est plus équilibrée. Les compagnies nationales (Trenitalia, Renfe, DSB, České dráhy, ÖBB et CFF) restent souvent dominantes sur les lignes que la MLTC ne dessert pas, notamment dans les régions périphériques ou sur des services de proximité. En Italie et en Espagne, par exemple, la compagnie nationale conserve la majorité du réseau hors des corridors exploités par la MLTC.</p>
                     <p>Cette cohabitation repose sur une coordination étroite en matière de tarification et d'accès aux sillons, encadrée par le Mathlyens à travers des accords-cadres négociés entre les États et MLTC Infrastructures. Le principe général est celui d'une complémentarité : la MLTC assure l'ossature du réseau transnational, tandis que les compagnies nationales se concentrent sur les dessertes de proximité et les lignes secondaires.</p>
                 </div>
             </div>

@@ -23,7 +23,7 @@
 .page-hero p {
     font-size: 1.15rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 100%;
 }
 
 /* ========================================

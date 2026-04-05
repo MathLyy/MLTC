@@ -452,7 +452,8 @@ body:has(.lv-theme-cfp).lv-entered .subnav-link:hover { color: #ff7a8a !importan
    .lv-imgframe::-webkit-scrollbar { display:none; }
    .lv-imgframe img { position:static; display:inline-block; }
    .lv-engine.stack { grid-template-columns:1fr; grid-template-rows:auto auto auto; grid-template-areas:"title" "image" "text"; }
-   .lv-engine.stack.has-scroll { grid-template-rows:auto auto auto auto; grid-template-areas:"title" "scroll" "image" "text"; }
+   .lv-engine.stack.has-scroll { grid-template-rows:auto auto auto; grid-template-areas:"title" "image" "text"; }
+   .lv-engine.stack.has-scroll .lv-scroll-track { display:none; }
    .lv-engine.stack .lv-leftcol { grid-area:title; }
    .lv-engine.stack .lv-imgframe { grid-area:image; border-top:1px solid rgba(255,255,255,0.08); }
    .lv-engine.stack.has-scroll .lv-imgframe { border-top:0; border-bottom:1px solid rgba(255,255,255,0.08); }
