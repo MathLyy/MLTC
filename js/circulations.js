@@ -106,11 +106,27 @@
             consistBlocks = buildConsistBlock(imgContent, null);
         }
 
+        /* Route: show departure → terminus, expandable to full */
+        const stops = item.name.split(/\s*→\s*/);
+        let routeHTML;
+        if (stops.length > 2) {
+            const mid = stops.slice(1, -1).map(s => '<span class="circ-route-mid">' + esc(s) + '</span>').join(' → ');
+            routeHTML = `<h4 class="circ-route">`
+                + `<span class="circ-route-origin">${esc(stops[0])}&ensp;\u2192&ensp;</span>`
+                + `<span class="circ-route-stops" hidden>${mid}&ensp;\u2192&ensp;</span>`
+                + `<span class="circ-route-dest">${esc(stops[stops.length - 1])}</span>`
+                + `<button class="circ-route-toggle" aria-label="Afficher le trajet complet" title="Trajet complet">`
+                + `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>`
+                + `</button></h4>`;
+        } else {
+            routeHTML = `<h4>${esc(item.name)}</h4>`;
+        }
+
         return `
-            <li class="circ-item"${showCountry ? ' data-country="' + esc(showCountry) + '" tabindex="0" role="button"' : ''}>
+            <li class="circ-item">
                 <div class="circ-item-head">
                     <span class="circ-item-service">${esc(item.service)}</span>
-                    <h4>${esc(item.name)}</h4>
+                    ${routeHTML}
                     <span class="circ-item-detail">${esc(item.detail)}</span>
                 </div>
                 ${consistBlocks}
@@ -118,6 +134,35 @@
     }
 
     /* ---- Rendering ---- */
+
+    /** Toggle collapsed/expanded route on click */
+    function wireRouteExpand() {
+        document.querySelectorAll('.circ-route-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const h4 = btn.closest('.circ-route');
+                const stops = h4.querySelector('.circ-route-stops');
+                const open  = !stops.hidden;
+                if (open) {
+                    stops.classList.add('circ-route-leaving');
+                    stops.addEventListener('transitionend', function handler() {
+                        stops.removeEventListener('transitionend', handler);
+                        stops.hidden = true;
+                        stops.classList.remove('circ-route-leaving');
+                    });
+                } else {
+                    stops.hidden = false;
+                    stops.classList.add('circ-route-entering');
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            stops.classList.remove('circ-route-entering');
+                        });
+                    });
+                }
+                btn.classList.toggle('circ-route-open', !open);
+            });
+        });
+    }
 
     /** Wire scroll-sync between hidden-overflow frame and visible scrollbar below */
     function wireScrollSync() {
@@ -152,9 +197,7 @@
             ? all.map(e => itemHTML(e.item, e.origin)).join('')
             : '';
         wireScrollSync();
-        listEl.querySelectorAll('.circ-item[data-country]').forEach(el => {
-            el.addEventListener('click', () => selectCountry(el.dataset.country));
-        });
+        wireRouteExpand();
         if (window.innerWidth < 768) {
             document.querySelector('.circ-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -180,13 +223,7 @@
         listEl.innerHTML = results.length
             ? results.map(r => itemHTML(r.item, r.country)).join('') : '';
         wireScrollSync();
-        listEl.querySelectorAll('.circ-item[data-country]').forEach(el => {
-            el.addEventListener('click', () => {
-                searchEl.value = ''; filterEl.value = '';
-                shapes.forEach(s => s.classList.remove('dimmed'));
-                selectCountry(el.dataset.country);
-            });
-        });
+        wireRouteExpand();
     }
 
     /* ---- Search / filter ---- */
@@ -229,13 +266,7 @@
         listEl.innerHTML = results.length
             ? results.map(r => itemHTML(r.item, r.country)).join('') : '';
         wireScrollSync();
-        listEl.querySelectorAll('.circ-item[data-country]').forEach(el => {
-            el.addEventListener('click', () => {
-                searchEl.value = ''; filterEl.value = '';
-                shapes.forEach(s => s.classList.remove('dimmed'));
-                selectCountry(el.dataset.country);
-            });
-        });
+        wireRouteExpand();
     }
 
     /* ---- Wire SVG shapes ---- */

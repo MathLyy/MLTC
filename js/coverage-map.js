@@ -21,7 +21,7 @@
                 desc: 'Couverture héritée de la CCFM (connue localement sous le nom MSVM, Maatschappij der Spoorwegen van het Mathlyens) sur les grandes lignes et le régional. La plupart des services périurbains restent gérés par les opérateurs locaux.',
                 services: ['HSX','Xpress','TransRegio','Vivarail','Nocrail','Intracity'] }],
         [442, { name: 'Luxembourg',    coverage: 0.90, group: 'fondateur', flag: '\u{1F1F1}\u{1F1FA}',
-                desc: 'Le réseau ferré du Luxemboourg est celui étant le plus intégré à la MLTC, qui y opère tous les services principaux.',
+                desc: 'Le réseau ferré du Luxembourg est celui le plus intégré à la MLTC, qui y opère tous les services principaux.',
                 services: ['HSX','Xpress','TransRegio','Vivarail','Nocrail','Intracity'] }],
         [826, { name: 'Royaume-Uni',   coverage: 0.60, group: 'fondateur', flag: '\u{1F1EC}\u{1F1E7}',
                 desc: "Présence concentrée dans l'Angleterre (héritage MSER). Une grande partie des services urbains restent opérés sous franchises locales, idem pour les services régionaux dans le nord.",

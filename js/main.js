@@ -127,86 +127,94 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Expansion page: scroll-driven sticky panel ──
-    const expItems = document.querySelectorAll('.ht-tl-item[data-index]');
-    if (expItems.length) {
-        const counterNum  = document.getElementById('exp-counter-num');
-        const counterYear = document.getElementById('exp-counter-year');
-        const countryList = document.getElementById('exp-country-list');
-
-        // Cumulative state per timeline index
-        const STEPS = [
-            { year: '2001', reveal: ['Allemagne'],          total: 7  },
-            { year: '2002', reveal: ['Italie'],             total: 7  },
-            { year: '2005', reveal: ['Suisse', 'Autriche'], total: 9  },
-            { year: '2007', reveal: ['Royaume-Uni'],        total: 9  },
-            { year: '2008', reveal: ['Danemark'],           total: 10 },
-            { year: '2010', reveal: ['Tchéquie'],           total: 11 },
-            { year: '2012', reveal: ['Espagne'],            total: 12 },
-        ];
-
-        const FOUNDERS = ['France', 'Belgique', 'Pays-Bas', 'Luxembourg',
-                          'Allemagne', 'Royaume-Uni', 'Italie'];
-
+    // ── Expansion page: phase-based event expand/collapse ──
+    const evtItems = document.querySelectorAll('.ht-evt[data-index]');
+    if (evtItems.length) {
+        // Scroll-based active highlight (declared before click handler)
         let activeIndex = -1;
+        let scrollLocked = false;
 
-        function updateExpansionPanel(idx) {
-            if (idx === activeIndex) return;
+        function setActive(idx) {
             activeIndex = idx;
-
-            expItems.forEach(item => {
-                item.classList.toggle('active',
-                    Number(item.dataset.index) === idx);
-            });
-
-            const revealed = new Set(FOUNDERS);
-            const highlighted = new Set();
-            for (let i = 0; i <= idx; i++) {
-                STEPS[i].reveal.forEach(c => revealed.add(c));
-                if (i === idx) STEPS[i].reveal.forEach(c => highlighted.add(c));
-            }
-
-            document.querySelectorAll('.cov-country').forEach(g => {
-                const name = g.dataset.country;
-                if (revealed.has(name)) {
-                    g.classList.remove('cov-hidden');
-                    g.classList.add('cov-revealed');
-                } else {
-                    g.classList.add('cov-hidden');
-                    g.classList.remove('cov-revealed');
+            evtItems.forEach(item => {
+                const isActive = Number(item.dataset.index) === idx;
+                item.classList.toggle('active', isActive);
+                if (isActive) {
+                    document.querySelectorAll('.ht-phase').forEach(p =>
+                        p.classList.remove('ht-phase-active'));
+                    const phase = item.closest('.ht-phase');
+                    if (phase) phase.classList.add('ht-phase-active');
                 }
             });
+        }
 
-            const step = STEPS[idx] || STEPS[0];
-            if (counterNum)  counterNum.textContent  = step.total;
-            if (counterYear) counterYear.textContent = step.year;
+        // Click to expand/collapse event description
+        evtItems.forEach(evt => {
+            evt.addEventListener('click', () => {
+                const body = evt.querySelector('.ht-evt-body');
+                const isOpen = evt.classList.contains('ht-evt-open');
 
-            if (countryList) {
-                countryList.querySelectorAll('li').forEach(li => {
-                    const name = li.dataset.name;
-                    li.classList.toggle('active', revealed.has(name));
-                    li.classList.toggle('highlight', highlighted.has(name));
+                // Anchor: remember clicked element's viewport position
+                const anchorY = evt.getBoundingClientRect().top;
+
+                // Close all others (with proper height collapse)
+                evtItems.forEach(other => {
+                    if (other !== evt && other.classList.contains('ht-evt-open')) {
+                        other.classList.remove('ht-evt-open');
+                        const ob = other.querySelector('.ht-evt-body');
+                        if (ob) {
+                            ob.style.maxHeight = ob.scrollHeight + 'px';
+                            requestAnimationFrame(() => {
+                                ob.style.maxHeight = '0px';
+                                ob.classList.remove('ht-evt-visible');
+                            });
+                        }
+                    }
                 });
-            }
-        }
 
-        function initMapState() {
-            document.querySelectorAll('.cov-country').forEach(g => {
-                const name = g.dataset.country;
-                if (!FOUNDERS.includes(name)) {
-                    g.classList.add('cov-hidden');
+                if (isOpen) {
+                    // Collapse: set explicit height first, then animate to 0
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                    requestAnimationFrame(() => {
+                        body.style.maxHeight = '0px';
+                        body.classList.remove('ht-evt-visible');
+                        evt.classList.remove('ht-evt-open');
+                    });
+                } else {
+                    // Expand: animate from 0 to actual content height
+                    evt.classList.add('ht-evt-open');
+                    body.classList.add('ht-evt-visible');
+                    body.style.maxHeight = '0px';
+                    requestAnimationFrame(() => {
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                    });
+                    // Clean up inline style after transition so content can reflow
+                    body.addEventListener('transitionend', function cleanup(e) {
+                        if (e.propertyName === 'max-height' && evt.classList.contains('ht-evt-open')) {
+                            body.style.maxHeight = 'none';
+                        }
+                        body.removeEventListener('transitionend', cleanup);
+                    });
                 }
-            });
-        }
 
-        const mapCheck = setInterval(() => {
-            if (document.querySelectorAll('.cov-country').length > 0) {
-                clearInterval(mapCheck);
-                initMapState();
-            }
-        }, 200);
+                // Restore scroll so the clicked item stays at the same viewport Y
+                requestAnimationFrame(() => {
+                    const newY = evt.getBoundingClientRect().top;
+                    const drift = newY - anchorY;
+                    if (Math.abs(drift) > 2) {
+                        window.scrollBy({ top: drift, behavior: 'instant' });
+                    }
+                });
+
+                // Force this event as active and lock scroll highlight briefly
+                setActive(Number(evt.dataset.index));
+                scrollLocked = true;
+                setTimeout(() => { scrollLocked = false; }, 600);
+            });
+        });
 
         const observer = new IntersectionObserver(entries => {
+            if (scrollLocked) return;
             let best = null;
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -214,12 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (best === null || idx > best) best = idx;
                 }
             });
-            if (best !== null) updateExpansionPanel(best);
+            if (best !== null && best !== activeIndex) {
+                setActive(best);
+            }
         }, {
             rootMargin: '-40% 0px -40% 0px',
             threshold: 0
         });
 
-        expItems.forEach(item => observer.observe(item));
+        evtItems.forEach(item => observer.observe(item));
     }
 });

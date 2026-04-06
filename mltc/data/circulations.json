@@ -67,7 +67,7 @@
       {
         "service": "Xpress",
         "name": "\"Xpress Alsace\" - Basel → Mulhouse → Colmar → Strasbourg",
-        "detail": "Class 91 Alsace + Mk4 Alsace",
+        "detail": "Class 91 Alsace + Mk4 Alsace \"Intercity 225\"",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL91als.png",
           "livrees_pages/livrees_img/xpress/C-XMk4FOals.png",
@@ -90,7 +90,9 @@
         "name": "Bordeaux → Limoges → Clermont-Ferrand → Saint-Étienne → Lyon",
         "detail": "TGV Turboméca Duplex",
         "vehicles": [
-          "livrees_pages/livrees_img/xpress/B-TGVTD.png"
+          "livrees_pages/livrees_img/xpress/A-XMotriceTGVTM.png",
+          "livrees_pages/livrees_img/xpress/C-XTronçonTGVDC.png",
+          "livrees_pages/livrees_img/xpress/A-XMotriceTGVTM_R.png"
         ],
         "countries": [
           "Suisse",
@@ -104,8 +106,8 @@
     "compositions": [
       {
         "service": "Xpress",
-        "name": "London → Leicester → Nottingham → Sheffield → Leeds",
-        "detail": "Class 91 + Mk4",
+        "name": "London → Peterborough → Grantham → Doncaster → York → Darlington → Durham → Newcastle → Edinburgh",
+        "detail": "Class 91 + Mk4 \"Intercity 225\"",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL91.png",
           "livrees_pages/livrees_img/xpress/C-XMk4FO.png",
@@ -124,10 +126,11 @@
       },
       {
         "service": "Xpress",
-        "name": "London → Reading → Swindon → Bristol → Cardiff",
+        "name": "Newcastle → Carlisle → Dumfries → Kilmarnock → Glasgow",
         "detail": "Class 68 + Mk4",
         "vehicles": [
           "livrees_pages/livrees_img/xpress/A-XCL68.png",
+          "livrees_pages/livrees_img/xpress/C-XMk4FO.png",
           "livrees_pages/livrees_img/xpress/C-XMk4FO.png",
           "livrees_pages/livrees_img/xpress/C-XMk4RFM.png",
           "livrees_pages/livrees_img/xpress/C-XMk4TSO.png",
@@ -187,6 +190,46 @@
           "France",
           "Belgique",
           "Allemagne"
+        ]
+      },
+      {
+        "service": "TransRegio",
+        "name": "Edinburgh → Linlithgow → Falkirk → Glasgow",
+        "detail": "Class 377/7",
+        "vehicles": [
+          "livrees_pages/livrees_img/tr/B-TRCL377.7.png"
+        ],
+        "countries": [
+          "Royaume-Uni"
+        ]
+      },
+      {
+        "service": "TransRegio",
+        "name": "London → Woking → Guildford → Haslemere → Petersfield → Havant → Portsmouth",
+        "detail": "UM Class 377/3",
+        "vehicles": [
+          "livrees_pages/livrees_img/tr/B-TRCL377.3.png",
+          "livrees_pages/livrees_img/tr/B-TRCL377.3.png",
+          "livrees_pages/livrees_img/tr/B-TRCL377.3.png"
+        ],
+        "countries": [
+          "Royaume-Uni"
+        ]
+      },
+      {
+        "service": "TransRegio",
+        "name": "Exeter → Taunton → Tiverton → Newton Abbot → Plymouth → Liskeard → Bodmin → Truro → Penzance",
+        "detail": "Class 57 + Mk2",
+        "vehicles": [
+          "livrees_pages/livrees_img/tr/A-TRCL57.png",
+          "livrees_pages/livrees_img/tr/C-TRMk2FO.png",
+          "livrees_pages/livrees_img/tr/C-TRMk2TSO.png",
+          "livrees_pages/livrees_img/tr/C-TRMk2TSO.png",
+          "livrees_pages/livrees_img/tr/C-TRMk2TSO.png",
+          "livrees_pages/livrees_img/tr/C-TRMk2DBSO_R.png"
+        ],
+        "countries": [
+          "Royaume-Uni"
         ]
       }
     ]
