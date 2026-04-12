@@ -108,6 +108,14 @@
       const assess = () => window._lvAssessStack(card);
       if (img.complete) assess(); else img.addEventListener('load', assess, { once: true });
     });
+    // Inject mobile touch-scroll hint after lv-wrap if present
+    var wrap = document.querySelector('.lv-wrap');
+    if (wrap && !document.querySelector('.lv-touch-hint')) {
+      var hint = document.createElement('div');
+      hint.className = 'lv-touch-hint';
+      hint.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7L3 11L7 15"/><path d="M3 11h18"/><path d="M17 7L21 11L17 15"/></svg> Sur mobile, les images larges peuvent être parcourues au toucher';
+      wrap.parentNode.insertBefore(hint, wrap.nextSibling);
+    }
     // Re-evaluate scroll overflow on window resize
     let resizeTimer;
     window.addEventListener('resize', () => {

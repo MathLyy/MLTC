@@ -83,132 +83,18 @@
     </nav>
 
     <main>
-        <!-- Hero -->
-        <section class="page-hero">
+        <!-- WIP -->
+        <section class="wip-section">
             <div class="container">
-                <span class="project-tag">Behind the Scenes</span>
-                <h1>Les Coulisses</h1>
-                <p>À venir</p>
-            </div>
-        </section>
-
-        <!-- Introduction -->
-        <section class="project-3d-intro">
-            <div class="container">
-                <div class="intro-note">
-                    <p>À venir</p>
+                <div class="wip-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                    <h1>Les Coulisses</h1>
+                    <p>Page en construction, à venir.</p>
+                    <a href="index.html" class="btn btn-secondary">&#8592; Retour à MLTC</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section : Les origines -->
-        <article class="model-article">
-            <div class="container">
-                <div class="model-prose">
-                    <h2>Les origines</h2>
-                    <p>À venir</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Section : Le pixel art -->
-        <article class="model-article">
-            <div class="container">
-                <div class="model-prose">
-                    <h2>Le pixel art ferroviaire</h2>
-                    <p>À venir</p>
-
-                    <h3>Le choix du format</h3>
-                    <p>À venir</p>
-
-                    <h3>La création d'un matériel</h3>
-                    <p>À venir</p>
-
-                    <h3>Les contraintes du pixel</h3>
-                    <p>À venir</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Section : Les livrées -->
-        <article class="model-article">
-            <div class="container">
-                <div class="model-prose">
-                    <h2>Concevoir une livrée</h2>
-                    <p>À venir</p>
-
-                    <h3>L'inspiration</h3>
-                    <p>À venir</p>
-
-                    <h3>Le processus de design</h3>
-                    <p>À venir</p>
-
-                    <h3>La cohérence d'ensemble</h3>
-                    <p>À venir</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Section : Le worldbuilding -->
-        <article class="model-article">
-            <div class="container">
-                <div class="model-prose">
-                    <h2>Construire un univers</h2>
-                    <p>À venir</p>
-
-                    <h3>L'histoire fictive</h3>
-                    <p>À venir</p>
-
-                    <h3>La carte du réseau</h3>
-                    <p>À venir</p>
-
-                    <h3>Un projet en évolution permanente</h3>
-                    <p>À venir</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Section : Les outils -->
-        <article class="model-article">
-            <div class="container">
-                <div class="model-prose">
-                    <h2>Les outils</h2>
-                    <p>À venir</p>
-
-                    <h3>Le dessin</h3>
-                    <p>À venir</p>
-
-                    <h3>Le site web</h3>
-                    <p>À venir</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Note de fin -->
-        <section class="project-3d-outro">
-            <div class="container">
-                <div class="outro-content">
-                    <h3>Un projet en construction</h3>
-                    <p>À venir</p>
-                    <a href="index.html" class="btn btn-secondary">← Retour à MLTC</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Date de dernière modification -->
-        <section class="last-modified">
-            <div class="container">
-                <p>Dernière mise à jour : 6 avril 2026</p>
             </div>
         </section>
     </main>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightbox-img" src="" alt="">
-        <p id="lightbox-caption"></p>
-    </div>
 
     <footer class="footer">
         <div class="container">
@@ -234,35 +120,5 @@
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-        function openLightbox(element) {
-            const lightbox = document.getElementById('lightbox');
-            const img = element.querySelector('img');
-            const caption = element.querySelector('figcaption');
-            
-            document.getElementById('lightbox-img').src = img.src;
-            document.getElementById('lightbox-img').alt = img.alt;
-            document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : '';
-            
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-
-        document.getElementById('lightbox-img').addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-    </script>
 </body>
 </html>

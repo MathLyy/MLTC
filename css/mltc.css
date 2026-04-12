@@ -2676,9 +2676,10 @@ html {
 
 .lv-features {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center; /* centré en bloc */
-  align-items: center;
-  gap: var(--spacing-3xl);
+  align-items: flex-start;
+  gap: var(--spacing-xl) var(--spacing-3xl);
   margin: 0 auto var(--spacing-xl);
   max-width: 980px; /* limite la largeur pour garder un espacement cohérent */
   padding: 0 var(--spacing-md);
@@ -2736,12 +2737,19 @@ html {
 }
 
 @media (max-width: 600px) {
+  .lv-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg) var(--spacing-md);
+  }
   .lv-feature {
-    align-items: flex-start;
-    text-align: left;
+    flex: none;
+    align-items: center;
+    text-align: center;
   }
   .lv-feature-text {
-    text-align: left;
+    text-align: center;
+    font-size: 0.85em;
   }
 }
 
@@ -3979,4 +3987,45 @@ html {
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0;
+}
+
+/* ========================================
+   WIP (En construction) Page
+   ======================================== */
+.wip-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+}
+
+.wip-content {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.wip-content svg {
+    color: var(--text-secondary);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+.wip-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.wip-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.wip-content .btn {
+    display: inline-block;
 }
