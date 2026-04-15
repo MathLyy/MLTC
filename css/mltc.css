@@ -73,27 +73,6 @@
     text-transform: uppercase;
 }
 
-/* Les coulisses link - red */
-.subnav-link[href*="coulisses"] {
-    color: #dc2626;
-}
-.subnav-link[href*="coulisses"]:hover {
-    color: #b91c1c;
-}
-.subnav-link[href*="coulisses"].active {
-    color: #dc2626;
-    background: rgba(220, 38, 38, 0.10);
-}
-[data-theme="dark"] .subnav-link[href*="coulisses"] {
-    color: #f87171;
-}
-[data-theme="dark"] .subnav-link[href*="coulisses"]:hover {
-    color: #fca5a5;
-}
-[data-theme="dark"] .subnav-link[href*="coulisses"].active {
-    color: #f87171;
-    background: rgba(248, 113, 113, 0.15);
-}
 
 /* MLTC Hero */
 .mltc-hero {
@@ -1938,6 +1917,8 @@ html {
     width: auto;
     height: auto;
     max-width: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* ═══════ MLCC Section ═══════ */
@@ -2607,13 +2588,18 @@ html {
     }
 
     .subnav-menu {
-        gap: var(--spacing-sm);
+        gap: 0;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
+    .subnav-menu::-webkit-scrollbar { display: none; }
 
     .subnav-link {
         white-space: nowrap;
+        font-size: 0.8rem;
+        padding: 0 var(--spacing-sm);
     }
 
     /* Livrées responsive */

@@ -356,6 +356,8 @@
     display: flex;
     align-items: flex-end;
     flex-shrink: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Train panoramic image - native pixel size, no drag */
@@ -401,6 +403,26 @@
     font-style: italic;
 }
 
+/* ---- Multi-segment group (e.g. locomotive change) ---- */
+.circ-segments-group {
+    border-left: 3px solid var(--primary-300, #a78bfa);
+    padding-left: 12px;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+[data-theme="dark"] .circ-segments-group {
+    border-left-color: var(--primary-500, #7c3aed);
+}
+
+.circ-segments-group .circ-consist-wrap + .circ-consist-wrap {
+    margin-top: 2px;
+}
+
+.circ-segments-group .circ-segment-label {
+    padding-top: 8px;
+}
+
 .circ-footer {
     margin-top: 20px;
     text-align: center;
@@ -433,6 +455,14 @@
     .circ-item-detail {
         margin-left: 0;
     }
+    /* Mobile: scroll directly on consist, hide separate scrollbar */
+    .circ-consist {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .circ-consist::-webkit-scrollbar { display: none; }
+    .circ-scroll { display: none; }
 }
 @media (max-width: 500px) {
     .circ-hero {

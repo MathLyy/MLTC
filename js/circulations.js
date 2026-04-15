@@ -94,11 +94,12 @@
 
         let consistBlocks = '';
         if (hasSegments) {
-            consistBlocks = item.segments.map(seg => {
+            const segHTML = item.segments.map(seg => {
                 const segVehicles = Array.isArray(seg.vehicles) ? seg.vehicles : [];
                 const content = segVehicles.length ? buildVehicleRow(segVehicles) : '';
                 return buildConsistBlock(content, seg.label);
             }).join('');
+            consistBlocks = `<div class="circ-segments-group">${segHTML}</div>`;
         } else if (hasVehicles) {
             consistBlocks = buildConsistBlock(buildVehicleRow(item.vehicles), null);
         } else if (hasImg) {
