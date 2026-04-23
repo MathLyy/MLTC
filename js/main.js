@@ -7,9 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const html = document.documentElement;
     
-    // Check for saved theme preference or default to light
+    // Check for saved theme preference or default to light.
+    // If an inline pre-script has forced a theme (e.g. dark mode on livrée subpages),
+    // respect it and do not override with the saved preference.
+    const forcedTheme = html.getAttribute('data-theme-forced');
     const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
+    if (forcedTheme) {
+        html.setAttribute('data-theme', forcedTheme);
+    } else {
+        html.setAttribute('data-theme', savedTheme);
+    }
     
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -98,6 +105,59 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // MLTC Sub-navigation Dropdowns
+    const subnavToggles = document.querySelectorAll('.subnav-toggle');
+    const subnavItems = document.querySelectorAll('.subnav-item');
+    let hoverCloseTimer = null;
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.subnav-item')) {
+            subnavItems.forEach(item => item.classList.remove('open'));
+        }
+    });
+
+    // Handle toggle click and hover
+    subnavToggles.forEach(toggle => {
+        const item = toggle.closest('.subnav-item');
+
+        // Click to toggle
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            subnavItems.forEach(i => {
+                if (i !== item) i.classList.remove('open');
+            });
+            item.classList.toggle('open');
+        });
+
+        // Hover to open on desktop
+        item.addEventListener('mouseenter', () => {
+            if (window.innerWidth >= 768) {
+                clearTimeout(hoverCloseTimer);
+                subnavItems.forEach(i => {
+                    if (i !== item) i.classList.remove('open');
+                });
+                item.classList.add('open');
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            if (window.innerWidth >= 768) {
+                clearTimeout(hoverCloseTimer);
+                hoverCloseTimer = setTimeout(() => {
+                    item.classList.remove('open');
+                }, 150);
+            }
+        });
+    });
+
+    // Handle link clicks in dropdown
+    document.querySelectorAll('.subnav-dropdown .subnav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            subnavItems.forEach(item => item.classList.remove('open'));
+        });
+    });
 
     // Service card deck - tab switching
     document.querySelectorAll('.ht-service-deck').forEach(deck => {

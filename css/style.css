@@ -46,8 +46,8 @@
     --footer-border: var(--neutral-800);
 
     /* Typography */
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 
     /* Spacing */
     --spacing-xs: 0.25rem;
@@ -224,12 +224,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-text {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--primary-600);
+}
+
+[data-theme="dark"] .logo-text {
+    color: #c4b5fd;
 }
 
 .nav-menu {
@@ -927,10 +929,11 @@ h1, h2, h3, h4, h5, h6 {
    ======================================== */
 #train-animation-container {
     position: relative;
-    border-top: 1px solid var(--border);
+    border-top: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 1px;
     background: #000;
+    display: block;
 }
 
 /* ========================================

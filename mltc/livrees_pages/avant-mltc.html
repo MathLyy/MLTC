@@ -8,16 +8,18 @@
     <script>
         (function() {
             document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.setAttribute('data-theme-forced', 'dark');
         })();
     </script>
+    <style id="lv-early-bg">html,body{background:#0f0a1a;color:#f5f5f5;}</style>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/livrees-subpages.css">
     <link rel="stylesheet" href="../../css/mltc.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="lv-entering">
     <nav class="navbar">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo">
@@ -66,15 +68,37 @@
         </div>
     </nav>
 
+    <!-- MLTC Sub-navigation -->
     <nav class="mltc-subnav">
         <div class="container">
-                        <ul class="subnav-menu">
-                <li><a href="../index.html" class="subnav-link">Accueil</a></li>
-                <li><a href="../histoire.html" class="subnav-link">Histoire</a></li>
-                <li><a href="../livrees.html" class="subnav-link active">Livrées</a></li>
-                <li><a href="../circulations.html" class="subnav-link">Circulations</a></li>
-                <li><a href="../../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
-                <li><a href="../production.html" class="subnav-link">Production</a></li>            </ul>
+            <ul class="subnav-menu">
+                <!-- L'Univers -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="univers">L'Univers</button>
+                    <div class="subnav-dropdown">
+                        <a href="../index.html" class="subnav-link">Accueil</a>
+                        <a href="../histoire.html" class="subnav-link">Histoire</a>
+                        <a href="../coulisses.html" class="subnav-link">Les coulisses de la MLTC</a>
+                    </div>
+                </li>
+                <!-- Le Réseau -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="reseau">Le Réseau</button>
+                    <div class="subnav-dropdown">
+                        <a href="../circulations.html" class="subnav-link">Circulations</a>
+                        <a href="../livrees.html" class="subnav-link active">Livrées</a>
+                        <a href="../services.html" class="subnav-link">Services</a>
+                    </div>
+                </li>
+                <!-- Acteurs -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="acteurs">Acteurs</button>
+                    <div class="subnav-dropdown">
+                        <a href="../../operateurs-prives.html" class="subnav-link">Opérateurs privés</a>
+                        <a href="../production.html" class="subnav-link">Production</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -215,7 +239,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-version">v<strong>0.6</strong> (15/04/2026)</span>
+                <span class="footer-version">v<strong>0.7</strong> (23/04/2026)</span>
                 <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
             </div>
         </div>

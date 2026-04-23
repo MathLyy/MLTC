@@ -31,7 +31,6 @@
     container.style.height    = FRAME_H + 'px';
     container.style.overflow  = 'hidden';
     container.style.pointerEvents = 'none';
-    container.style.background = '#0a0a10';
 
     /* track strip at the bottom */
     const track = document.createElement('div');

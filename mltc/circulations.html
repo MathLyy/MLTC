@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/circulations.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -52,12 +52,33 @@
     <nav class="mltc-subnav">
         <div class="container">
             <ul class="subnav-menu">
-                <li><a href="index.html" class="subnav-link">Accueil</a></li>
-                <li><a href="histoire.html" class="subnav-link">Histoire</a></li>
-                <li><a href="livrees.html" class="subnav-link">Livrées</a></li>
-                <li><a href="circulations.html" class="subnav-link active">Circulations</a></li>
-                <li><a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
-                <li><a href="production.html" class="subnav-link">Production</a></li>            </ul>
+                <!-- L'Univers -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="univers">L'Univers</button>
+                    <div class="subnav-dropdown">
+                        <a href="index.html" class="subnav-link">Accueil</a>
+                        <a href="histoire.html" class="subnav-link">Histoire</a>
+                        <a href="coulisses.html" class="subnav-link">Les coulisses de la MLTC</a>
+                    </div>
+                </li>
+                <!-- Le Réseau -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="reseau">Le Réseau</button>
+                    <div class="subnav-dropdown">
+                        <a href="circulations.html" class="subnav-link active">Circulations</a>
+                        <a href="livrees.html" class="subnav-link">Livrées</a>
+                        <a href="services.html" class="subnav-link">Services</a>
+                    </div>
+                </li>
+                <!-- Acteurs -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="acteurs">Acteurs</button>
+                    <div class="subnav-dropdown">
+                        <a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a>
+                        <a href="production.html" class="subnav-link">Production</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -65,61 +86,65 @@
         <!-- Hero -->
         <section class="circ-hero">
             <div class="container">
-                <h1>Circulations</h1>
+                <h1 class="mltc-page-title">Circulations</h1>
                 <p class="circ-subtitle">Explorez le réseau MLTC Railways à travers les 12 états membres du Mathlyens.</p>
             </div>
         </section>
 
-        <!-- Carte géographique -->
-        <section class="circ-map-section">
-            <div class="container">
-                <div class="circ-map-wrap">
-                    <div class="circ-map-skeleton" id="circ-skeleton">
-                        <div class="circ-skeleton-shape"></div>
-                        <span class="circ-skeleton-text">Chargement de la carte...</span>
+        <section class="circ-experience">
+            <div class="container circ-experience-shell">
+                <div class="circ-layout" id="circ-layout" data-state="idle">
+                    <div class="circ-map-stage">
+                        <div class="circ-map-wrap">
+                            <div class="circ-map-intro">
+                                <h2>Survolez, cliquez, comparez</h2>
+                                <p>La carte reste interactive en permanence. Sélectionnez un pays pour faire glisser l'interface vers une lecture plus détaillée des circulations MLTC.</p>
+                            </div>
+                            <div class="circ-map-skeleton" id="circ-skeleton">
+                                <div class="circ-skeleton-shape"></div>
+                                <span class="circ-skeleton-text">Chargement de la carte...</span>
+                            </div>
+                            <svg viewBox="0 0 800 650" class="circ-map" role="img" aria-label="Carte des pays du Mathlyens">
+                                <!-- Généré dynamiquement par circulations.js -->
+                            </svg>
+                            <p class="circ-map-hint" id="circ-map-hint">Cliquez sur un pays pour ouvrir le panneau des circulations sans quitter la carte.</p>
+                        </div>
                     </div>
-                    <svg viewBox="0 0 800 650" class="circ-map" role="img" aria-label="Carte des pays du Mathlyens">
-                        <!-- Généré dynamiquement par circulations.js -->
-                    </svg>
-                    <p class="circ-map-hint">Cliquez sur un pays pour voir une liste non exhaustive des circulations MLTC.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Country bar: name + controls -->
-        <section class="circ-bar">
-            <div class="container circ-bar-inner">
-                <div class="circ-bar-country">
-                    <h2 id="circ-country-name">Sélectionnez un pays</h2>
-                    <p id="circ-country-desc">Cliquez sur un pays de la carte pour afficher les services et compositions.</p>
-                </div>
-                <div class="circ-bar-controls">
-                    <input id="circ-search" type="search" placeholder="Rechercher…" aria-label="Recherche">
-                    <select id="circ-filter" aria-label="Filtrer par service">
-                        <option value="">Tous les services</option>
-                        <option value="Xpress">Xpress</option>
-                        <option value="HSX">HSX</option>
-                        <option value="TransRegio">TransRegio</option>
-                        <option value="Vivarail">Vivarail</option>
-                        <option value="Nocrail">Nocrail</option>
-                        <option value="Urbahn">Urbahn</option>
-                        <option value="Intracity">Intracity</option>
-                    </select>
-                </div>
-            </div>
-        </section>
+                    <aside class="circ-panel" id="circ-panel" aria-hidden="true">
+                        <div class="circ-panel-shell">
+                            <div class="circ-bar-country">
+                                <h2 id="circ-country-name">Sélectionnez un pays</h2>
+                                <p id="circ-country-desc">Choisissez un territoire sur la carte pour afficher les services, compositions et variantes associées.</p>
+                            </div>
 
-        <!-- Compositions (full width) -->
-        <section class="circ-compositions">
-            <div class="container">
-                <ul id="circ-list" class="circ-list" aria-live="polite"></ul>
-                <p class="circ-empty" id="circ-empty">Cliquez sur un pays pour voir ses compositions.</p>
-                <p class="circ-footer"><small>Univers fictif MLTC, compositions à titre indicatif.</small></p>
+                            <div class="circ-bar-controls">
+                                <input id="circ-search" type="search" placeholder="Rechercher…" aria-label="Recherche">
+                                <select id="circ-filter" aria-label="Filtrer par service">
+                                    <option value="">Tous les services</option>
+                                    <option value="Xpress">Xpress</option>
+                                    <option value="HSX">HSX</option>
+                                    <option value="TransRegio">TransRegio</option>
+                                    <option value="Vivarail">Vivarail</option>
+                                    <option value="Nocrail">Nocrail</option>
+                                    <option value="Urbahn">Urbahn</option>
+                                    <option value="Intracity">Intracity</option>
+                                </select>
+                            </div>
+
+                            <div class="circ-compositions">
+                                <ul id="circ-list" class="circ-list" aria-live="polite"></ul>
+                                <p class="circ-empty" id="circ-empty">Cliquez sur un pays pour voir ses compositions.</p>
+                                <p class="circ-footer"><small>Univers fictif MLTC, compositions à titre indicatif.</small></p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
 
         <section class="last-modified">
-            <div class="container"><p>Dernière mise à jour : 6 avril 2026</p></div>
+            <div class="container"><p>Dernière mise à jour : 23 avril 2026</p></div>
         </section>
     </main>
 
@@ -139,7 +164,7 @@
                     <a href="../liens.html">Liens</a>
                 </div>
             </div>
-            <div class="footer-bottom"><span class="footer-version">v<strong>0.6</strong> (15/04/2026)</span><p>&copy; 2026 MathLoo. Tous droits réservés.</p></div>
+            <div class="footer-bottom"><span class="footer-version">v<strong>0.7</strong> (23/04/2026)</span><p>&copy; 2026 MathLoo. Tous droits réservés.</p></div>
         </div>
     </footer>
 

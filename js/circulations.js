@@ -15,17 +15,27 @@
 
     /* ---- DOM refs ---- */
     const svgEl    = document.querySelector('.circ-map');
+    const layoutEl = document.getElementById('circ-layout');
+    const panelEl  = document.getElementById('circ-panel');
     const titleEl  = document.getElementById('circ-country-name');
     const descEl   = document.getElementById('circ-country-desc');
     const listEl   = document.getElementById('circ-list');
     const emptyEl  = document.getElementById('circ-empty');
+    const compsEl  = document.querySelector('.circ-compositions');
     const searchEl = document.getElementById('circ-search');
     const filterEl = document.getElementById('circ-filter');
+    const hintEl   = document.getElementById('circ-map-hint');
+
+    const DEFAULT_TITLE = 'Sélectionnez un pays';
+    const DEFAULT_DESC = 'Choisissez un territoire sur la carte pour afficher les services, compositions et variantes associées.';
+    const DEFAULT_HINT = 'Cliquez sur un pays pour ouvrir le panneau des circulations sans quitter la carte.';
+    const ACTIVE_HINT = 'La carte reste active : cliquez sur un autre pays, ou dans le vide de la carte pour revenir à la vue d\'ensemble.';
 
     let shapes = [];
     let DATA = {};
     let activeCountry = null;
     let crossCountry = {};
+    let renderToken = 0;
 
     /* ---- Helpers ---- */
     const esc = s => (s || '').replace(/[&<>"]/g, c =>
@@ -33,6 +43,71 @@
 
     function setEmpty(vis) {
         if (emptyEl) emptyEl.classList.toggle('hidden', !vis);
+    }
+
+    function setLayoutState(active) {
+        if (layoutEl) {
+            layoutEl.classList.toggle('is-active', active);
+            layoutEl.dataset.state = active ? 'active' : 'idle';
+        }
+        if (panelEl) {
+            panelEl.setAttribute('aria-hidden', String(!active));
+            if ('inert' in panelEl) panelEl.inert = !active;
+        }
+        if (hintEl) hintEl.textContent = active ? ACTIVE_HINT : DEFAULT_HINT;
+    }
+
+    function clearList() {
+        listEl.innerHTML = '';
+        setEmpty(false);
+    }
+
+    function resetView() {
+        clearActive();
+        searchEl.value = '';
+        filterEl.value = '';
+        titleEl.textContent = DEFAULT_TITLE;
+        descEl.textContent = DEFAULT_DESC;
+        clearList();
+        setLayoutState(false);
+    }
+
+    function getCountryEntries(name) {
+        const entry = DATA[name];
+        if (!entry) return [];
+        const local = (entry.compositions || []).map(item => ({ item, origin: null }));
+        const cross = (crossCountry[name] || []).map(c => ({ item: c.item, origin: c.originCountry }));
+        return local.concat(cross).sort((a, b) => a.item.service.localeCompare(b.item.service));
+    }
+
+    function renderEntries(entries, options) {
+        const opts = options || {};
+        const token = ++renderToken;
+        titleEl.textContent = opts.title || DEFAULT_TITLE;
+        descEl.textContent = opts.description || DEFAULT_DESC;
+        setLayoutState(Boolean(opts.active));
+
+        if (compsEl) compsEl.classList.add('is-updating');
+
+        window.setTimeout(() => {
+            if (token !== renderToken) return;
+
+            if (!entries.length) {
+                listEl.innerHTML = '';
+                if (emptyEl && opts.emptyMessage) emptyEl.textContent = opts.emptyMessage;
+                setEmpty(true);
+            } else {
+                setEmpty(false);
+                listEl.innerHTML = entries.map(e => itemHTML(e.item, e.origin || e.country)).join('');
+                wireScrollSync();
+                wireRouteExpand();
+            }
+
+            requestAnimationFrame(() => {
+                if (token !== renderToken) return;
+                if (compsEl) compsEl.classList.remove('is-updating');
+            });
+        }, 120);
     }
 
     /** Build cross-country index: trains serving stations in a foreign country */
@@ -187,44 +262,15 @@
         activeCountry = name;
         const shape = shapes.find(s => s.dataset.country === name);
         if (shape) shape.classList.add('active');
-        titleEl.textContent = name;
-        descEl.textContent  = entry.description || '';
-        const items = (entry.compositions || []).map(it => ({ item: it, origin: null }));
-        const cross = (crossCountry[name] || []).map(c => ({ item: c.item, origin: c.originCountry }));
-        const all = items.concat(cross);
-        all.sort((a, b) => a.item.service.localeCompare(b.item.service));
-        setEmpty(!all.length);
-        listEl.innerHTML = all.length
-            ? all.map(e => itemHTML(e.item, e.origin)).join('')
-            : '';
-        wireScrollSync();
-        wireRouteExpand();
-        if (window.innerWidth < 768) {
-            document.querySelector('.circ-bar')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    function showAll() {
-        clearActive();
-        const seen = new Set();
-        const results = [];
-        Object.keys(DATA).forEach(country => {
-            (DATA[country].compositions || []).forEach(item => {
-                const key = country + '|' + item.name + '|' + item.detail;
-                if (!seen.has(key)) {
-                    seen.add(key);
-                    results.push({ country, item });
-                }
-            });
+        renderEntries(getCountryEntries(name), {
+            active: true,
+            title: name,
+            description: entry.description || 'Consultez les circulations associées à ce territoire.',
+            emptyMessage: 'Aucune circulation n\'est renseignée pour ce pays.'
         });
-        results.sort((a, b) => a.item.service.localeCompare(b.item.service));
-        titleEl.textContent = 'Toutes les circulations';
-        descEl.textContent  = results.length + ' composition(s) dans ' + Object.keys(DATA).length + ' pays';
-        setEmpty(!results.length);
-        listEl.innerHTML = results.length
-            ? results.map(r => itemHTML(r.item, r.country)).join('') : '';
-        wireScrollSync();
-        wireRouteExpand();
+        if (window.innerWidth < 768) {
+            panelEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
     /* ---- Search / filter ---- */
@@ -232,42 +278,28 @@
     function applyFilter() {
         const q       = (searchEl.value || '').toLowerCase().trim();
         const service = (filterEl.value || '').toLowerCase().trim();
-        if (!q && !service) {
-            shapes.forEach(s => s.classList.remove('dimmed'));
-            if (activeCountry) selectCountry(activeCountry);
-            else showAll();
+        if (!activeCountry) {
+            resetView();
             return;
         }
-        const seen = new Set();
-        const results = [];
-        const matched = new Set();
-        Object.keys(DATA).forEach(country => {
-            (DATA[country].compositions || []).forEach(item => {
-                const blob = (country + ' ' + item.name + ' ' + item.service + ' ' + item.detail).toLowerCase();
-                if ((!q || blob.includes(q)) && (!service || item.service.toLowerCase() === service)) {
-                    const key = country + '|' + item.name + '|' + item.detail;
-                    if (!seen.has(key)) {
-                        seen.add(key);
-                        results.push({ country, item });
-                    }
-                    matched.add(country);
-                    if (item.countries) Object.keys(item.countries).forEach(c => matched.add(c));
-                }
-            });
+        if (!q && !service) {
+            selectCountry(activeCountry);
+            return;
+        }
+        const results = getCountryEntries(activeCountry).filter(entry => {
+            const blob = (activeCountry + ' ' + entry.item.name + ' ' + entry.item.service + ' ' + entry.item.detail).toLowerCase();
+            return (!q || blob.includes(q)) && (!service || entry.item.service.toLowerCase() === service);
         });
-        results.sort((a, b) => a.item.service.localeCompare(b.item.service));
-        shapes.forEach(s => {
-            s.classList.toggle('dimmed', !matched.has(s.dataset.country));
-            s.classList.remove('active');
+        const entry = DATA[activeCountry] || {};
+        const baseDescription = entry.description || 'Consultez les circulations associées à ce territoire.';
+        renderEntries(results, {
+            active: true,
+            title: activeCountry,
+            description: results.length
+                ? baseDescription + ' ' + results.length + ' circulation(s) correspondent au filtre.'
+                : 'Aucune circulation ne correspond aux filtres en cours.',
+            emptyMessage: 'Aucun résultat pour cette sélection.'
         });
-        titleEl.textContent = results.length + ' résultat(s)';
-        descEl.textContent  = matched.size
-            ? 'Dans ' + matched.size + ' pays : ' + [...matched].join(', ') : '';
-        setEmpty(!results.length);
-        listEl.innerHTML = results.length
-            ? results.map(r => itemHTML(r.item, r.country)).join('') : '';
-        wireScrollSync();
-        wireRouteExpand();
     }
 
     /* ---- Wire SVG shapes ---- */
@@ -281,8 +313,8 @@
             s.setAttribute('aria-label', country + ' - voir les compositions');
             s.addEventListener('click', (e) => {
                 e.stopPropagation();
-                searchEl.value = ''; filterEl.value = '';
-                shapes.forEach(sh => sh.classList.remove('dimmed'));
+                searchEl.value = '';
+                filterEl.value = '';
                 selectCountry(country);
             });
             s.addEventListener('keydown', e => {
@@ -290,9 +322,7 @@
             });
         });
         svgEl.addEventListener('click', () => {
-            searchEl.value = ''; filterEl.value = '';
-            shapes.forEach(s => s.classList.remove('dimmed'));
-            showAll();
+            resetView();
         });
     }
 
@@ -425,11 +455,24 @@
 
         // Populate shapes reference
         shapes = Array.from(svgEl.querySelectorAll('.circ-country'));
+
+        // Tighten the viewBox to the actual rendered content, removing
+        // empty gutters on the sides (purely visual - country geometry unchanged).
+        try {
+            const bbox = svgEl.getBBox();
+            const pad = 8;
+            const vx = Math.max(0, bbox.x - pad);
+            const vy = Math.max(0, bbox.y - pad);
+            const vw = Math.min(W - vx, bbox.width + pad * 2);
+            const vh = Math.min(H - vy, bbox.height + pad * 2);
+            svgEl.setAttribute('viewBox', vx + ' ' + vy + ' ' + vw + ' ' + vh);
+        } catch (e) { /* getBBox unsupported - leave default */ }
     }
 
     /* ---- Init ---- */
 
     async function init() {
+        setLayoutState(false);
         await buildMap();
         const r = await fetch('data/circulations.json');
         if (!r.ok) throw new Error('Données : HTTP ' + r.status);
@@ -438,8 +481,7 @@
         wireShapes();
         searchEl.addEventListener('input', applyFilter);
         filterEl.addEventListener('change', applyFilter);
-        if (DATA['France']) selectCountry('France');
-        else showDefault();
+        resetView();
         var skel = document.getElementById('circ-skeleton');
         if (skel) skel.classList.add('hidden');
     }

@@ -1,6 +1,6 @@
 {
   "France": {
-    "description": "Coeur historique du réseau, desservi par un maillage dense avec des services à toute échelle.",
+    "description": "Noyau fondateur du réseau MLTC depuis 2001, avec le maillage le plus dense et une offre complète du régional à la grande vitesse.",
     "compositions": [
       {
         "service": "HSX",
@@ -102,7 +102,7 @@
     ]
   },
   "Royaume-Uni": {
-    "description": "Présence concentrée en Angleterre, héritage de la MSER. Services grandes lignes et régionaux.",
+    "description": "Territoire hérité de la MSER, d'abord concentré dans le sud de l'Angleterre puis renforcé vers le centre en 2007, avec une forte présence sur les grandes lignes.",
     "compositions": [
       {
         "service": "Xpress",
@@ -218,7 +218,7 @@
       },
       {
         "service": "TransRegio",
-        "name": "Exeter → Taunton → Tiverton → Newton Abbot → Plymouth → Liskeard → Bodmin → Truro → Penzance",
+        "name": "Exeter → Dawlish → Teignmouth → Totnes → Ivybridge → Plymouth → Liskeard → Bodmin → St Austell → Truro → Redruth → Camborne → Penzance",
         "detail": "Class 57 + Mk2",
         "vehicles": [
           "livrees_pages/livrees_img/tr/A-TRCL57.png",
@@ -235,7 +235,7 @@
     ]
   },
   "Belgique": {
-    "description": "Couverture dense héritée de la CCFM, sur l'ensemble du territoire belge.",
+    "description": "Couverture historiquement dense héritée de la CCFM, avec un réseau très intégré aux axes transfrontaliers du Benelux et du nord de la France.",
     "compositions": [
       {
         "service": "Xpress",
@@ -295,7 +295,7 @@
     ]
   },
   "Luxembourg": {
-    "description": "Réseau le plus intégré à la MLTC, qui y opère la quasi-totalité des services.",
+    "description": "Réseau le plus intégré à la MLTC, où la compagnie opère la quasi-totalité des dessertes voyageurs et assure un rôle de continuité entre les pays fondateurs.",
     "compositions": [
       {
         "service": "Xpress",
@@ -318,7 +318,7 @@
     ]
   },
   "Pays-Bas": {
-    "description": "Couverture héritée de la CCFM (MSVM en néerlandais), sur les grandes lignes et le régional.",
+    "description": "Implantation héritée de la CCFM (MSVM en néerlandais), structurée autour des grands axes interurbains et d'un maillage régional dense.",
     "compositions": [
       {
         "service": "Vivarail",
@@ -339,7 +339,7 @@
     ]
   },
   "Allemagne": {
-    "description": "Forte implantation, concentrée dans les régions de l'Ouest. L'Est, intégré plus tardivement, reste moins couvert.",
+    "description": "Intégrée complètement dès 2001, l'Allemagne reste le principal bassin d'exploitation de la MLTC à l'ouest, tandis que l'est conserve une couverture plus progressive.",
     "compositions": [
       {
         "service": "HSX",
@@ -408,7 +408,7 @@
     ]
   },
   "Danemark": {
-    "description": "Desserte de la partie sud du pays, du Schleswig jusqu'à Copenhague.",
+    "description": "Entrée dans le réseau en 2008, avec une desserte concentrée sur le sud du pays, du Schleswig à Copenhague, prioritairement sur les relations rapides.",
     "compositions": [
       {
         "service": "Nocrail",
@@ -429,7 +429,7 @@
     ]
   },
   "Espagne": {
-    "description": "Desserte concentrée au nord du pays, de la frontière française jusqu'à Madrid.",
+    "description": "Dernier grand élargissement de 2012, avec une implantation prioritaire dans le nord de l'Espagne et les liaisons vers Madrid depuis la frontière française.",
     "compositions": [
       {
         "service": "HSX",
@@ -443,7 +443,7 @@
     ]
   },
   "Italie": {
-    "description": "Implantée principalement sur les grandes lignes, la compagnie nationale restant dominante.",
+    "description": "Présente dès 2002, la MLTC se concentre sur les grands corridors du nord de l'Italie, en complément des opérateurs nationaux qui restent dominants ailleurs.",
     "compositions": [
       {
         "service": "Xpress",
@@ -482,7 +482,7 @@
     ]
   },
   "Autriche": {
-    "description": "Couverture étendue, sur les corridors internationaux comme sur les lignes intérieures.",
+    "description": "Intégrée en 2005, l'Autriche bénéficie d'une couverture étendue, à la fois sur les corridors internationaux et sur un réseau intérieur bien maillé.",
     "compositions": [
       {
         "service": "Xpress",
@@ -514,7 +514,7 @@
     ]
   },
   "République Tchèque": {
-    "description": "Implantation concentrée dans les régions de l'Ouest, principalement en Bohême.",
+    "description": "Expansion engagée à partir de 2010, d'abord via les dessertes internationales puis par des concessions en Bohême occidentale et sur les axes vers l'Allemagne.",
     "compositions": [
       {
         "service": "Xpress",
@@ -536,7 +536,7 @@
     ]
   },
   "Suisse": {
-    "description": "Bonne couverture des lignes à écartement standard. Les réseaux métriques alpins restent confiés aux opérateurs locaux.",
+    "description": "Intégrée en 2005, la Suisse est principalement exploitée sur les lignes à écartement standard, tandis que les réseaux métriques alpins restent gérés localement.",
     "compositions": [
       {
         "service": "Xpress",

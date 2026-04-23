@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/mltc.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -70,43 +70,94 @@
     <nav class="mltc-subnav">
         <div class="container">
             <ul class="subnav-menu">
-                <li><a href="index.html" class="subnav-link active">Accueil</a></li>
-                <li><a href="histoire.html" class="subnav-link">Histoire</a></li>
-                <li><a href="livrees.html" class="subnav-link">Livrées</a></li>
-                <li><a href="circulations.html" class="subnav-link">Circulations</a></li>
-                <li><a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
-                <li><a href="production.html" class="subnav-link">Production</a></li>            </ul>
+                <!-- L'Univers -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="univers">L'Univers</button>
+                    <div class="subnav-dropdown">
+                        <a href="index.html" class="subnav-link active">Accueil</a>
+                        <a href="histoire.html" class="subnav-link">Histoire</a>
+                        <a href="coulisses.html" class="subnav-link">Les coulisses de la MLTC</a>
+                    </div>
+                </li>
+                <!-- Le Réseau -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="reseau">Le Réseau</button>
+                    <div class="subnav-dropdown">
+                        <a href="circulations.html" class="subnav-link">Circulations</a>
+                        <a href="livrees.html" class="subnav-link">Livrées</a>
+                        <a href="services.html" class="subnav-link">Services</a>
+                    </div>
+                </li>
+                <!-- Acteurs -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="acteurs">Acteurs</button>
+                    <div class="subnav-dropdown">
+                        <a href="../operateurs-prives.html" class="subnav-link">Opérateurs privés</a>
+                        <a href="production.html" class="subnav-link">Production</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <main>
-        <!-- MLTC Hero -->
+        <!-- MLTC Hero - Split layout -->
         <section class="mltc-hero">
-            <div class="container">
-                <div class="mltc-hero-content">
-                    <span class="mltc-badge">Projet Principal</span>
-                    <h1>MathLy Travel Company</h1>
-                    <p class="mltc-tagline"><i>Le voyage au fil des rails, réinventé.</i></p>
-                    <div class="mltc-hero-stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">800+</span>
-                            <span class="hero-stat-label">Dessins créés</span>
+            <div class="hero-split">
+                <!-- Left column: title + CTA -->
+                <div class="hero-left">
+                    <div class="hero-left-deco" aria-hidden="true"></div>
+                    <div class="hero-left-top">
+                        <span class="hero-tag">Projet Principal</span>
+                        <h1 class="hero-title">MathLy Travel<br><span class="hero-title-accent">Company</span></h1>
+                        <p class="hero-sub"><i>Le voyage au fil des rails, réinventé.</i></p>
+                    </div>
+                    <div class="hero-left-bottom">
+                        <a href="#mltc-explore" class="hero-cta">
+                            Explorer l'univers
+                            <span class="hero-cta-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right column: stats + livery showcase -->
+                <div class="hero-right">
+                    <div class="hero-right-top">
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">800+</span>
+                                <span class="hero-stat-label">Dessins créés</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">2020</span>
+                                <span class="hero-stat-label">Année de création</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">20+</span>
+                                <span class="hero-stat-label">Identités visuelles</span>
+                            </div>
                         </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">2020</span>
-                            <span class="hero-stat-label">Année de création</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat-number">20+</span>
-                            <span class="hero-stat-label">Identités visuelles</span>
+
+                        <div class="hero-label">Livrées du matériel roulant</div>
+                        <div class="livery-grid">
+                            <a href="livrees_pages/services-urbains.html#intracity" class="livery-card" style="--liv-color:#37B9E8; background-image:url('icones_liv/intracity.png')"><span class="livery-name">Intracity</span></a>
+                            <a href="livrees_pages/mlcc.html" class="livery-card" style="--liv-color:#A10428; background-image:url('icones_liv/mlcc.png')"><span class="livery-name">MLCC</span></a>
+                            <a href="livrees_pages/vivarail.html" class="livery-card" style="--liv-color:#CEA616; background-image:url('icones_liv/vivarail.png')"><span class="livery-name">Vivarail</span></a>
+                            <a href="livrees_pages/transregio.html" class="livery-card" style="--liv-color:#441DAF; background-image:url('icones_liv/tr.png')"><span class="livery-name">TransRegio</span></a>
+                            <a href="livrees_pages/sango.html" class="livery-card" style="--liv-color:#F7864F; background-image:url('icones_liv/sango.png')"><span class="livery-name">SanGo!</span></a>
+                            <a href="livrees_pages/nocrail.html" class="livery-card" style="--liv-color:#2B305E; background-image:url('icones_liv/nocrail.png')"><span class="livery-name">Nocrail</span></a>
+                            <a href="livrees_pages/xpress.html" class="livery-card" style="--liv-color:#6C18BC; background-image:url('icones_liv/xpress.png')"><span class="livery-name">Xpress</span></a>
+                            <a href="livrees_pages/flamingo.html" class="livery-card livery-card-wip" style="--liv-color:#6b7280; background-image:url('icones_liv/wip.png')"><span class="livery-name">Flamingo Rail</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Train Animation -->
-        <div id="train-animation-container" data-base="../"></div>
+        <!-- Train banner: pixel-art compositions scrolling -->
+        <div class="train-banner">
+            <div id="train-animation-container" data-base="../"></div>
+        </div>
 
         <!-- Introduction -->
         <section class="mltc-intro">
@@ -125,7 +176,7 @@
         </section>
 
         <!-- Navigation Cards -->
-        <section class="mltc-navigation-section">
+        <section class="mltc-navigation-section" id="mltc-explore">
             <div class="container">
                 <h2 class="section-title">Explorer MLTC</h2>
                 <div class="nav-cards-grid">
@@ -220,7 +271,7 @@
         <!-- Date de dernière modification -->
         <section class="last-modified">
             <div class="container">
-                <p>Dernière mise à jour : 6 avril 2026</p>
+                <p>Dernière mise à jour : 23 avril 2026</p>
             </div>
         </section>
     </main>
@@ -242,7 +293,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-version">v<strong>0.6</strong> (15/04/2026)</span>
+                <span class="footer-version">v<strong>0.7</strong> (23/04/2026)</span>
                 <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
             </div>
         </div>

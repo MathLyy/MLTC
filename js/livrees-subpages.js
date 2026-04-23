@@ -134,29 +134,47 @@
     init();
   }
 
-  // Only run navbar transition & link interception on actual subpages
-  // (not on the livrees host page which uses livrees-transition.js)
-  if (document.querySelector('.lv-page') && !document.body.classList.contains('lv-host')) {
-    // Navbar enter transition: start light, then transition to dark
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        document.body.classList.add('lv-entered');
+  // ==========================================================
+  // Cross-page fade transition (unified for livrees.html + subpages)
+  // ==========================================================
+  var inLivreesSection = document.querySelector('.lv-page') || document.querySelector('.lv-page-section');
+  if (inLivreesSection) {
+    // Fade IN on arrival: body.lv-entering added inline in <head>, removed after first paint
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.body.classList.remove('lv-entering');
       });
     });
 
-    // Page fade-out transition when navigating away
-    document.addEventListener('click', function(e) {
-      const link = e.target.closest('a[href]');
+    // Fade OUT on leaving
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
       if (!link) return;
-      const href = link.getAttribute('href');
-      // Skip anchors on the same page, javascript: links, and new-tab links
-      if (!href || href.startsWith('#') || href.startsWith('javascript:') || link.target === '_blank') return;
+      var href = link.getAttribute('href');
+      if (!href) return;
+      if (href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+
+      var dest;
+      try { dest = new URL(link.href, window.location.href); } catch (err) { return; }
+      if (dest.origin !== window.location.origin) return;
+      // Same page, only hash differs → let native smooth scroll handle it
+      if (dest.pathname === window.location.pathname && dest.search === window.location.search) return;
+
       e.preventDefault();
-      document.body.classList.remove('lv-entered');
       document.body.classList.add('lv-leaving');
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.href = link.href;
-      }, 350);
+      }, 280);
+    });
+
+    // Restore on browser back/forward cache (bfcache)
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) {
+        document.body.classList.remove('lv-leaving');
+        document.body.classList.remove('lv-entering');
+      }
     });
   }
 })();
+

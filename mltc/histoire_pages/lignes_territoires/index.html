@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../../css/mltc.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -70,12 +70,33 @@
     <nav class="mltc-subnav">
         <div class="container">
             <ul class="subnav-menu">
-                <li><a href="../../index.html" class="subnav-link">Accueil</a></li>
-                <li><a href="../../histoire.html" class="subnav-link active">Histoire</a></li>
-                <li><a href="../../livrees.html" class="subnav-link">Livrées</a></li>
-                <li><a href="../../circulations.html" class="subnav-link">Circulations</a></li>
-                <li><a href="../../../operateurs-prives.html" class="subnav-link">Opérateurs privés</a></li>
-                <li><a href="../../production.html" class="subnav-link">Production</a></li>            </ul>
+                <!-- L'Univers -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="univers">L'Univers</button>
+                    <div class="subnav-dropdown">
+                        <a href="../../index.html" class="subnav-link">Accueil</a>
+                        <a href="../../histoire.html" class="subnav-link active">Histoire</a>
+                        <a href="../../coulisses.html" class="subnav-link">Les coulisses de la MLTC</a>
+                    </div>
+                </li>
+                <!-- Le Réseau -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="reseau">Le Réseau</button>
+                    <div class="subnav-dropdown">
+                        <a href="../../circulations.html" class="subnav-link">Circulations</a>
+                        <a href="../../livrees.html" class="subnav-link">Livrées</a>
+                        <a href="../../services.html" class="subnav-link">Services</a>
+                    </div>
+                </li>
+                <!-- Acteurs -->
+                <li class="subnav-item">
+                    <button class="subnav-toggle" data-category="acteurs">Acteurs</button>
+                    <div class="subnav-dropdown">
+                        <a href="../../../operateurs-prives.html" class="subnav-link">Opérateurs privés</a>
+                        <a href="../../production.html" class="subnav-link">Production</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
@@ -91,7 +112,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ OPÉRATION LIGNES DE VIE - EN-TÊTE INSTITUTIONNEL ═══════════ -->
+        <!-- ----------- OPÉRATION LIGNES DE VIE - EN-TÊTE INSTITUTIONNEL ----------- -->
         <section class="ht-section olv-header-section">
             <div class="container">
                 <div class="olv-institutional-header">
@@ -113,7 +134,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ PRÉSENTATION ═══════════ -->
+        <!-- ----------- PRÉSENTATION ----------- -->
         <section class="ht-section ht-section-alt">
             <div class="container">
                 <div class="ht-section-header">
@@ -134,7 +155,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ CHRONOLOGIE EN FRISE VISUELLE ═══════════ -->
+        <!-- ----------- CHRONOLOGIE EN FRISE VISUELLE ----------- -->
         <section class="ht-section">
             <div class="container">
                 <div class="ht-section-header">
@@ -220,7 +241,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ LIGNES - VAGUE 1 ═══════════ -->
+        <!-- ----------- LIGNES - VAGUE 1 ----------- -->
         <section class="ht-section ht-section-alt">
             <div class="container">
                 <div class="ht-section-header">
@@ -299,7 +320,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ FICHE MATÉRIEL - VALADO ═══════════ -->
+        <!-- ----------- FICHE MATÉRIEL - VALADO ----------- -->
         <section class="ht-section">
             <div class="container">
                 <div class="ht-section-header">
@@ -377,7 +398,7 @@
             </div>
         </section>
 
-        <!-- ═══════════ COMMUNIQUÉ DE PRESSE - MATHLYENS 2015 ═══════════ -->
+        <!-- ----------- COMMUNIQUÉ DE PRESSE - MATHLYENS 2015 ----------- -->
         <section class="ht-section ht-section-alt">
             <div class="container">
                 <div class="ht-section-header">
@@ -440,7 +461,7 @@
         <!-- Date de dernière modification -->
         <section class="last-modified">
             <div class="container">
-                <p>Dernière mise à jour : 6 avril 2026</p>
+                <p>Dernière mise à jour : 23 avril 2026</p>
             </div>
         </section>
     </main>
@@ -462,7 +483,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span class="footer-version">v<strong>0.6</strong> (15/04/2026)</span>
+                <span class="footer-version">v<strong>0.7</strong> (23/04/2026)</span>
                 <p>&copy; 2026 MathLoo. Tous droits réservés.</p>
             </div>
         </div>

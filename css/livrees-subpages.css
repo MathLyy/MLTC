@@ -3,48 +3,35 @@
    Adapted from old site, preserving layout
    ======================================== */
 
-/* Dark body background for subpages + page transitions */
-@keyframes lv-overlay-out {
-    from { opacity: 1; }
-    to   { opacity: 0; }
-}
+/* Shared: force dark bg on both host (livrees.html) and subpages. */
+body:has(.lv-page-section),
 body:has(.lv-page):not(.lv-host) {
-    background: #0a0a0f;
+    background: var(--background);
 }
-/* White overlay (below navbar) - visible on load, fades out to reveal dark page */
-body:has(.lv-page):not(.lv-host)::after {
-    content: '';
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--background, #fdfbff);
-    z-index: 998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-/* Entry: overlay starts opaque and fades out */
-body:has(.lv-page):not(.lv-host):not(.lv-entered):not(.lv-leaving)::after {
-    animation: lv-overlay-out 0.5s ease 0.05s forwards;
-    opacity: 1;
-}
-/* Once entered, overlay is gone */
-body.lv-entered::after {
-    opacity: 0;
-}
-/* Leaving: overlay fades back in */
-body.lv-leaving::after {
-    opacity: 1;
-    pointer-events: all;
-}
+/* Hide theme toggle everywhere in the livrées section (dark is enforced) */
+body:has(.lv-page-section) .theme-toggle,
 body:has(.lv-page):not(.lv-host) .theme-toggle {
     visibility: hidden;
     pointer-events: none;
 }
-body:has(.lv-page):not(.lv-host) .logo-text {
-    transition: all 0.5s ease;
+
+/* ---- Cross-page fade (host + subpages share this) ---- */
+body:has(.lv-page-section) main,
+body:has(.lv-page-section) footer,
+body:has(.lv-page):not(.lv-host) main,
+body:has(.lv-page):not(.lv-host) footer {
+    transition: opacity 0.28s ease;
+}
+/* Arrival: start invisible, fade in after paint (class removed by JS) */
+body.lv-entering main,
+body.lv-entering footer {
+    opacity: 0;
+}
+/* Departure: fade out before navigation */
+body.lv-leaving main,
+body.lv-leaving footer {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Scroll offset for fixed navbar + subnav */
@@ -54,84 +41,77 @@ html { scroll-padding-top: 130px; scroll-behavior: smooth; }
 .lv-page { max-width:1900px; width:100%; margin:0 auto; padding:120px var(--spacing-lg) 0; box-sizing:border-box; overflow-x:hidden; font-family: var(--font-body); }
 @media (min-width:1920px) { .lv-page { max-width:calc(100vw - 20px); } }
 
-/* Navbar/subnav: transitions always active on subpages */
-body:has(.lv-page):not(.lv-host) .navbar {
-    transition: background 0.5s ease, border-bottom-color 0.5s ease;
+/* ---- livrees.html host styles (gallery index) ---- */
+.lv-page-section { padding: 120px var(--spacing-lg) var(--spacing-xl); max-width: 1400px; margin: 0 auto; }
+.lv-container { display: flex; flex-direction: column; gap: var(--spacing-xl); }
+.lv-header { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+.mltc-page-title,
+.lv-header h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
 }
-body:has(.lv-page):not(.lv-host) .mltc-subnav {
-    transition: background 0.5s ease, border-bottom-color 0.5s ease;
+.lv-subtitle { color: #a8a3b3; font-size: 1rem; line-height: 1.6; max-width: 900px; }
+
+.lv-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-body:has(.lv-page):not(.lv-host) .nav-link {
-    transition: color 0.5s ease;
-}
-body:has(.lv-page):not(.lv-host) .subnav-link {
-    transition: color 0.5s ease, background 0.3s ease;
+.lv-feature { display: flex; align-items: center; gap: var(--spacing-sm); color: #a8a3b3; font-size: 0.9rem; }
+.lv-feature-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; }
+.lv-feature-r {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; background: var(--primary-600); color: #fff;
+    font-weight: 700; font-size: 0.75rem; border-radius: 2px;
 }
 
-/* Dark state: applied when lv-entered is set */
-body.lv-entered .navbar {
-    background: rgb(10, 10, 15) !important;
-    backdrop-filter: blur(20px);
-    border-bottom-color: rgba(255,255,255,0.06) !important;
+.lv-category { display: flex; flex-direction: column; gap: var(--spacing-sm); padding-bottom: var(--spacing-lg); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.lv-category:last-child { border-bottom: none; }
+.lv-category-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    background: linear-gradient(135deg, var(--primary-400), var(--primary-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 var(--spacing-xs);
 }
-body.lv-entered .nav-link {
-    color: #a8a3b3 !important;
+.lv-sub { display: block; color: #7a7485; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-top: var(--spacing-sm); font-weight: 600; }
+.lv-icons { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); padding: var(--spacing-sm) 0; }
+.lv-icons a {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
 }
-body.lv-entered .nav-link:hover,
-body.lv-entered .nav-link.active {
-    color: var(--primary-400) !important;
-}
-body.lv-entered .mltc-subnav {
-    background: rgb(10, 10, 15) !important;
-    backdrop-filter: blur(12px);
-    border-bottom-color: rgba(255,255,255,0.06) !important;
-}
-body.lv-entered .subnav-link {
-    color: #cec8d8 !important;
-}
-body.lv-entered .subnav-link:hover {
-    color: var(--primary-400) !important;
-    background: rgba(255,255,255,0.05);
-}
-body.lv-entered .subnav-link.active {
-    color: var(--primary-300) !important;
-    background: rgba(124, 58, 237, 0.15);
-}
-body.lv-entered .logo-text {
-    background: linear-gradient(135deg, var(--primary-400), var(--primary-300)) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
+.lv-icons a:hover { transform: translateY(-2px); opacity: 1; }
+.lv-icons img { display: block; width: auto; height: auto; max-width: none; image-rendering: pixelated; }
 
-/* Leaving: back to light */
-body.lv-leaving .navbar {
-    background: var(--navbar-bg, rgba(255,255,255,0.9)) !important;
-    border-bottom-color: var(--border, #ede9fe) !important;
-}
-body.lv-leaving .nav-link {
-    color: var(--text-secondary, #525252) !important;
-}
-body.lv-leaving .nav-link.active {
-    color: var(--accent-text, #9333ea) !important;
-}
-body.lv-leaving .mltc-subnav {
-    background: var(--navbar-bg, rgba(255,255,255,0.9)) !important;
-    border-bottom-color: var(--border, #ede9fe) !important;
-}
-body.lv-leaving .subnav-link {
-    color: var(--text-secondary, #525252) !important;
-}
-body.lv-leaving .subnav-link.active {
-    color: var(--accent-text, #9333ea) !important;
-    background: var(--accent-bg, rgba(168,85,247,0.15));
-}
-body.lv-leaving .logo-text {
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-500)) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
+/* Last modified (on livrees.html) */
+.last-modified { border-top: 1px solid rgba(255,255,255,0.08); padding: var(--spacing-md) 0; margin-top: var(--spacing-xl); }
+.last-modified p { color: #7a7485; font-size: 0.85rem; text-align: center; margin: 0; }
+
+/* Disclaimer popup (livrees.html) */
+.disclaimer-overlay { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); padding: var(--spacing-lg); }
+.disclaimer-overlay.hidden { display: none; }
+.disclaimer-popup { max-width: 480px; background: var(--surface); border: 1px solid rgba(255,255,255,0.08); border-radius: 0; padding: var(--spacing-xl); text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+.disclaimer-icon { display: flex; justify-content: center; color: var(--primary-400); margin-bottom: var(--spacing-md); }
+.disclaimer-title { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--text-primary); margin-bottom: var(--spacing-sm); }
+.disclaimer-text { color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--spacing-lg); }
+.disclaimer-text strong { color: var(--primary-300); }
+.disclaimer-btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--spacing-sm) var(--spacing-xl); background: var(--primary-600); color: #fff; border: none; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: background 0.2s ease; }
+.disclaimer-btn:hover { background: var(--primary-500); }
 
 /* Top area */
 .lv-wrap { margin: var(--spacing-md) 0 var(--spacing-lg) 0; }
@@ -340,8 +320,8 @@ body.lv-leaving .logo-text {
 .lv-theme-red .page-nav a:hover { background: rgba(209, 3, 34, 0.25); border-color: rgba(209, 3, 34, 0.5); }
 
 /* Subnav active state override for red pages */
-body:has(.lv-theme-red).lv-entered .subnav-link.active { color: #ff6b6b !important; background: rgba(209, 3, 34, 0.18); }
-body:has(.lv-theme-red).lv-entered .subnav-link:hover { color: #ff6b6b !important; }
+body:has(.lv-theme-red) .subnav-link.active { color: #ff6b6b !important; background: rgba(209, 3, 34, 0.18); }
+body:has(.lv-theme-red) .subnav-link:hover { color: #ff6b6b !important; }
 
 /* h2 headings in red theme */
 .lv-theme-red h2 { background: linear-gradient(135deg, #7c032d, #d10322); }
@@ -389,8 +369,8 @@ body:has(.lv-theme-red).lv-entered .subnav-link:hover { color: #ff6b6b !importan
 .lv-theme-orange h2 { background: linear-gradient(135deg, #a83520, #DF5E47); }
 
 /* Subnav active state override for orange pages */
-body:has(.lv-theme-orange).lv-entered .subnav-link.active { color: #ff9a85 !important; background: rgba(223, 94, 71, 0.18); }
-body:has(.lv-theme-orange).lv-entered .subnav-link:hover { color: #ff9a85 !important; }
+body:has(.lv-theme-orange) .subnav-link.active { color: #ff9a85 !important; background: rgba(223, 94, 71, 0.18); }
+body:has(.lv-theme-orange) .subnav-link:hover { color: #ff9a85 !important; }
 
 /* ========================================
    CFP Theme
@@ -435,8 +415,8 @@ body:has(.lv-theme-orange).lv-entered .subnav-link:hover { color: #ff9a85 !impor
 .lv-theme-cfp h2 { background: linear-gradient(135deg, #8a0316, #D10422); }
 
 /* Subnav active state override for CFP pages */
-body:has(.lv-theme-cfp).lv-entered .subnav-link.active { color: #ff7a8a !important; background: rgba(209, 4, 34, 0.18); }
-body:has(.lv-theme-cfp).lv-entered .subnav-link:hover { color: #ff7a8a !important; }
+body:has(.lv-theme-cfp) .subnav-link.active { color: #ff7a8a !important; background: rgba(209, 4, 34, 0.18); }
+body:has(.lv-theme-cfp) .subnav-link:hover { color: #ff7a8a !important; }
 
 /* === Responsive === */
 @media (max-width: 940px) { .lv-leftrow { grid-template-columns:180px 300px; } .lv-imgframe { width:300px; } .lv-imgframe img { height:auto; width:auto; } }

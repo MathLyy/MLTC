@@ -1,28 +1,19 @@
 /* ============================================================
-   MLTC - Circulations
-   Layout: carte en haut, compositions en dessous pleine largeur
-   ============================================================ */
+    MLTC - Circulations
+    Layout: carte centree puis consultation en deux colonnes
+    ============================================================ */
 
 /* ---- Hero ---- */
 .circ-hero {
-    padding: 140px 0 24px;
+    padding: 156px 0 24px;
     text-align: left;
 }
-.circ-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5.5vw, 3.5rem);
-    margin-bottom: var(--spacing-xs);
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
 .circ-subtitle {
-    margin-top: 8px;
+    margin-top: 0;
     color: var(--text-secondary);
-    max-width: 720px;
-    font-size: 1.05rem;
-    line-height: 1.55;
+    max-width: 72ch;
+    font-size: 1.02rem;
+    line-height: 1.62;
 }
 
 /* ---- Map skeleton loader ---- */
@@ -37,7 +28,7 @@
 .circ-skeleton-shape {
     width: 260px;
     height: 180px;
-    border-radius: var(--radius-lg, 12px);
+    border-radius: 0;
     background: linear-gradient(110deg, var(--border, #e5e7eb) 30%, var(--surface-alt, #f3f4f6) 50%, var(--border, #e5e7eb) 70%);
     background-size: 200% 100%;
     animation: circ-shimmer 1.5s ease-in-out infinite;
@@ -54,23 +45,196 @@
     100% { background-position: -200% 0; }
 }
 
-/* ---- Map section ---- */
-.circ-map-section {
-    padding: 24px 0 0;
+/* ---- Two-state layout ---- */
+.circ-experience {
+    padding: 24px 0 56px;
+    --circ-box-h: 860px;
+}
+.circ-experience > .circ-experience-shell {
+    width: 90% !important;
+    max-width: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+.circ-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0fr);
+    width: 100%;
+    align-items: stretch;
+    gap: 0;
+    transition: grid-template-columns 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                gap 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.circ-map-stage {
+    min-width: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    transition: max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                margin 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .circ-map-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: 28px 24px 20px;
-    box-shadow: var(--shadow-sm);
-    max-width: 820px;
-    margin: 0 auto;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--surface-elevated) 92%, var(--primary-50)), color-mix(in srgb, var(--surface) 96%, var(--primary-50)));
+    border: 1px solid color-mix(in srgb, var(--primary-200) 32%, var(--border));
+    border-radius: 0;
+    padding: 14px 10px 10px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+    width: 100%;
+    height: var(--circ-box-h);
+    display: flex;
+    flex-direction: column;
+}
+.circ-map-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.circ-map-intro h2 {
+    margin: 0;
+    font-size: clamp(0.8rem, 1vw, 0.92rem);
+    font-family: var(--font-body);
+    line-height: 1.2;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+.circ-map-intro p {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    font-size: 0.92rem;
 }
 .circ-map {
-    width: 100%;
+    width: 90%;
     height: auto;
     display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 22px rgba(15, 23, 42, 0.08));
+}
+
+.circ-panel {
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    opacity: 0;
+    transform: translateX(24px);
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+.circ-panel-shell {
+    min-width: 0;
+    width: 100%;
+    height: var(--circ-box-h);
+    max-height: var(--circ-box-h);
+    background: var(--surface);
+    border: 1px solid color-mix(in srgb, var(--border) 84%, var(--primary-200));
+    border-radius: 0;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+    padding: 20px clamp(12px, 1.1vw, 18px) 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+.circ-layout.is-active {
+    grid-template-columns: minmax(0, 30fr) minmax(0, 70fr);
+    gap: clamp(12px, 1.2vw, 20px);
+}
+.circ-layout.is-active .circ-map-stage {
+    max-width: none;
+    margin: 0;
+}
+.circ-layout.is-active .circ-panel {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* ---- Country and controls panel ---- */
+.circ-bar-country h2 {
+    margin: 0;
+    font-size: 1.55rem;
+    font-family: var(--font-display);
+    line-height: 1.15;
+}
+.circ-bar-country p {
+    margin: 10px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.94rem;
+    line-height: 1.58;
+}
+.circ-bar-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(180px, 0.7fr);
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+.circ-bar-controls input[type="search"],
+.circ-bar-controls select {
+    min-width: 0;
+    padding: 11px 14px;
+    border-radius: 0;
+    border: 1px solid var(--border);
+    background: var(--surface-elevated);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.circ-bar-controls input[type="search"]:focus,
+.circ-bar-controls select:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-300) 24%, transparent);
+}
+
+/* ---- Compositions section ---- */
+.circ-compositions {
+    padding-top: 16px;
+    padding-right: 18px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    scrollbar-width: auto;
+    scrollbar-color: color-mix(in srgb, var(--primary-500) 85%, transparent) color-mix(in srgb, var(--primary-100) 60%, transparent);
+    transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.circ-compositions::-webkit-scrollbar {
+    width: 14px;
+}
+.circ-compositions::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--primary-100) 55%, transparent);
+    border-radius: 7px;
+}
+.circ-compositions::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--primary-500) 85%, transparent);
+    border-radius: 7px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+.circ-compositions::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-600);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
+
+.circ-compositions.is-updating {
+    opacity: 0.42;
+    transform: translateY(8px);
 }
 
 /* ---- Country shapes (geographic) ---- */
@@ -79,24 +243,27 @@
     outline: none;
 }
 .circ-shape {
-    fill: #c8c8c8;
+    fill: #d0d4db;
     stroke: var(--surface, #fff);
     stroke-width: 1.2;
     stroke-linejoin: round;
-    transition: fill .2s, stroke .25s;
+    transition: fill .22s ease, stroke .22s ease, opacity .22s ease, filter .22s ease;
 }
 
 /* Hover */
 .circ-country:hover .circ-shape,
 .circ-country:focus .circ-shape {
-    fill: var(--primary-200, #e9d5ff);
+    fill: color-mix(in srgb, var(--primary-200) 74%, #fff);
+    stroke: var(--primary-300, #c4b5fd);
+    filter: brightness(1.02);
 }
 
 /* Active (selected) */
 .circ-country.active .circ-shape {
     fill: var(--primary-500, #a855f7);
-    stroke: var(--primary-600, #9333ea);
-    stroke-width: 1.5;
+    stroke: var(--primary-700, #7e22ce);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 0.45rem rgba(124, 58, 237, 0.35));
 }
 
 /* Dimmed (search/filter) */
@@ -110,71 +277,10 @@
 
 /* Hint */
 .circ-map-hint {
-    margin-top: 12px;
+    margin-top: 10px;
     color: var(--text-muted);
-    font-size: 0.88rem;
-    text-align: center;
-}
-
-/* ---- Country bar (between map & compositions) ---- */
-.circ-bar {
-    padding: 20px 0 0;
-}
-.circ-bar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: 18px 24px;
-    box-shadow: var(--shadow-sm);
-}
-.circ-bar-country h2 {
-    margin: 0;
-    font-size: 1.35rem;
-    font-family: var(--font-display);
-    line-height: 1.3;
-}
-.circ-bar-country p {
-    margin: 4px 0 0;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.45;
-}
-.circ-bar-controls {
-    display: flex;
-    gap: 8px;
-    flex-shrink: 0;
-}
-.circ-bar-controls input[type="search"] {
-    padding: 8px 14px;
-    border-radius: 0;
-    border: 1px solid var(--border);
-    background: var(--surface-elevated);
-    font-size: .92rem;
-    color: var(--text-primary);
-    width: 200px;
-}
-.circ-bar-controls select {
-    padding: 8px 12px;
-    border-radius: 0;
-    border: 1px solid var(--border);
-    background: var(--surface-elevated);
-    font-size: .9rem;
-    color: var(--text-primary);
-}
-
-/* ---- Compositions section (full width, below map) ---- */
-.circ-compositions {
-    padding: 20px 0 48px;
-}
-/* Compositions section - 80% viewport width, centered */
-.circ-compositions > .container {
-    max-width: 90%;
-    padding: 0;
+    font-size: 0.84rem;
+    text-align: left;
 }
 
 .circ-list {
@@ -183,7 +289,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
 }
 .circ-empty {
     text-align: center;
@@ -199,15 +305,19 @@
 .circ-item {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 14px 0;
-    background: none;
-    border: none;
+    gap: 8px;
+    padding: 12px 8px;
+    background: color-mix(in srgb, var(--surface-elevated) 86%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border) 76%, var(--primary-100));
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
 }
 .circ-item + .circ-item {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.circ-item:nth-child(even) {
+    background: color-mix(in srgb, var(--surface) 92%, var(--primary-50));
 }
 
 /* Top row: badge + name + detail */
@@ -232,8 +342,9 @@
 }
 .circ-item-head h4 {
     margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
 /* Route expand toggle */
@@ -243,8 +354,8 @@
     flex-wrap: wrap;
     gap: 0;
     margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.06rem;
+    font-weight: 700;
 }
 .circ-route-origin,
 .circ-route-dest {
@@ -270,7 +381,7 @@
 }
 .circ-route-mid {
     color: var(--text-secondary);
-    font-weight: 400;
+    font-weight: 500;
 }
 .circ-route-toggle {
     display: inline-flex;
@@ -278,7 +389,7 @@
     justify-content: center;
     background: none;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: 0;
     padding: 2px;
     margin-left: 6px;
     cursor: pointer;
@@ -298,10 +409,11 @@
 }
 
 .circ-item-detail {
-    font-size: .85rem;
+    font-size: .8rem;
     color: var(--text-muted);
     margin: 0;
     margin-left: auto;
+    opacity: 0.88;
 }
 
 /* ---- Consist frame (black, 66px, scroll) ---- */
@@ -408,7 +520,7 @@
     border-left: 3px solid var(--primary-300, #a78bfa);
     padding-left: 12px;
     margin: 4px 0;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 [data-theme="dark"] .circ-segments-group {
@@ -424,33 +536,86 @@
 }
 
 .circ-footer {
-    margin-top: 20px;
+    margin-top: 24px;
     text-align: center;
     color: var(--text-muted);
     font-size: .82rem;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 768px) {
-    .circ-compositions > .container {
-        max-width: 95%;
+@media (max-width: 1200px) {
+    .circ-experience {
+        --circ-box-h: 760px;
     }
-    .circ-bar-inner {
-        flex-direction: column;
-        align-items: stretch;
+    .circ-map-stage {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .circ-experience {
+        --circ-box-h: 660px;
+    }
+    .circ-map-stage {
+        max-width: 820px;
+    }
+}
+
+@media (max-width: 960px) {
+    .circ-layout,
+    .circ-layout.is-active {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+    .circ-map-stage,
+    .circ-layout.is-active .circ-map-stage {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    .circ-experience {
+        --circ-box-h: 520px;
+    }
+    .circ-panel-shell {
+        height: auto;
+        max-height: none;
+        min-height: 420px;
+        overflow: visible;
+    }
+    .circ-panel {
+        transform: translateY(20px);
+    }
+    .circ-layout.is-active .circ-panel {
+        transform: translateY(0);
+    }
+    .circ-panel-shell {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .circ-experience {
+        padding-bottom: 36px;
+    }
+    .circ-layout {
+        min-height: 0;
+    }
+    .circ-map-wrap,
+    .circ-panel-shell {
+        padding: 14px 10px 12px;
+    }
+    .circ-map-stage {
+        max-width: 100%;
+    }
+    .circ-map-intro h2 {
+        font-size: 0.78rem;
     }
     .circ-bar-controls {
-        flex-direction: column;
-    }
-    .circ-bar-controls input[type="search"] {
-        width: 100%;
-    }
-    .circ-map-wrap {
-        padding: 16px 12px 12px;
+        grid-template-columns: 1fr;
     }
     .circ-item-head {
         flex-direction: column;
-        gap: 4px;
+        gap: 6px;
     }
     .circ-item-detail {
         margin-left: 0;
@@ -464,9 +629,19 @@
     .circ-consist::-webkit-scrollbar { display: none; }
     .circ-scroll { display: none; }
 }
+
 @media (max-width: 500px) {
     .circ-hero {
-        padding: 48px 0 16px;
+        padding: 148px 0 16px;
     }
-
+    .circ-layout {
+        gap: 12px;
+    }
+    .circ-item {
+        padding: 10px 6px;
+        gap: 6px;
+    }
+    .circ-item-head h4 {
+        font-size: 0.95rem;
+    }
 }
