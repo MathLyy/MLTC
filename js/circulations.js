@@ -13,6 +13,26 @@
         [203, 'Rép. Tchèque'],  [756, 'Suisse']
     ]);
 
+    /* ---- Operator groupings (used by the operator tab strip) ---- */
+    const OPERATOR_SERVICES = {
+        mltc:   ['HSX', 'Xpress', 'TransRegio', 'Vivarail', 'Nocrail', 'Urbahn', 'Intracity'],
+        prives: ['SanGo!', 'CFP'],
+        fret:   ['MLCC', 'MLUP']
+    };
+    const OPERATOR_LABELS = {
+        mltc:   'MLTC Railways',
+        prives: 'Opérateurs privés',
+        fret:   'Fret & Postal'
+    };
+    const SERVICE_TO_OPERATOR = (() => {
+        const map = {};
+        Object.keys(OPERATOR_SERVICES).forEach(op => {
+            OPERATOR_SERVICES[op].forEach(s => { map[s] = op; });
+        });
+        return map;
+    })();
+    let activeOperator = 'mltc';
+
     /* ---- DOM refs ---- */
     const svgEl    = document.querySelector('.circ-map');
     const layoutEl = document.getElementById('circ-layout');
@@ -25,6 +45,7 @@
     const searchEl = document.getElementById('circ-search');
     const filterEl = document.getElementById('circ-filter');
     const hintEl   = document.getElementById('circ-map-hint');
+    const opTabs   = Array.from(document.querySelectorAll('.circ-op-tab'));
 
     const DEFAULT_TITLE = 'Sélectionnez un pays';
     const DEFAULT_DESC = 'Choisissez un territoire sur la carte pour afficher les services, compositions et variantes associées.';
@@ -77,7 +98,43 @@
         if (!entry) return [];
         const local = (entry.compositions || []).map(item => ({ item, origin: null }));
         const cross = (crossCountry[name] || []).map(c => ({ item: c.item, origin: c.originCountry }));
-        return local.concat(cross).sort((a, b) => a.item.service.localeCompare(b.item.service));
+        const all = local.concat(cross);
+        return all
+            .filter(e => operatorOf(e.item) === activeOperator)
+            .sort((a, b) => a.item.service.localeCompare(b.item.service));
+    }
+
+    function operatorOf(item) {
+        return SERVICE_TO_OPERATOR[item.service] || 'mltc';
+    }
+
+    function refreshServiceFilter() {
+        if (!filterEl) return;
+        const previous = filterEl.value;
+        const services = OPERATOR_SERVICES[activeOperator] || [];
+        const opts = ['<option value="">Tous les services</option>']
+            .concat(services.map(s => '<option value="' + esc(s) + '">' + esc(s) + '</option>'));
+        filterEl.innerHTML = opts.join('');
+        // Preserve previous selection only if still valid in the new operator group
+        if (previous && services.indexOf(previous) !== -1) {
+            filterEl.value = previous;
+        } else {
+            filterEl.value = '';
+        }
+    }
+
+    function setActiveOperator(op) {
+        if (!OPERATOR_SERVICES[op] || op === activeOperator) return;
+        activeOperator = op;
+        opTabs.forEach(t => {
+            const on = t.dataset.operator === op;
+            t.classList.toggle('active', on);
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        refreshServiceFilter();
+        if (activeCountry) {
+            applyFilter();
+        }
     }
 
     function renderEntries(entries, options) {
@@ -266,7 +323,7 @@
             active: true,
             title: name,
             description: entry.description || 'Consultez les circulations associées à ce territoire.',
-            emptyMessage: 'Aucune circulation n\'est renseignée pour ce pays.'
+            emptyMessage: 'Aucune circulation ' + OPERATOR_LABELS[activeOperator] + ' n\'est renseignée pour ce pays.'
         });
         if (window.innerWidth < 768) {
             panelEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -481,6 +538,9 @@
         wireShapes();
         searchEl.addEventListener('input', applyFilter);
         filterEl.addEventListener('change', applyFilter);
+        opTabs.forEach(t => {
+            t.addEventListener('click', () => setActiveOperator(t.dataset.operator));
+        });
         resetView();
         var skel = document.getElementById('circ-skeleton');
         if (skel) skel.classList.add('hidden');

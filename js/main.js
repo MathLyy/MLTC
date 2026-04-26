@@ -111,10 +111,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const subnavItems = document.querySelectorAll('.subnav-item');
     let hoverCloseTimer = null;
 
+    // Inject mobile menu toggle button into the MLTC subnav (visible on mobile only via CSS).
+    const mltcSubnav = document.querySelector('.mltc-subnav');
+    if (mltcSubnav && !mltcSubnav.querySelector('.subnav-mobile-toggle')) {
+        const mobileBtn = document.createElement('button');
+        mobileBtn.type = 'button';
+        mobileBtn.className = 'subnav-mobile-toggle';
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.setAttribute('aria-label', 'Ouvrir le menu MLTC');
+        mobileBtn.innerHTML = '<span class="subnav-mobile-label">Menu MLTC</span><span class="subnav-mobile-caret" aria-hidden="true"></span>';
+        const container = mltcSubnav.querySelector('.container') || mltcSubnav;
+        container.insertBefore(mobileBtn, container.firstChild);
+
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = mltcSubnav.classList.toggle('mobile-open');
+            mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (!isOpen) {
+                subnavItems.forEach(item => item.classList.remove('open'));
+            }
+        });
+    }
+
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.subnav-item')) {
             subnavItems.forEach(item => item.classList.remove('open'));
+        }
+        // Close mobile subnav panel when clicking outside the subnav entirely
+        if (mltcSubnav && !e.target.closest('.mltc-subnav')) {
+            mltcSubnav.classList.remove('mobile-open');
+            const mobileBtn = mltcSubnav.querySelector('.subnav-mobile-toggle');
+            if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
         }
     });
 
@@ -156,6 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.subnav-dropdown .subnav-link').forEach(link => {
         link.addEventListener('click', () => {
             subnavItems.forEach(item => item.classList.remove('open'));
+            if (mltcSubnav) {
+                mltcSubnav.classList.remove('mobile-open');
+                const mobileBtn = mltcSubnav.querySelector('.subnav-mobile-toggle');
+                if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+            }
         });
     });
 

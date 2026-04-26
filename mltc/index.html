@@ -177,93 +177,104 @@
 
         <!-- Navigation Cards -->
         <section class="mltc-navigation-section" id="mltc-explore">
-            <div class="container">
-                <h2 class="section-title">Explorer MLTC</h2>
-                <div class="nav-cards-grid">
-                    <a href="histoire.html" class="nav-card">
-                        <div class="nav-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
-                            </svg>
-                        </div>
-                        <h3>Histoire</h3>
-                        <p>Découvrez l'univers narratif complet : le Traité de Londres, la création de la MLTC, et l'histoire du réseau ferroviaire européen alternatif.</p>
-                        <span class="nav-card-arrow">Explorer →</span>
-                    </a>
-                    
-                    <a href="livrees.html" class="nav-card">
-                        <div class="nav-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-                                <circle cx="9" cy="9" r="2"/>
-                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-                            </svg>
-                        </div>
-                        <h3>Livrées</h3>
-                        <p>Parcourez le catalogue de plus de 800 créations au format pixel art : services MLTC, compagnies urbaines, fret, compagnies historiques et reproductions réelles.</p>
-                        <span class="nav-card-arrow">Découvrir →</span>
-                    </a>
-                    
-                    <a href="circulations.html" class="nav-card">
-                        <div class="nav-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                        </div>
-                        <h3>Circulations</h3>
-                        <p>Consultez les lignes et services en opération sur le réseau MLTC, avec les matériels affectés et les itinéraires desservis.</p>
-                        <span class="nav-card-arrow">Consulter →</span>
-                    </a>
-                </div>
+            <div class="explore-bg" aria-hidden="true">
+                <div class="explore-blob explore-blob--1"></div>
+                <div class="explore-blob explore-blob--2"></div>
+                <div class="explore-grid-pattern"></div>
             </div>
-        </section>
-
-        <!-- Quick Overview -->
-        <section class="mltc-overview">
             <div class="container">
-                <h2 class="section-title">Les services et autres compagnies</h2>
-                <div class="overview-grid">
-                    <div class="overview-item">
-                        <h4>Services Voyageurs</h4>
-                        <ul>
-                            <li><strong>TransRegio</strong> - Services régionaux rapides</li>
-                            <li><strong>Xpress</strong> - Trains rapides longue distance</li>
-                            <li><strong>HSX</strong> - Trains à grande vitesse</li>
-                            <li><strong>Vivarail</strong> - Grandes lignes internationales</li>
-                            <li><strong>Nocrail</strong> - Trains de nuit</li>
-                        </ul>
-                    </div>
-                    <div class="overview-item">
-                        <h4>Services Urbains</h4>
-                        <ul>
-                            <li><strong>Urbahn</strong> - RER des métropoles allemandes</li>
-                            <li><strong>Intracity</strong> - Navettes urbaines</li>
-                        </ul>
-                    </div>
-                    <div class="overview-item">
-                        <h4>Infra, Fret & Poste</h4>
-                        <ul>
-                            <li><strong>MLTC Infrastructures</strong> - Gestionnaire du réseau</li>
-                            <li><strong>MLCC</strong> - Transport de marchandises</li>
-                            <li><strong>MLUP</strong> - Service postal et acheminement du courrier par rail</li>
-                        </ul>
-                    </div>
-                    <div class="overview-item">
-                        <h4>Compagnies historiques</h4>
-                        <ul>
-                            <li><strong>CCFM</strong> - Compagnie des Chemins de Fer du Mathlyens <em>(MSVM aux Pays-Bas)</em></li>
-                            <li><strong>WME</strong> - Westdeutsche Mathly Eisenbahn</li>
-                            <li><strong>MSER</strong> - Mathly Southern England Railways</li>
-                        </ul>
-                    </div>
-                    <div class="overview-item">
-                        <h4>Opérateurs privés</h4>
-                        <ul>
-                            <li><strong>SanGo!</strong> - Opérateur à bas coût, liaisons transversales inter-métropoles du sud</li>
-                            <li><strong>CFP</strong> - Chemins de Fer des Pyrénées, opérateur régional semi-public du massif pyrénéen</li>
-                        </ul>
-                    </div>
+                <div class="explore-header">
+                    <span class="explore-eyebrow">Découvrir</span>
+                    <h2 class="explore-title">Explorer la <span class="explore-title-accent">MLTC</span></h2>
+                    <p class="explore-lede">Trois portes d'entrée vers l'univers ferroviaire mathlyéen.</p>
+                </div>
+
+                <div class="explore-grid">
+                    <!-- Featured: Histoire -->
+                    <a href="histoire.html" class="explore-card explore-card--featured" data-card="histoire">
+                        <div class="explore-card-bg" style="background-image:url('../bghistoire.png')"></div>
+                        <div class="explore-card-overlay"></div>
+                        <div class="explore-card-shine" aria-hidden="true"></div>
+                        <div class="explore-card-content">
+                            <div class="explore-card-top">
+                                <span class="explore-card-tag">Univers narratif</span>
+                                <div class="explore-card-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="explore-card-bottom">
+                                <h3 class="explore-card-title">Histoire</h3>
+                                <p class="explore-card-desc">Plongez dans le worldbuilding : l'union du Mathlyens, la fondation de la MLTC, l'expansion progressive du réseau à travers les douze Etats membres.</p>
+                                <span class="explore-card-cta">
+                                    <span class="explore-card-cta-label">Découvrir l'histoire</span>
+                                    <span class="explore-card-cta-arrow" aria-hidden="true">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Secondary: Livrées -->
+                    <a href="livrees.html" class="explore-card explore-card--secondary" data-card="livrees">
+                        <div class="explore-card-shine" aria-hidden="true"></div>
+                        <div class="explore-card-content">
+                            <div class="explore-card-top">
+                                <span class="explore-card-tag">Catalogue visuel</span>
+                                <div class="explore-card-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                                        <circle cx="9" cy="9" r="2"/>
+                                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="explore-card-bottom">
+                                <h3 class="explore-card-title">Livrées</h3>
+                                <p class="explore-card-desc">Plus de 800 dessins pixel art : services MLTC, opérateurs privés et reproductions du monde réel.</p>
+                                <span class="explore-card-cta">
+                                    <span class="explore-card-cta-label">Voir le catalogue</span>
+                                    <span class="explore-card-cta-arrow" aria-hidden="true">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="explore-livery-stack" aria-hidden="true">
+                            <img src="livrees_pages/livrees_img/boreale/B-BLZ7100.png" alt="" class="explore-livery-img explore-livery-img--3">
+                            <img src="livrees_pages/livrees_img/mlcc/A-MLCCBR189.png" alt="" class="explore-livery-img explore-livery-img--2">
+                            <img src="livrees_pages/livrees_img/corse/CFC_BB400_n%C2%B0405_blanc.png" alt="" class="explore-livery-img explore-livery-img--1">
+                        </div>
+                    </a>
+
+                    <!-- Secondary: Circulations -->
+                    <a href="circulations.html" class="explore-card explore-card--secondary" data-card="circulations">
+                        <div class="explore-card-shine" aria-hidden="true"></div>
+                        <div class="explore-card-content">
+                            <div class="explore-card-top">
+                                <span class="explore-card-tag">Réseau en service</span>
+                                <div class="explore-card-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="explore-card-bottom">
+                                <h3 class="explore-card-title">Circulations</h3>
+                                <p class="explore-card-desc">Carte interactive des 12 pays membres avec compositions, services et matériels affectés.</p>
+                                <span class="explore-card-cta">
+                                    <span class="explore-card-cta-label">Consulter le réseau</span>
+                                    <span class="explore-card-cta-arrow" aria-hidden="true">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <svg class="explore-card-map" aria-hidden="true" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet"></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -301,5 +312,69 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/train-anim.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+    <script>
+    // Render decorative Europe map in the Circulations explore card
+    (async () => {
+        const svg = document.querySelector('.explore-card-map');
+        if (!svg || !window.topojson) return;
+        const MEMBER_IDS = new Set([250, 276, 56, 528, 442, 826, 380, 40, 756, 208, 203, 724]);
+        const NS = 'http://www.w3.org/2000/svg';
+        const W = 400, H = 500, PAD = 10;
+        const mercY = lat => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI / 180) / 2));
+        const inEurope = ring => {
+            let sLon = 0, sLat = 0;
+            ring.forEach(c => { sLon += c[0]; sLat += c[1]; });
+            const aLon = sLon / ring.length, aLat = sLat / ring.length;
+            return aLat > 35 && aLat < 71 && aLon > -11 && aLon < 32;
+        };
+        const filterEU = f => {
+            const g = f.geometry;
+            if (g.type === 'MultiPolygon') {
+                const coords = g.coordinates.filter(p => inEurope(p[0]));
+                if (!coords.length) return null;
+                return { ...f, geometry: { ...g, coordinates: coords } };
+            }
+            return inEurope(g.coordinates[0]) ? f : null;
+        };
+        try {
+            const resp = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+            const world = await resp.json();
+            const all = window.topojson.feature(world, world.objects.countries);
+            const features = all.features.filter(f => MEMBER_IDS.has(Number(f.id))).map(filterEU).filter(Boolean);
+            let minLon = Infinity, maxLon = -Infinity, minLat = Infinity, maxLat = -Infinity;
+            const scan = c => c.forEach(([lon, lat]) => {
+                if (lon < minLon) minLon = lon; if (lon > maxLon) maxLon = lon;
+                if (lat < minLat) minLat = lat; if (lat > maxLat) maxLat = lat;
+            });
+            features.forEach(f => {
+                const g = f.geometry;
+                (g.type === 'Polygon' ? g.coordinates : g.coordinates.flat()).forEach(scan);
+            });
+            const toR = Math.PI / 180;
+            const myMin = mercY(minLat), myMax = mercY(maxLat);
+            const geoW = (maxLon - minLon) * toR, geoH = myMax - myMin;
+            const uw = W - 2 * PAD, uh = H - 2 * PAD;
+            const s = Math.min(uw / geoW, uh / geoH);
+            const ox = PAD + (uw - geoW * s) / 2, oy = PAD + (uh - geoH * s) / 2;
+            const proj = (lon, lat) => [
+                (lon * toR - minLon * toR) * s + ox,
+                (myMax - mercY(lat)) * s + oy
+            ];
+            const ringD = ring => ring.map((c, i) => {
+                const [x, y] = proj(c[0], c[1]);
+                return (i ? 'L' : 'M') + x.toFixed(1) + ',' + y.toFixed(1);
+            }).join('') + 'Z';
+            features.forEach(f => {
+                const g = f.geometry;
+                const rings = g.type === 'MultiPolygon' ? g.coordinates.flat() : g.coordinates;
+                const path = document.createElementNS(NS, 'path');
+                path.setAttribute('d', rings.map(ringD).join(''));
+                path.setAttribute('class', 'explore-map-country');
+                svg.appendChild(path);
+            });
+        } catch (e) { /* silent */ }
+    })();
+    </script>
 </body>
 </html>

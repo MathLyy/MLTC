@@ -199,6 +199,50 @@
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-300) 24%, transparent);
 }
 
+/* ---- Operator tab strip (segmented control) ---- */
+.circ-operator-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin-top: 16px;
+    border: 1px solid var(--border);
+    background: var(--surface-elevated);
+    overflow: hidden;
+}
+.circ-op-tab {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 10px 12px;
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+    border-right: 1px solid var(--border);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.circ-op-tab:last-child { border-right: none; }
+.circ-op-tab:hover {
+    background: color-mix(in srgb, var(--primary-100) 50%, transparent);
+    color: var(--text-primary);
+}
+.circ-op-tab.active {
+    background: var(--primary-500);
+    color: #fff;
+}
+.circ-op-tab:focus-visible {
+    outline: 2px solid var(--primary-500);
+    outline-offset: -2px;
+}
+[data-theme="dark"] .circ-op-tab:hover {
+    background: rgba(167, 139, 250, 0.12);
+}
+
 /* ---- Compositions section ---- */
 .circ-compositions {
     padding-top: 16px;
@@ -628,6 +672,17 @@
     }
     .circ-consist::-webkit-scrollbar { display: none; }
     .circ-scroll { display: none; }
+
+    /* Mobile: hide compositions scrollbar gutter (no visible scrollbar needed) */
+    .circ-compositions {
+        padding-right: 0;
+        scrollbar-gutter: auto;
+        scrollbar-width: none;
+    }
+    .circ-compositions::-webkit-scrollbar {
+        width: 0;
+        display: none;
+    }
 }
 
 @media (max-width: 500px) {
